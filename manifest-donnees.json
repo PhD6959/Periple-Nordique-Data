@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.14",
-    "genere_le": "2026-09-10T20:55:00+02:00",
+    "version": "1.15",
+    "genere_le": "2026-09-10T21:30:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -260,18 +260,18 @@
       "remplace": "Blocs A à J (Islande)",
       "nature": "permanente",
       "rafraichir_avant_depart": false,
-      "fichier": "sources/blocs/bloc-<id>.geojson",
-      "source": "doc-periple-nordique-2027-plan.html — document interne",
+      "fichier": "sources/blocs-itineraire.geojson",
+      "source": "doc-periple-nordique-2027-itineraire.html, version 3.19 du 9 septembre 2026 — document interne. Coordonnées obtenues par géocodage d'un point d'ancrage par bloc.",
       "licence": "interne",
-      "collecte_le": null,
+      "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Reprendre la liste des blocs du plan 2027 et arrêter la correspondance blocs → fichiers.",
+      "prochaine_action": "Produire les tracés de tronçons, si l'on en veut : soit depuis des traces GPX, soit par calcul d'itinéraire. Le module 3 sait déjà importer des GPX, ce qui peut suffire.",
       "etats": {
-        "no": "source-identifiee",
-        "se": "source-identifiee",
-        "fi": "source-identifiee"
+        "no": "publiee-github",
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire."
+      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire. PUBLIÉ le 10/09/2026 : 16 blocs, un fichier unique et non un fichier par bloc — à ce volume, seize requêtes n'auraient rien apporté. Le dossier sources/blocs/ reste disponible pour les tracés. Chaque bloc porte son numéro, ses dates, son contenu et son étape. LES POINTS D'ANCRAGE SONT UN CHOIX, PAS UNE DONNÉE : un bloc est une région traversée sur plusieurs jours, le point en marque le centre de gravité. Ancrages retenus : Malmö, Simrishamn, Stockholm, Falun, Örnsköldsvik, Östersund, Brønnøysund, Narvik, Svolvær, Tromsø, Alta, Vardø, Inari, Kuusamo, Turku, Tallinn. Contrôle de cohérence : le profil des latitudes monte du bloc 1 au bloc 12 — sommet à Vardø, 70,37° N — puis redescend, ce qui correspond à la structure du voyage. La carte du document source est en projection Lambert conforme conique : l'inverser aurait introduit une erreur évitable, d'où le géocodage."
     },
     {
       "id": "favoris",

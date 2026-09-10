@@ -17,12 +17,35 @@ Il est **indépendant de l'environnement Islande / Îles Féroé**, qui garde so
 manifest-donnees.json      Manifeste des rubriques : source, licence, état, fraîcheur
 sources/                   Couches publiées, une par rubrique, les trois pays confondus
 sources/blocs/             Tracés des blocs d'itinéraire, un fichier par bloc
-_travail/                  Extractions brutes et essais — ignoré par Git, jamais publié
+outils/                    Scripts de collecte et de conversion, un par étape
+docs/                      Documents engendrés depuis le manifeste
 ```
 
 Chaque entité porte une propriété `country` valant `no`, `se` ou `fi`. Un fichier par
 rubrique plutôt qu'un fichier par rubrique et par pays : cela divise par trois le nombre
 de requêtes au chargement de l'application.
+
+### Ce qui va où, et pourquoi
+
+**`sources/`** — uniquement les couches publiées, prêtes à être lues par l'application.
+Rien d'intermédiaire, rien d'expérimental : ce répertoire est l'interface avec le module 3.
+
+**`outils/`** — les scripts qui produisent ces couches, numérotés dans l'ordre où ils
+s'exécutent. Ils vivent ici et non ailleurs parce que quatre rubriques sont saisonnières
+et devront être recollectées avant le départ. Un script perdu, c'est une collecte à
+réinventer.
+
+**`docs/`** — les documents engendrés depuis `manifest-donnees.json`. Ils vivent à côté
+de leur source, faute de quoi ils divergeraient. Le document de suivi est régénéré à
+chaque avancement, jamais modifié à la main.
+
+**Racine** — le manifeste, le README, la configuration Git. Rien d'autre.
+
+**Hors du dépôt** — les extractions brutes, les fichiers intermédiaires et les essais.
+Ils représentent des dizaines de mégaoctets sans valeur de publication, et sont conservés
+dans un dossier de travail voisin du dépôt. Le `.gitignore` couvre `_travail/` pour le cas
+où l'on en créerait un ici, mais la règle reste : ce qui n'est pas destiné à être lu par
+l'application ou par un humain ne franchit pas la limite du dépôt.
 
 ---
 

@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.0",
-    "genere_le": "2026-09-09T19:18:00+02:00",
+    "version": "1.6",
+    "genere_le": "2026-09-10T17:55:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -86,7 +86,44 @@
       "les-deux": "Passe conjointe : proposition puis validation"
     },
     "fichier": "manifest-donnees.json",
-    "dossier_donnees": "sources/"
+    "dossier_donnees": "sources/",
+    "schema_commun": {
+      "description": "Propriétés portées par chaque entité de toutes les rubriques. Les propriétés propres à une rubrique s'y ajoutent.",
+      "proprietes": [
+        {
+          "nom": "id",
+          "role": "Identifiant stable, préfixé par le pays et la rubrique (ex. no-cols-0142)."
+        },
+        {
+          "nom": "country",
+          "role": "Code pays : no, se ou fi."
+        },
+        {
+          "nom": "name",
+          "role": "Nom local, tel qu'il figure à la source, sans traduction."
+        },
+        {
+          "nom": "type",
+          "role": "Sous-catégorie propre à la rubrique."
+        },
+        {
+          "nom": "source",
+          "role": "Sigle de la source de cette entité — NVDB, TRV, VAYLA, OSM. Porté par entité et non par fichier, pour que l'attribution reste traçable quand une couche mélange plusieurs origines."
+        },
+        {
+          "nom": "updated",
+          "role": "Date de collecte de l'entité, au format ISO 8601."
+        }
+      ],
+      "geometrie": "GeoJSON, WGS 84, longitude puis latitude."
+    },
+    "politique_licence": {
+      "regle": "Licence décidée fichier par fichier et inscrite dans la rubrique correspondante, et non fixée globalement pour le dépôt.",
+      "osm": "OpenStreetMap est autorisé en complément ou en repli. L'ODbL impose l'attribution et se propage aux données dérivées : toute couche contenant de l'OSM est publiée en ODbL, ce qui doit figurer dans sa rubrique et dans le README.",
+      "a_verifier": "Les conditions de l'Öppet API suédois n'ont pas été lues : elles décideront si les données suédoises peuvent être republiées dans un dépôt public ou seulement consultées."
+    },
+    "boucle_collecte": "Les API des trois administrations ne sont pas joignables depuis l'environnement de Claude. Philippe exécute les scripts d'extraction sur son Mac et recolle les sorties dans le fil ; Claude produit les GeoJSON et met le manifeste à jour.",
+    "perimetre_offroad": "Pistes carrossables légalement ouvertes uniquement. Le hors-piste et les voies interdites à la circulation automobile sont explicitement hors périmètre."
   },
   "rubriques": [
     {
@@ -98,17 +135,17 @@
       "nature": "saisonniere",
       "rafraichir_avant_depart": true,
       "fichier": "sources/cols-fermetures.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "NO : NVDB API Les V4, vegobjekttype 107 « Værutsatt veg » (1494 objets) et 883 « Skredutsatt veg » (325 objets). Écartés après extraction : 1005 « Vinterberedskap », vide en base ; 607 « Vegsperring », 27 788 objets de barrières physiques sans rapport avec la fermeture saisonnière. SE : Trafikverket Öppet API, types Situation et RoadCondition. FI : aucune couche de fermeture saisonnière au WFS Digiroad.",
+      "licence": "NO : NLOD, données ouvertes de Statens vegvesen. SE et FI : à établir.",
+      "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Rechercher les sources ouvertes : Statens vegvesen pour les fjelloverganger, Trafikverket, Väylävirasto.",
+      "prochaine_action": "Intégrer la couche au module 3, puis recette. Côté SE, extraire depuis l'Öppet API une fois la clé créée. Côté FI, chercher hors Digiroad.",
       "etats": {
-        "no": "a-faire",
-        "se": "a-faire",
+        "no": "publiee-github",
+        "se": "source-identifiee",
         "fi": "a-faire"
       },
-      "notes": "Rubrique la plus décisive du module compte tenu de la date de départ. Si aucune donnée ouverte exploitable, l'état terminal acceptable est « traité par lien » vers vegvesen.no/trafikk."
+      "notes": "Point dur : la Norvège enregistre les tronçons exposés, mais les dates d'ouverture varient chaque année et relèvent du temps réel. Une couche statique donne les cols et leur caractère saisonnier ; l'état du jour restera à lire sur le service officiel. C'est un cas où « traité par lien » peut compléter la couche plutôt que la remplacer. Étape 1 faite le 10/09/2026 : le catalogue NVDB compte 424 types, les quatre identifiants ci-dessus sont confirmés. Côté finlandais, aucune couche de fermeture saisonnière n'apparaît au WFS Digiroad — à vérifier avant de conclure au « sans objet ». PUBLIÉ le 10/09/2026 : 1468 entités, 1357 Ko — 106 cols (Fjellovergang=Ja), 1039 tronçons à fermeture hivernale datée, 323 tronçons exposés aux avalanches. Contrôlé depuis le dépôt : identifiants uniques, schéma complet, emprise lon 5,08–31,04 / lat 58,83–71,17, aucune altitude résiduelle, 1099 dates au format MM-JJ toutes valides. Plausibilité vérifiée sur les cols nommés : Trollstigen, Sognefjellet, Gamle Strynefjellsvegen, Geiranger–Langvatn. 1070 noms sont composés par nous à partir du numéro de route et des lieux, marqués par la propriété nom_compose ; 66 cols sur 106 portent leur nom de source."
     },
     {
       "id": "ferries",
@@ -119,17 +156,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/ferries.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "NO : NVDB API Les V4, vegobjekttypes 770 « Ferjesamband » (141 liaisons) et 64 « Ferjekai » (379 quais). SE : Trafikverket Öppet API. FI : source à trouver, absente de Digiroad ; OSM en repli.",
+      "licence": "NO : NLOD, données ouvertes de Statens vegvesen. SE et FI : à établir.",
+      "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Rechercher les sources : OSM route=ferry, portails nationaux, opérateurs.",
+      "prochaine_action": "Intégrer au module 3, puis recette. Trouver les sources suédoise et finlandaise.",
       "etats": {
-        "no": "a-faire",
-        "se": "a-faire",
+        "no": "publiee-github",
+        "se": "source-identifiee",
         "fi": "a-faire"
       },
-      "notes": "Bien plus structurant qu'en Islande : la Kystriksveien en enchaîne plusieurs. Les horaires ne sont pas visés — trop volatils, ils relèvent du lien vers l'opérateur."
+      "notes": "Les bacs norvégiens sont un élément du réseau routier, d'où leur présence dans NVDB. Les horaires restent hors périmètre — trop volatils, ils relèvent du lien vers l'opérateur. À vérifier : la géométrie des liaisons (lignes) est-elle disponible, ou seulement les terminaux ? Étape 1 faite le 10/09/2026 : identifiants norvégiens confirmés au catalogue. Côté finlandais, la source reste à trouver. PUBLIÉ le 10/09/2026 : 520 entités, 275 Ko — 141 liaisons et 379 quais. À savoir pour l'affichage : 138 liaisons sont à l'année, 2 uniquement estivales, 1 étendue l'été ; une seule porte des dates de saison, Andenes–Gryllefjord du 18 mai au 5 septembre. Côté quais, 368 sont en service, 9 sont des quais de secours (Beredskapskai) et 2 sont désaffectés (Nedlagt) : à filtrer ou à distinguer visuellement. AutoPASS n'est renseigné que sur 13 liaisons."
     },
     {
       "id": "services",
@@ -192,7 +229,7 @@
         "se": "a-faire",
         "fi": "a-faire"
       },
-      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter."
+      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp »."
     },
     {
       "id": "pois",
@@ -276,7 +313,7 @@
         "se": "a-faire",
         "fi": "a-faire"
       },
-      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ."
+      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ. Piste relevée : Statens vegvesen publie un jeu « bomstasjoner » géolocalisé avec les tarifs de péage. Identifiant NVDB confirmé au catalogue : 45 « Bomstasjon »."
     },
     {
       "id": "restrictions-degel",
@@ -287,17 +324,17 @@
       "nature": "saisonniere",
       "rafraichir_avant_depart": true,
       "fichier": "sources/restrictions-degel.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "FI : Digiroad, couche WFS digiroad:dr_kelirikko, confirmée présente. SE : type Situation (Bärighetsnedsättning) de l'Öppet API. NO : à établir.",
+      "licence": "FI : CC BY 4.0, Väylävirasto. SE : licence de l'Öppet API, à lire. NO : à établir.",
+      "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Vérifier la publication de ces restrictions par les trois administrations routières.",
+      "prochaine_action": "Intégrer au module 3 avec une stratégie d'affichage adaptée aux 15 296 tracés. Établir les sources suédoise et norvégienne.",
       "etats": {
         "no": "a-faire",
-        "se": "a-faire",
-        "fi": "a-faire"
+        "se": "source-identifiee",
+        "fi": "publiee-github"
       },
-      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai."
+      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai. Pistes relevées : le type « Situation » de l'Öppet API suédois comporte une catégorie Bärighetsnedsättning (restriction de portance) ; côté finlandais, Digiroad expose une couche « Ajoneuvokohtainen rajoitus » (restriction par véhicule) en WFS ouvert. Confirmé le 10/09/2026 : la couche kelirikko existe bien au WFS Digiroad, extraction lancée en même temps que les cols. Extraction du 10/09 : 5000 entités récupérées, soit exactement le plafond demandé — le jeu est probablement tronqué, comptage réel à faire avant conversion. PUBLIÉ le 10/09/2026 : 15 296 entités, 5808 Ko, filtrées sur le PTAC de 3 500 kg à partir des 163 225 tronçons du jeu complet. Répartition des limites : 13 009 à 3 000 kg, 2 000 kg pour 1 053, 3 500 kg pour 856, le reste sous 2 500 kg. DEUX RÉSERVES : 52 entités portent une limite de 0 kg, valeur qui n'a pas de sens et qu'il faut traiter comme inconnue ; les 856 entités à 3 500 kg correspondent exactement au PTAC du fourgon, donc à la limite et non au-dessous. 10 113 entités portent une période, 5 183 n'en portent pas. Poids du fichier dû au nombre d'entités et non à la densité des tracés : simplifier davantage ne donnerait rien."
     },
     {
       "id": "routes-glace",
@@ -319,6 +356,48 @@
         "fi": "a-faire"
       },
       "notes": "Publiées par Fintraffic en Finlande. Je n'ai pas vérifié s'il en existe en Suède ou en Norvège : ne pas les classer « sans objet » sans l'avoir cherché. Probablement hors saison au moment du passage."
+    },
+    {
+      "id": "pistes-carrossables",
+      "ordre": 12,
+      "libelle": "Pistes carrossables et barrières d'accès",
+      "description": "Voies non revêtues ouvertes à la circulation automobile — pistes forestières homologuées, routes privées — et barrières qui en ferment l'accès.",
+      "remplace": "F-Roads (Islande), pour la partie « pistes praticables »",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/pistes-carrossables.geojson",
+      "source": "NO : NVDB, vegobjekttype 607 « Vegsperring » (27 788 objets, déjà extraits partiellement) croisée avec la catégorie de voie, pour distinguer skogsbilvei — construite pour l'automobile — de traktorvei, juridiquement assimilée à l'utmark. FI : Digiroad, couches dr_tielinkki_hall_lk (classe administrative) et tiekunnalliset_yksityistiet (routes privées gérées par une association), toutes deux vues au WFS. SE : à établir.",
+      "licence": "NO : NLOD. FI : CC BY 4.0. SE : à établir.",
+      "collecte_le": null,
+      "qui": "les-deux",
+      "prochaine_action": "Corriger la pagination du script (24 000 objets récupérés sur 27 788), puis croiser les barrières avec la catégorie de voie pour ne retenir que les accès à des voies carrossables.",
+      "etats": {
+        "no": "donnees-collectees",
+        "se": "a-faire",
+        "fi": "source-identifiee"
+      },
+      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13."
+    },
+    {
+      "id": "regles-circulation",
+      "ordre": 13,
+      "libelle": "Règles de circulation hors réseau public",
+      "description": "Ce qui est juridiquement autorisé, pays par pays, sur les voies non publiques : pistes forestières, routes privées, terrain naturel. Rubrique documentaire, sans couche cartographique.",
+      "remplace": null,
+      "nature": "saisonniere",
+      "rafraichir_avant_depart": true,
+      "fichier": "documentation du module 03 (pas de GeoJSON)",
+      "source": "NO : motorferdselloven et forskrift de 1988 (Lovdata), guides du Miljødirektoratet. SE et FI : à établir.",
+      "licence": "sans objet — textes réglementaires cités, non redistribués",
+      "collecte_le": "2026-09-10",
+      "qui": "claude",
+      "prochaine_action": "Établir les règles suédoises et finlandaises, et préciser le champ d'application de l'arrêté saisonnier du Grand Nord.",
+      "etats": {
+        "no": "donnees-collectees",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Acquis au 10/09/2026, vérifié sur Lovdata et Miljødirektoratet : en Norvège la circulation motorisée en utmark est interdite en règle générale ; une voie non aménagée pour l'automobile, ou aménagée mais non déneigée pour elle, est assimilée à l'utmark ; circuler en 4x4 sur un traktorvei forestier est interdit. Restent praticables les skogsbilveier, homologuées pour l'automobile, souvent privées, avec barrière et parfois péage. POINT À TIRER AU CLAIR : un arrêté interdit la circulation motorisée en Finnmark et dans six communes du Nord-Troms du 5 mai au 30 juin — fenêtre qui recouvre le passage dans le Grand Nord. Son champ d'application exact quant aux véhicules et aux voies n'est pas établi. Classée saisonnière : les arrêtés préfectoraux et communaux changent d'une année sur l'autre."
     }
   ]
 }

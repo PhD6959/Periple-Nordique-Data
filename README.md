@@ -123,9 +123,19 @@ Données dérivées d'**OpenStreetMap**, extraites le 10 septembre 2026 via l'AP
 > © les contributeurs OpenStreetMap, sous licence **ODbL**.
 
 **Cette couche est publiée sous ODbL**, la licence se propageant aux données dérivées.
-Elle est la seule du dépôt dans ce cas : les autres restent sous NLOD ou CC BY 4.0. Toute
+Elle et la couche des aires de camping-car sont les seules du dépôt dans ce cas : les autres restent sous NLOD ou CC BY 4.0. Toute
 réutilisation de ce fichier est donc soumise à l'ODbL, y compris l'obligation de partager
 à l'identique les travaux qui en dériveraient.
+
+### `sources/aires-camping-car.geojson`
+
+Données dérivées d'**OpenStreetMap**, extraites le 10 septembre 2026 via l'API Overpass
+(`tourism=caravan_site`, `amenity=sanitary_dump_station`, `tourism=camp_site`,
+`amenity=drinking_water`, `shop`/`amenity=laundry`).
+
+> © les contributeurs OpenStreetMap, sous licence **ODbL**.
+
+Publiée sous ODbL, comme la couche des services.
 
 ### Transformations appliquées
 

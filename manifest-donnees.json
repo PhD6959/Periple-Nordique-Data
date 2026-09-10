@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.13",
-    "genere_le": "2026-09-10T19:20:00+02:00",
+    "version": "1.14",
+    "genere_le": "2026-09-10T20:55:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -198,17 +198,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/aires-camping-car.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "OpenStreetMap via Overpass, extraction du 10 septembre 2026 : tourism=caravan_site, amenity=sanitary_dump_station, tourism=camp_site, amenity=drinking_water, shop|amenity=laundry.",
+      "licence": "ODbL — attribution obligatoire, propagation aux données dérivées.",
+      "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Extraction OSM (amenity=sanitary_dump_station, tourism=caravan_site), puis tri sur jugement de terrain.",
+      "prochaine_action": "Recette sur le terrain : la fiabilité des services renseignés dans OSM reste à éprouver.",
       "etats": {
-        "no": "a-faire",
-        "se": "a-faire",
-        "fi": "a-faire"
+        "no": "publiee-github",
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "Le volet réglementaire — droit d'accès à la nature en Suède et en Finlande, encadrement plus strict en Norvège — va dans la documentation du module, pas dans le GeoJSON."
+      "notes": "Le volet réglementaire — droit d'accès à la nature en Suède et en Finlande, encadrement plus strict en Norvège — va dans la documentation du module, pas dans le GeoJSON. PUBLIÉ le 10/09/2026 : 8 545 entités, 2361 Ko — 1 300 aires, 3 822 campings, 2 374 points d'eau, 625 bornes de vidange, 424 laveries. Par pays : 3 094 en Norvège, 3 639 en Suède, 1 812 en Finlande. 4 225 points offrent au moins un des trois services décisifs — vidange, eau potable ou électricité —, marqués par la propriété calculée « equipee ». Détail : 1 206 vidanges effectives, 3 138 points d'eau potable, 983 avec électricité, 823 avec douche. PIÈGE ÉVITÉ : la présence de l'étiquette sanitary_dump_station ne vaut pas présence du service — elle vaut « no » 232 fois et « customers » 61 fois. Les valeurs sont lues, pas seulement la présence. Le champ de tarif porte parfois un montant plutôt qu'un oui ou non ; 6 304 points ne le renseignent pas du tout, ce qui n'autorise pas à les croire gratuits. Exploitants dominants : Metsähallitus 131 sites en Finlande, services environnementaux d'Helsinki 66, Caravan Club of Sweden 28."
     },
     {
       "id": "tunnels",

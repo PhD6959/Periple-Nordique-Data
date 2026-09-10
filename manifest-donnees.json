@@ -1,0 +1,324 @@
+{
+  "manifest": {
+    "module": "03-nordique",
+    "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
+    "version": "1.0",
+    "genere_le": "2026-09-09T19:18:00+02:00",
+    "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
+    "pays": [
+      {
+        "code": "no",
+        "nom": "Norvège",
+        "drapeau": "🇳🇴"
+      },
+      {
+        "code": "se",
+        "nom": "Suède",
+        "drapeau": "🇸🇪"
+      },
+      {
+        "code": "fi",
+        "nom": "Finlande",
+        "drapeau": "🇫🇮"
+      }
+    ],
+    "etats": [
+      {
+        "id": "a-faire",
+        "libelle": "À faire",
+        "couleur": "#6b7280",
+        "rang": 0,
+        "terminal": false
+      },
+      {
+        "id": "source-identifiee",
+        "libelle": "Source identifiée",
+        "couleur": "#8078cc",
+        "rang": 1,
+        "terminal": false
+      },
+      {
+        "id": "donnees-collectees",
+        "libelle": "Données collectées",
+        "couleur": "#5fe3ff",
+        "rang": 2,
+        "terminal": false
+      },
+      {
+        "id": "publiee-github",
+        "libelle": "Publiée sur GitHub",
+        "couleur": "#ffd166",
+        "rang": 3,
+        "terminal": false
+      },
+      {
+        "id": "integree-app",
+        "libelle": "Intégrée à l'application",
+        "couleur": "#ff9b3d",
+        "rang": 4,
+        "terminal": false
+      },
+      {
+        "id": "recette-faite",
+        "libelle": "Recette faite",
+        "couleur": "#6fb977",
+        "rang": 5,
+        "terminal": true
+      },
+      {
+        "id": "traite-par-lien",
+        "libelle": "Traité par lien",
+        "couleur": "#6fb977",
+        "rang": 5,
+        "terminal": true
+      },
+      {
+        "id": "sans-objet",
+        "libelle": "Sans objet",
+        "couleur": "#3f5871",
+        "rang": 5,
+        "terminal": true
+      }
+    ],
+    "acteurs": {
+      "claude": "Recherche de sources, extraction, mise en forme des fichiers, intégration dans l'application",
+      "philippe": "Arbitrages de périmètre, jugement de terrain, hébergement et publication sur GitHub, recette",
+      "les-deux": "Passe conjointe : proposition puis validation"
+    },
+    "fichier": "manifest-donnees.json",
+    "dossier_donnees": "sources/"
+  },
+  "rubriques": [
+    {
+      "id": "cols-fermetures",
+      "ordre": 1,
+      "libelle": "Cols et routes à fermeture saisonnière",
+      "description": "Routes de montagne fermées ou soumises à convoi une partie de l'année, avec dates d'ouverture habituelles. Équivalent fonctionnel des F-roads islandaises pour un départ le 15 avril.",
+      "remplace": "F-Roads (Islande)",
+      "nature": "saisonniere",
+      "rafraichir_avant_depart": true,
+      "fichier": "sources/cols-fermetures.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "claude",
+      "prochaine_action": "Rechercher les sources ouvertes : Statens vegvesen pour les fjelloverganger, Trafikverket, Väylävirasto.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Rubrique la plus décisive du module compte tenu de la date de départ. Si aucune donnée ouverte exploitable, l'état terminal acceptable est « traité par lien » vers vegvesen.no/trafikk."
+    },
+    {
+      "id": "ferries",
+      "ordre": 2,
+      "libelle": "Ferries et bacs",
+      "description": "Terminaux et liaisons : bacs du réseau routier norvégien, liaisons vers les îles suédoises, archipel finlandais. Durées et opérateurs.",
+      "remplace": "Ferries (Islande)",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/ferries.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "claude",
+      "prochaine_action": "Rechercher les sources : OSM route=ferry, portails nationaux, opérateurs.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Bien plus structurant qu'en Islande : la Kystriksveien en enchaîne plusieurs. Les horaires ne sont pas visés — trop volatils, ils relèvent du lien vers l'opérateur."
+    },
+    {
+      "id": "services",
+      "ordre": 3,
+      "libelle": "Carburant, alimentation, monopoles d'alcool",
+      "description": "Stations-service, supermarchés, et les trois monopoles d'alcool avec leurs horaires restrictifs.",
+      "remplace": "Services (Islande)",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/services.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "claude",
+      "prochaine_action": "Extraction OSM par pays, puis établir la table de normalisation des enseignes nordiques.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "La fonction normalizeBrand du module islandais code en dur N1, Olís, Bónus, Vínbúðin. Son équivalent nordique est à établir enseigne par enseigne, et non de mémoire."
+    },
+    {
+      "id": "aires-camping-car",
+      "ordre": 4,
+      "libelle": "Aires de camping-car et services de vidange",
+      "description": "Aires dédiées, vidange eaux grises et noires, eau potable, électricité, laveries. Distinctes des campings.",
+      "remplace": null,
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/aires-camping-car.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "les-deux",
+      "prochaine_action": "Extraction OSM (amenity=sanitary_dump_station, tourism=caravan_site), puis tri sur jugement de terrain.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Le volet réglementaire — droit d'accès à la nature en Suède et en Finlande, encadrement plus strict en Norvège — va dans la documentation du module, pas dans le GeoJSON."
+    },
+    {
+      "id": "tunnels",
+      "ordre": 5,
+      "libelle": "Tunnels appelant une décision",
+      "description": "Tunnels à péage, sous-marins, avec restriction de hauteur ou de longueur, ou fermés la nuit ou l'hiver. Pas l'exhaustivité.",
+      "remplace": "Tunnels (Islande)",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/tunnels.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "les-deux",
+      "prochaine_action": "Définir le critère de sélection avec Philippe, puis extraire.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter."
+    },
+    {
+      "id": "pois",
+      "ordre": 6,
+      "libelle": "Points d'intérêt",
+      "description": "Cascades, sources chaudes et bains, piscines, campings et refuges, points de vue, sites naturels et culturels, incontournables.",
+      "remplace": "POIs (Islande)",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/pois.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "les-deux",
+      "prochaine_action": "Arrêter la liste des catégories, puis extraire par catégorie.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Le plus gros volume du module. Les catégories islandaises se transposent en partie ; « 100 incontournables » relève d'un choix personnel, pas d'une extraction."
+    },
+    {
+      "id": "blocs-itineraire",
+      "ordre": 7,
+      "libelle": "Blocs d'itinéraire et tronçons",
+      "description": "Marqueurs des blocs du périple 2027 sur la carte, tracés des tronçons, lien vers la page de chaque bloc.",
+      "remplace": "Blocs A à J (Islande)",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/blocs/bloc-<id>.geojson",
+      "source": "doc-periple-nordique-2027-plan.html — document interne",
+      "licence": "interne",
+      "collecte_le": null,
+      "qui": "les-deux",
+      "prochaine_action": "Reprendre la liste des blocs du plan 2027 et arrêter la correspondance blocs → fichiers.",
+      "etats": {
+        "no": "source-identifiee",
+        "se": "source-identifiee",
+        "fi": "source-identifiee"
+      },
+      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire."
+    },
+    {
+      "id": "favoris",
+      "ordre": 8,
+      "libelle": "Favoris",
+      "description": "Liste des lieux favoris du module, au format Excel commun aux modules NSF.",
+      "remplace": "Favoris (Islande)",
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "03-config-favoris-nsf.xlsx",
+      "source": "doc-periple-nordique-2027-itineraire.html — document interne",
+      "licence": "interne",
+      "collecte_le": "2026-09-09",
+      "qui": "claude",
+      "prochaine_action": "Décliner le fichier des modules 02 et 05 pour le module 03, avec le chemin de chargement propre à ce module.",
+      "etats": {
+        "no": "donnees-collectees",
+        "se": "donnees-collectees",
+        "fi": "donnees-collectees"
+      },
+      "notes": "28 lieux repris de l'itinéraire, coordonnées résolues par géocodage dans les modules 02 et 05. Attention : ce module charge son fichier depuis le dossier parent, contrairement aux autres."
+    },
+    {
+      "id": "peages",
+      "ordre": 9,
+      "libelle": "Péages et badge",
+      "description": "Points de péage, tunnels payants, principe de facturation et catégorie de véhicule.",
+      "remplace": null,
+      "nature": "saisonniere",
+      "rafraichir_avant_depart": true,
+      "fichier": "sources/peages.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "les-deux",
+      "prochaine_action": "Vérifier ce qui existe en donnée ouverte, et trancher entre couche cartographique et rubrique documentaire.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ."
+    },
+    {
+      "id": "restrictions-degel",
+      "ordre": 10,
+      "libelle": "Restrictions de dégel",
+      "description": "Limitations de tonnage sur routes secondaires au dégel : tjällossning en Suède, kelirikko en Finlande.",
+      "remplace": null,
+      "nature": "saisonniere",
+      "rafraichir_avant_depart": true,
+      "fichier": "sources/restrictions-degel.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "claude",
+      "prochaine_action": "Vérifier la publication de ces restrictions par les trois administrations routières.",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai."
+    },
+    {
+      "id": "routes-glace",
+      "ordre": 11,
+      "libelle": "Routes de glace",
+      "description": "Traversées sur glace ouvertes ou fermées officiellement.",
+      "remplace": null,
+      "nature": "saisonniere",
+      "rafraichir_avant_depart": true,
+      "fichier": "sources/routes-glace.geojson",
+      "source": null,
+      "licence": null,
+      "collecte_le": null,
+      "qui": "claude",
+      "prochaine_action": "Vérifier l'existence de routes de glace officielles dans les trois pays avant de conclure au « sans objet ».",
+      "etats": {
+        "no": "a-faire",
+        "se": "a-faire",
+        "fi": "a-faire"
+      },
+      "notes": "Publiées par Fintraffic en Finlande. Je n'ai pas vérifié s'il en existe en Suède ou en Norvège : ne pas les classer « sans objet » sans l'avoir cherché. Probablement hors saison au moment du passage."
+    }
+  ]
+}

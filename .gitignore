@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+**/.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows / Linux, au cas où
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Dossier de travail : extractions brutes, essais, fichiers intermédiaires.
+# Rien de ce qui s'y trouve n'a vocation à être publié.
+_travail/
+
+# Archives et gros intermédiaires
+*.zip
+*.osm.pbf
+*.osm.bz2
+
+# Sorties temporaires
+*.tmp
+*.log

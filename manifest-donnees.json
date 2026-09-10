@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.10",
-    "genere_le": "2026-09-10T19:25:00+02:00",
+    "version": "1.12",
+    "genere_le": "2026-09-10T18:55:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -453,11 +453,13 @@
     {
       "id": "affichage-volumineux",
       "titre": "Affichage des couches à forte volumétrie",
-      "priorite": "haute",
+      "priorite": "basse",
       "pour": "claude",
       "constat": "18 110 barrières et 15 296 restrictions de dégel, soit 12 Mo à eux deux.",
-      "a_creuser": "Chargement à la demande, regroupement de marqueurs, ou découpage régional.",
-      "consequence": "Conditionne l'utilisabilité du module 3 sur iPad."
+      "a_creuser": "À éprouver sur l'iPad avec les 18 110 barrières réellement affichées : le banc d'essai valide la mécanique, pas la fluidité.",
+      "consequence": "Conditionne l'utilisabilité du module 3 sur iPad.",
+      "statut": "traitée le 10/09/2026",
+      "reponse": "Trois dispositions retenues : les deux couches volumineuses ne sont téléchargées qu'à leur activation, elles sont mises en cache dans IndexedDB, et le rendu passe par le canvas de Leaflet plutôt que par le SVG. Au démarrage, seules les quatre couches légères sont chargées, soit 2 585 entités."
     },
     {
       "id": "sources-fi-manquantes",
@@ -498,11 +500,13 @@
     {
       "id": "module-3-app",
       "titre": "Application du module 3 et dépôt applicatif",
-      "priorite": "haute",
+      "priorite": "basse",
       "pour": "les-deux",
       "constat": "Six couches publiées, aucune carte pour les afficher. Le dépôt applicatif nordique n'existe pas.",
-      "a_creuser": "Créer le dépôt, décliner le module 3 islandais, y brancher les couches.",
-      "consequence": "Sans cela, les données restent inutilisables sur le terrain."
+      "a_creuser": "Activer GitHub Pages sur le dépôt applicatif pour servir la PWA en ligne, puis éprouver l'ensemble sur l'iPad.",
+      "consequence": "Sans cela, les données restent inutilisables sur le terrain.",
+      "statut": "traitée le 10/09/2026",
+      "reponse": "Application 03-carte-routiere-nsf-v1_0_0.html livrée le 10/09/2026. Les six couches publiées y sont branchées et lues directement depuis le dépôt. Écart de conception assumé avec la version islandaise : les couches sont décrites dans une table et chargées par un mécanisme unique, au lieu d'un état et d'un chargeur par couche. Ajouter les POIs et les services ne demandera qu'une entrée de plus. Dépôt applicatif Periple-Nordique créé et assemblé le 10/09/2026 : page d'accueil, menu à treize tuiles, manifeste PWA, icônes, service worker v1.1, et les cinq modules — 02 météo par point, 03 carte routière, 04 historique 15 jours, 05 comparateur multi-modèles, 06 liens internet."
     },
     {
       "id": "service-worker",
@@ -510,8 +514,10 @@
       "priorite": "basse",
       "pour": "philippe",
       "constat": "Intégration reportée. Caches à préfixer nsf-meteo-.",
-      "a_creuser": "À reprendre au moment de l'assemblage de la PWA nordique.",
-      "consequence": "Moins critique depuis que Starlink est disponible en roulant."
+      "a_creuser": "Éprouver le fonctionnement hors ligne réel une fois GitHub Pages actif.",
+      "consequence": "Moins critique depuis que Starlink est disponible en roulant.",
+      "statut": "traitée le 10/09/2026",
+      "reponse": "Service worker v1.1 livré. Cache nommé nsf-meteo-v2 et, surtout, routine d'activation modifiée : elle ne supprime que les caches préfixés nsf-. Le service worker islandais, lui, supprime tout cache dont le nom diffère du sien ; sans cette précaution, les deux environnements se seraient effacés mutuellement à chaque bascule. Vingt-trois fichiers d'application préchargés et sept entrées de données."
     }
   ]
 }

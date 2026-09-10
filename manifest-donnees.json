@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.8",
-    "genere_le": "2026-09-10T18:40:00+02:00",
+    "version": "1.10",
+    "genere_le": "2026-09-10T19:25:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -376,7 +376,7 @@
         "se": "a-faire",
         "fi": "source-identifiee"
       },
-      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13. PUBLIÉ le 10/09/2026 : 18 110 barrières retenues sur 27 784, 6226 Ko. Écartés : 8 654 séparateurs de trafic urbains, 81 sas à bus, et 939 barrières sur route européenne, nationale, départementale ou sans catégorie — fermetures d'exploitation, non des accès. Retenues par catégorie de voie : 8 841 privées, 5 406 forestières, 3 863 communales. RÉSULTAT MAJEUR : 17 022 des 18 110, soit 94 %, sont verrouillées. Sur les voies privées et forestières norvégiennes, la barrière ouverte est l'exception. La couche cartographie donc où l'on ne passe pas, plus que des accès disponibles."
+      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13. PUBLIÉ le 10/09/2026 : 18 110 barrières retenues sur 27 784, 6226 Ko. Écartés : 8 654 séparateurs de trafic urbains, 81 sas à bus, et 939 barrières sur route européenne, nationale, départementale ou sans catégorie — fermetures d'exploitation, non des accès. Retenues par catégorie de voie : 8 841 privées, 5 406 forestières, 3 863 communales. RÉSULTAT MAJEUR : 17 022 des 18 110, soit 94 %, sont verrouillées. Sur les voies privées et forestières norvégiennes, la barrière ouverte est l'exception. La couche cartographie donc où l'on ne passe pas, plus que des accès disponibles. REQUALIFIÉ le 10/09/2026 après recherche juridique : la couche marque les exceptions à une autorisation de principe, non une interdiction générale. Une piste forestière norvégienne aménagée pour l'automobile, sans barrière ni panneau, est ouverte."
     },
     {
       "id": "regles-circulation",
@@ -387,37 +387,41 @@
       "nature": "saisonniere",
       "rafraichir_avant_depart": true,
       "fichier": "documentation du module 03 (pas de GeoJSON)",
-      "source": "NO : motorferdselloven et forskrift de 1988 (Lovdata), guides du Miljødirektoratet. SE et FI : à établir.",
+      "source": "NO : motorferdselloven, vegloven, friluftsloven (Lovdata), guides du Miljødirektoratet, note juridique du Norges Skogeierforbund. SE : Trafikverket, publication 2019:186 sur l'entretien des voies privées. FI : yksityistielaki 560/2018, loi Kemera.",
       "licence": "sans objet — textes réglementaires cités, non redistribués",
       "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Établir les règles suédoises et finlandaises, et préciser le champ d'application de l'arrêté saisonnier du Grand Nord.",
+      "prochaine_action": "Rédiger la rubrique documentaire du module 3 à partir de ces règles, et préciser le champ d'application de l'arrêté saisonnier du Grand Nord.",
       "etats": {
         "no": "donnees-collectees",
-        "se": "a-faire",
-        "fi": "a-faire"
+        "se": "donnees-collectees",
+        "fi": "donnees-collectees"
       },
-      "notes": "Acquis au 10/09/2026, vérifié sur Lovdata et Miljødirektoratet : en Norvège la circulation motorisée en utmark est interdite en règle générale ; une voie non aménagée pour l'automobile, ou aménagée mais non déneigée pour elle, est assimilée à l'utmark ; circuler en 4x4 sur un traktorvei forestier est interdit. Restent praticables les skogsbilveier, homologuées pour l'automobile, souvent privées, avec barrière et parfois péage. POINT À TIRER AU CLAIR : un arrêté interdit la circulation motorisée en Finnmark et dans six communes du Nord-Troms du 5 mai au 30 juin — fenêtre qui recouvre le passage dans le Grand Nord. Son champ d'application exact quant aux véhicules et aux voies n'est pas établi. Classée saisonnière : les arrêtés préfectoraux et communaux changent d'une année sur l'autre."
+      "notes": "CORRECTION du 10/09/2026 : j'avais présenté la Norvège comme interdisant la circulation sur les voies privées. C'est l'inverse — elle l'autorise par principe sur les voies aménagées pour l'automobile, le propriétaire pouvant l'interdire, la fermer ou la faire payer. Reste exact : le traktorvei, non aménagé pour l'automobile, est assimilé à l'utmark et interdit au 4x4 ; une voie aménagée mais non déneigée l'est également, en hiver. SUÈDE : la voie privée subventionnée doit rester ouverte, sauf limitation de tonnage au dégel. FINLANDE : usage occasionnel autorisé sauf panneau ; la subvention publique d'entretien empêche l'interdiction ; le financement Kemera impose dix ans d'ouverture récréative gratuite. Dans les trois pays, le droit d'accès à la nature ne couvre pas les véhicules motorisés. ARRÊTÉ DU FINNMARK, tranché le 10/09/2026 : l'interdiction du 5 mai au 30 juin vise la circulation motorisée en utmark, non la circulation routière. Les routes publiques et les voies privées carrossables ne sont pas concernées. Communes du Nord-Troms visées : Kvænangen, Kåfjord, Lyngen, Nordreisa, Skjervøy, Storfjord, plus tout le Finnmark. Le préfet peut déplacer ces dates : à revérifier avant le départ."
     }
   ],
   "questions_ouvertes": [
     {
       "id": "acces-pistes",
       "titre": "Accès réel aux pistes privées et forestières norvégiennes",
-      "priorite": "haute",
+      "priorite": "basse",
       "pour": "philippe-et-claude",
       "constat": "17 022 des 18 110 barrières retenues sont verrouillées, soit 94 %. Sur les voies privées et forestières, la barrière ouverte est l'exception.",
-      "a_creuser": "Qui détient les clés, et selon quelles règles ? Existe-t-il des droits d'accès payants, des associations de riverains délivrant un code, des périodes d'ouverture ? Une piste repérée sur la carte ne doit pas être tenue pour praticable sans vérification.",
-      "consequence": "Détermine si la rubrique 12 sert à repérer des itinéraires ou seulement à écarter des impasses."
+      "a_creuser": "Reste ouvert : les modalités pratiques des bomveier norvégiens — tarifs, paiement sur place ou par application, clés. Et surtout, côté suédois, l'existence d'un jeu de données des statsbidragsvägar : Trafikverket les connaît puisqu'il les subventionne, et elles sont légalement ouvertes. Ce serait la meilleure source possible pour la rubrique 12 en Suède.",
+      "consequence": "Requalifie la rubrique 12 : la couche des barrières marque les exceptions, non la règle. En Suède et en Finlande, la subvention publique tend à imposer l'ouverture.",
+      "statut": "traitée le 10/09/2026",
+      "reponse": "NORVÈGE — La circulation motorisée sur une voie privée en utmark est EN PRINCIPE AUTORISÉE : une voie aménagée pour l'automobile n'est pas de l'utmark au sens de la motorferdselloven. Le propriétaire peut cependant l'interdire par panneau, la fermer par une barrière, ou l'autoriser contre paiement — bomvei, régi par la vegloven. Le droit de fermer subsiste même si la voie a été construite avec une subvention d'État. Le traktorvei, non aménagé pour l'automobile, reste interdit : il est assimilé à l'utmark. CONSÉQUENCE : les 18 110 barrières de la couche cartographient l'exercice de ce droit de fermeture, non une interdiction générale. Une skogsbilvei sans barrière ni panneau est ouverte. SUÈDE — Une voie privée bénéficiant d'une subvention d'État (statsbidragsväg) DOIT rester ouverte à la circulation publique et ne peut être fermée ni par panneau ni par barrière sans l'accord de Trafikverket. Seule exception prévue par une autorisation générale : la limitation de tonnage pendant le dégel. Une voie privée non subventionnée peut en revanche être interdite aux véhicules par son propriétaire. FINLANDE — L'usage occasionnel d'une voie privée en véhicule motorisé est généralement autorisé s'il n'est pas interdit par un panneau ; l'installation d'un panneau permanent ou d'une barrière exige l'accord de la commune. Si l'État ou la commune subventionne l'entretien, la circulation ne peut généralement pas être interdite ; une voie rénovée sur financement Kemera doit rester ouverte gratuitement à l'usage récréatif pendant dix ans. Un usage régulier reste soumis à autorisation et peut être facturé. Le droit d'accès à la nature ne couvre pas les véhicules motorisés."
     },
     {
       "id": "arrete-finnmark",
       "titre": "Arrêté du 5 mai au 30 juin en Finnmark et Nord-Troms",
-      "priorite": "haute",
+      "priorite": "basse",
       "pour": "claude",
       "constat": "Un arrêté interdit la circulation motorisée dans ces zones du 5 mai au 30 juin inclus. La fenêtre recouvre le passage dans le Grand Nord.",
-      "a_creuser": "Champ d'application exact : quels véhicules, quelles voies. Vise-t-il la seule circulation hors route ouverte, ou davantage ?",
-      "consequence": "Peut contraindre l'itinéraire du Grand Nord."
+      "a_creuser": "Reste à vérifier avant le départ : le préfet ayant le pouvoir de déplacer ces dates ou de les étendre à des zones particulières, l'arrêté applicable au printemps 2027 devra être consulté. Vérifier aussi les arrêtés propres aux zones protégées traversées, qui ont leurs propres règles de circulation.",
+      "consequence": "Aucune contrainte sur l'itinéraire routier. Contrainte réelle uniquement si un accès hors voie carrossable était envisagé, ce qui est hors périmètre.",
+      "statut": "traitée le 10/09/2026",
+      "reponse": "L'interdiction porte sur la motorferdsel i utmark — la circulation motorisée hors des voies aménagées — et non sur la circulation routière. Le Statsforvalteren de Troms og Finnmark l'énonce ainsi : du 5 mai au 30 juin, interdiction de la circulation motorisée EN UTMARK dans le Nord-Troms et le Finnmark. Une voie aménagée pour l'automobile n'étant pas de l'utmark, les routes publiques et les voies privées carrossables ne sont pas concernées. SANS EFFET SUR L'ITINÉRAIRE : rouler en fourgon sur les routes et les pistes carrossables reste possible pendant cette période. Sont visés la motoneige, le quad et la circulation sur terrain nu ou sur traktorvei. Communes concernées du Nord-Troms : Kvænangen, Kåfjord, Lyngen, Nordreisa, Skjervøy et Storfjord ; plus l'ensemble du Finnmark. Le préfet peut modifier ces dates pour protéger l'élevage de rennes ou la faune, et accorder des dérogations — mais la conduite d'agrément n'est pas considérée comme un cas particulier."
     },
     {
       "id": "tarif-peage-35t",

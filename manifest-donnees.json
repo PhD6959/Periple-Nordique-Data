@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.6",
-    "genere_le": "2026-09-10T17:55:00+02:00",
+    "version": "1.7",
+    "genere_le": "2026-09-10T18:15:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -398,6 +398,116 @@
         "fi": "a-faire"
       },
       "notes": "Acquis au 10/09/2026, vérifié sur Lovdata et Miljødirektoratet : en Norvège la circulation motorisée en utmark est interdite en règle générale ; une voie non aménagée pour l'automobile, ou aménagée mais non déneigée pour elle, est assimilée à l'utmark ; circuler en 4x4 sur un traktorvei forestier est interdit. Restent praticables les skogsbilveier, homologuées pour l'automobile, souvent privées, avec barrière et parfois péage. POINT À TIRER AU CLAIR : un arrêté interdit la circulation motorisée en Finnmark et dans six communes du Nord-Troms du 5 mai au 30 juin — fenêtre qui recouvre le passage dans le Grand Nord. Son champ d'application exact quant aux véhicules et aux voies n'est pas établi. Classée saisonnière : les arrêtés préfectoraux et communaux changent d'une année sur l'autre."
+    }
+  ],
+  "questions_ouvertes": [
+    {
+      "id": "acces-pistes",
+      "titre": "Accès réel aux pistes privées et forestières norvégiennes",
+      "priorite": "haute",
+      "pour": "philippe-et-claude",
+      "constat": "17 022 des 18 110 barrières retenues sont verrouillées, soit 94 %. Sur les voies privées et forestières, la barrière ouverte est l'exception.",
+      "a_creuser": "Qui détient les clés, et selon quelles règles ? Existe-t-il des droits d'accès payants, des associations de riverains délivrant un code, des périodes d'ouverture ? Une piste repérée sur la carte ne doit pas être tenue pour praticable sans vérification.",
+      "consequence": "Détermine si la rubrique 12 sert à repérer des itinéraires ou seulement à écarter des impasses."
+    },
+    {
+      "id": "arrete-finnmark",
+      "titre": "Arrêté du 5 mai au 30 juin en Finnmark et Nord-Troms",
+      "priorite": "haute",
+      "pour": "claude",
+      "constat": "Un arrêté interdit la circulation motorisée dans ces zones du 5 mai au 30 juin inclus. La fenêtre recouvre le passage dans le Grand Nord.",
+      "a_creuser": "Champ d'application exact : quels véhicules, quelles voies. Vise-t-il la seule circulation hors route ouverte, ou davantage ?",
+      "consequence": "Peut contraindre l'itinéraire du Grand Nord."
+    },
+    {
+      "id": "tarif-peage-35t",
+      "titre": "Catégorie de péage applicable à un fourgon de 3 500 kg",
+      "priorite": "moyenne",
+      "pour": "claude",
+      "constat": "Les péages norvégiens distinguent petit et gros véhicule, avec un rapport de 1 à 2,3 sur l'échantillon de Bergen.",
+      "a_creuser": "Le seuil de bascule et le classement d'un M1 carrossé VASP à 3 500 kg exactement.",
+      "consequence": "Change l'estimation du budget péages, la Norvège en étant truffée."
+    },
+    {
+      "id": "kelirikko-0kg",
+      "titre": "52 restrictions finlandaises à 0 kg",
+      "priorite": "basse",
+      "pour": "claude",
+      "constat": "52 entités portent une limite de 0 kg, valeur dépourvue de sens.",
+      "a_creuser": "Code d'absence de donnée, ou interdiction totale ?",
+      "consequence": "À traiter comme inconnu à l'affichage tant que ce n'est pas tranché."
+    },
+    {
+      "id": "kelirikko-3500",
+      "titre": "856 restrictions finlandaises à exactement 3 500 kg",
+      "priorite": "moyenne",
+      "pour": "philippe",
+      "constat": "Le PTAC du fourgon est de 3 500 kg : ces tronçons sont à la limite, pas au-dessous.",
+      "a_creuser": "Une limite de 3,5 t s'entend-elle inclusivement en Finlande ?",
+      "consequence": "Décide si ces 856 tronçons sont praticables ou non."
+    },
+    {
+      "id": "affichage-volumineux",
+      "titre": "Affichage des couches à forte volumétrie",
+      "priorite": "haute",
+      "pour": "claude",
+      "constat": "18 110 barrières et 15 296 restrictions de dégel, soit 12 Mo à eux deux.",
+      "a_creuser": "Chargement à la demande, regroupement de marqueurs, ou découpage régional.",
+      "consequence": "Conditionne l'utilisabilité du module 3 sur iPad."
+    },
+    {
+      "id": "sources-fi-manquantes",
+      "titre": "Sources finlandaises pour cols et ferries",
+      "priorite": "moyenne",
+      "pour": "claude",
+      "constat": "Aucune couche de bac ni de fermeture saisonnière parmi les 46 couches Digiroad.",
+      "a_creuser": "Chercher hors Digiroad. Ne pas conclure au « sans objet » sans avoir cherché.",
+      "consequence": "Deux rubriques bloquées côté finlandais."
+    },
+    {
+      "id": "cle-suede",
+      "titre": "Accès à l'Öppet API suédois",
+      "priorite": "haute",
+      "pour": "philippe",
+      "constat": "Compte créé mais connexion impossible. Demande envoyée au support le 10/09/2026. Licence établie : CC0.",
+      "a_creuser": "Réponse du support, puis création de la clé.",
+      "consequence": "Cinq rubriques attendent la Suède."
+    },
+    {
+      "id": "hauteur-tunnels",
+      "titre": "Limitations de hauteur",
+      "priorite": "moyenne",
+      "pour": "claude",
+      "constat": "Le type NVDB 581 ne porte pas la hauteur limite : le critère validé n'a pas pu être appliqué.",
+      "a_creuser": "Identifier le type d'objet NVDB portant les limitations de hauteur, et la couche équivalente en Suède et en Finlande — Digiroad expose dr_max_korkeus.",
+      "consequence": "Critère de sécurité pour un fourgon aménagé."
+    },
+    {
+      "id": "blocs-itineraire",
+      "titre": "Tracés des blocs d'itinéraire 2027",
+      "priorite": "moyenne",
+      "pour": "les-deux",
+      "constat": "Seule rubrique dont la source est interne et déjà disponible, mais les tracés restent à produire.",
+      "a_creuser": "Correspondance entre les blocs du plan 2027 et les fichiers à produire.",
+      "consequence": "Rubrique 7."
+    },
+    {
+      "id": "module-3-app",
+      "titre": "Application du module 3 et dépôt applicatif",
+      "priorite": "haute",
+      "pour": "les-deux",
+      "constat": "Six couches publiées, aucune carte pour les afficher. Le dépôt applicatif nordique n'existe pas.",
+      "a_creuser": "Créer le dépôt, décliner le module 3 islandais, y brancher les couches.",
+      "consequence": "Sans cela, les données restent inutilisables sur le terrain."
+    },
+    {
+      "id": "service-worker",
+      "titre": "Fonctionnement hors ligne",
+      "priorite": "basse",
+      "pour": "philippe",
+      "constat": "Intégration reportée. Caches à préfixer nsf-meteo-.",
+      "a_creuser": "À reprendre au moment de l'assemblage de la PWA nordique.",
+      "consequence": "Moins critique depuis que Starlink est disponible en roulant."
     }
   ]
 }

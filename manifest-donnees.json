@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.12",
-    "genere_le": "2026-09-10T18:55:00+02:00",
+    "version": "1.13",
+    "genere_le": "2026-09-10T19:20:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -177,17 +177,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/services.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "OpenStreetMap, via l'API Overpass, extraction du 10 septembre 2026. Étiquettes retenues : amenity=fuel, shop=supermarket, shop=convenience, shop=alcohol, sur les trois zones nationales.",
+      "licence": "ODbL — attribution obligatoire et propagation aux données dérivées. Première couche du dépôt sous cette licence.",
+      "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Extraction OSM par pays, puis établir la table de normalisation des enseignes nordiques.",
+      "prochaine_action": "Ajouter la couche à la table du module 3 et faire la recette.",
       "etats": {
-        "no": "a-faire",
-        "se": "a-faire",
-        "fi": "a-faire"
+        "no": "publiee-github",
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "La fonction normalizeBrand du module islandais code en dur N1, Olís, Bónus, Vínbúðin. Son équivalent nordique est à établir enseigne par enseigne, et non de mémoire."
+      "notes": "La fonction normalizeBrand du module islandais code en dur N1, Olís, Bónus, Vínbúðin. Son équivalent nordique est à établir enseigne par enseigne, et non de mémoire. PUBLIÉ le 10/09/2026 : 21 906 entités, 6661 Ko — 8 050 stations-service, 12 673 commerces d'alimentation, 1 183 points de vente d'alcool. Par pays : 7 357 en Norvège, 9 020 en Suède, 5 529 en Finlande. 1 099 points de monopole d'alcool : 416 Systembolaget, 354 Vinmonopolet, 329 Alko — horaires restrictifs, aucune alternative. 13 583 entités portent leurs horaires d'ouverture. TABLE DE NORMALISATION établie à partir des libellés réellement observés, comme la note de cette rubrique l'exigeait : 82 % des entités rattachées à une enseigne, le libellé d'origine étant conservé sur chacune. Enseignes dominantes : St1 1051, Circle K 866, Coop 783, Kiwi 739, K-Market 727, Rema 1000 703. RÉSERVE : le gazole n'est renseigné que sur 4 151 des 8 050 stations — l'absence de l'étiquette ne signifie pas l'absence de pompe."
     },
     {
       "id": "aires-camping-car",

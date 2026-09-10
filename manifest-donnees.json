@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.15",
-    "genere_le": "2026-09-10T21:30:00+02:00",
+    "version": "1.16",
+    "genere_le": "2026-09-10T21:40:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -518,6 +518,15 @@
       "consequence": "Moins critique depuis que Starlink est disponible en roulant.",
       "statut": "traitée le 10/09/2026",
       "reponse": "Service worker v1.1 livré. Cache nommé nsf-meteo-v2 et, surtout, routine d'activation modifiée : elle ne supprime que les caches préfixés nsf-. Le service worker islandais, lui, supprime tout cache dont le nom diffère du sien ; sans cette précaution, les deux environnements se seraient effacés mutuellement à chaque bascule. Vingt-trois fichiers d'application préchargés et sept entrées de données."
+    },
+    {
+      "id": "contours-parcs",
+      "titre": "Contours des parcs nationaux",
+      "priorite": "moyenne",
+      "pour": "claude",
+      "constat": "Deux tentatives d'extraction ont échoué le 10/09/2026. Première passe : requête unique sur les trois zones, 32 parcs seulement et une répartition par pays fausse — 2 en Norvège. Seconde passe, pays par pays : 55 objets lus en Norvège pour 5 contours obtenus, 47 en Suède pour 5, réponse finlandaise illisible. Les fichiers par pays se mélangeaient : Gutulia et Fulufjellet, parcs norvégiens, apparaissaient aussi dans le lot suédois avec des contours identiques. Deux parcs du Svalbard figuraient dans le lot norvégien.",
+      "a_creuser": "Pourquoi la géométrie des relations multipolygones ne revient pas, et pourquoi le filtre de zone n'opère pas sur ces objets. Pistes non essayées : demander les membres explicitement, passer par le service de contours administratifs plutôt que par Overpass, ou récupérer les limites depuis les portails nationaux — Miljødirektoratet, Naturvårdsverket, Metsähallitus, qui publient tous des données ouvertes.",
+      "consequence": "Les 238 parcs nationaux sont présents comme points dans pois.geojson : leur existence est signalée, pas leur étendue. Pour un parc de plusieurs centaines de kilomètres carrés, savoir où commencent ses limites a une valeur pratique — c'est là que des règles de circulation particulières s'appliquent."
     }
   ]
 }

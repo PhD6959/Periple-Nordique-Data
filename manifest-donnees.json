@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.7",
-    "genere_le": "2026-09-10T18:15:00+02:00",
+    "version": "1.8",
+    "genere_le": "2026-09-10T18:40:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -219,17 +219,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/tunnels.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "NO : NVDB API Les V4, vegobjekttype 581 « Tunnel ». SE et FI : à établir — Digiroad expose dr_tielinkki_silta_alikulku_tunneli.",
+      "licence": "NO : NLOD. SE : CC0 (Öppet API). FI : CC BY 4.0.",
+      "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Définir le critère de sélection avec Philippe, puis extraire.",
+      "prochaine_action": "Intégrer au module 3. Traiter séparément les limitations de hauteur, absentes de ce type d'objet.",
       "etats": {
-        "no": "a-faire",
+        "no": "publiee-github",
         "se": "a-faire",
         "fi": "a-faire"
       },
-      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp »."
+      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp ». PUBLIÉ le 10/09/2026 : 134 tunnels retenus sur 1289, 58 Ko. Critères appliqués : longueur d'au moins 3 000 m (122), sous-marin (40), restriction sur les marchandises dangereuses (4) — les critères se recoupent. Le plus long est Lærdalstunnelen, 24 500 m, suivi de Ryfylke, Gudvanga et Folgefonn. TROIS CRITÈRES VALIDÉS N'ONT PAS PU ÊTRE APPLIQUÉS : le type 581 ne porte ni la hauteur limite, ni le péage, ni les horaires de fermeture. La hauteur relève d'un autre type d'objet, le péage de la couche 45."
     },
     {
       "id": "pois",
@@ -303,17 +303,17 @@
       "nature": "saisonniere",
       "rafraichir_avant_depart": true,
       "fichier": "sources/peages.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "source": "NO : NVDB API Les V4, vegobjekttype 45 « Bomstasjon ». SE et FI : à établir.",
+      "licence": "NO : NLOD. SE : CC0. FI : à établir.",
+      "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Vérifier ce qui existe en donnée ouverte, et trancher entre couche cartographique et rubrique documentaire.",
+      "prochaine_action": "Intégrer au module 3. Établir la catégorie tarifaire applicable à un véhicule de 3 500 kg.",
       "etats": {
-        "no": "a-faire",
+        "no": "publiee-github",
         "se": "a-faire",
         "fi": "a-faire"
       },
-      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ. Piste relevée : Statens vegvesen publie un jeu « bomstasjoner » géolocalisé avec les tarifs de péage. Identifiant NVDB confirmé au catalogue : 45 « Bomstasjon »."
+      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ. Piste relevée : Statens vegvesen publie un jeu « bomstasjoner » géolocalisé avec les tarifs de péage. Identifiant NVDB confirmé au catalogue : 45 « Bomstasjon ». PUBLIÉ le 10/09/2026 : 463 stations, 277 Ko — 438 en AutoPASS, 19 sur voie locale ou privée, 6 points de perception sur ferry. Chaque station porte les tarifs petit et gros véhicule, le tarif d'heure de pointe et ses plages horaires, le sens de perception, la règle de l'heure et sa durée, l'exploitant et son lien. Tarif petit véhicule : de 7 à 186 NOK, médiane 33."
     },
     {
       "id": "restrictions-degel",
@@ -360,23 +360,23 @@
     {
       "id": "pistes-carrossables",
       "ordre": 12,
-      "libelle": "Pistes carrossables et barrières d'accès",
+      "libelle": "Barrières d'accès et pistes carrossables",
       "description": "Voies non revêtues ouvertes à la circulation automobile — pistes forestières homologuées, routes privées — et barrières qui en ferment l'accès.",
       "remplace": "F-Roads (Islande), pour la partie « pistes praticables »",
       "nature": "permanente",
       "rafraichir_avant_depart": false,
-      "fichier": "sources/pistes-carrossables.geojson",
+      "fichier": "sources/barrieres.geojson",
       "source": "NO : NVDB, vegobjekttype 607 « Vegsperring » (27 788 objets, déjà extraits partiellement) croisée avec la catégorie de voie, pour distinguer skogsbilvei — construite pour l'automobile — de traktorvei, juridiquement assimilée à l'utmark. FI : Digiroad, couches dr_tielinkki_hall_lk (classe administrative) et tiekunnalliset_yksityistiet (routes privées gérées par une association), toutes deux vues au WFS. SE : à établir.",
       "licence": "NO : NLOD. FI : CC BY 4.0. SE : à établir.",
-      "collecte_le": null,
+      "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Corriger la pagination du script (24 000 objets récupérés sur 27 788), puis croiser les barrières avec la catégorie de voie pour ne retenir que les accès à des voies carrossables.",
+      "prochaine_action": "Intégrer au module 3, avec une stratégie d'affichage adaptée à 18 110 points. Creuser la question de l'accès (voir questions ouvertes).",
       "etats": {
-        "no": "donnees-collectees",
+        "no": "publiee-github",
         "se": "a-faire",
         "fi": "source-identifiee"
       },
-      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13."
+      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13. PUBLIÉ le 10/09/2026 : 18 110 barrières retenues sur 27 784, 6226 Ko. Écartés : 8 654 séparateurs de trafic urbains, 81 sas à bus, et 939 barrières sur route européenne, nationale, départementale ou sans catégorie — fermetures d'exploitation, non des accès. Retenues par catégorie de voie : 8 841 privées, 5 406 forestières, 3 863 communales. RÉSULTAT MAJEUR : 17 022 des 18 110, soit 94 %, sont verrouillées. Sur les voies privées et forestières norvégiennes, la barrière ouverte est l'exception. La couche cartographie donc où l'on ne passe pas, plus que des accès disponibles."
     },
     {
       "id": "regles-circulation",

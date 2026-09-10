@@ -106,6 +106,15 @@ ouverte.
 > Lähde: Väylävirasto / latauspalvelu, lisenssi **CC 4.0 BY**.
 > Source : Väylävirasto / service de téléchargement, licence **CC BY 4.0**.
 
+### `sources/tunnels.geojson`, `sources/peages.geojson`, `sources/barrieres.geojson`
+
+Données dérivées de la **Nasjonal vegdatabank (NVDB)**, Statens vegvesen, Norvège.
+Vegobjekttyper 581 « Tunnel », 45 « Bomstasjon » et 607 « Vegsperring », extraites le
+10 septembre 2026 via l'API Les V4.
+
+> Contient des données de Statens vegvesen, mises à disposition sous
+> **Norsk lisens for offentlige data (NLOD)**.
+
 ### Transformations appliquées
 
 Les fichiers publiés ne sont pas les données sources telles quelles. Ont été appliqués :
@@ -114,14 +123,19 @@ renvoie latitude puis longitude en srid 4326 —, retrait de l'altitude, simplif
 tracés à environ 10 mètres pour les couches norvégiennes et 27 mètres pour la couche
 finlandaise, filtrage sur le PTAC de 3 500 kg pour les restrictions de dégel, et
 composition d'étiquettes pour les entités sans nom de source, signalées par la propriété
-`nom_compose`.
+`nom_compose`, et sélection thématique pour trois couches : les tunnels sont filtrés sur la
+longueur, le caractère sous-marin et les restrictions sur les marchandises dangereuses ; les
+barrières sont restreintes aux voies privées, forestières et communales et aux fonctions de
+fermeture véritable. Ces filtres sont documentés rubrique par rubrique dans le manifeste.
 
 ### Sources non encore utilisées
 
 **OpenStreetMap** : ODbL, avec mention `© les contributeurs OpenStreetMap`, et propagation
 de la licence aux données dérivées. Toute couche en contenant sera publiée en ODbL et
-signalée comme telle ici. **Trafikverket, Suède** : conditions de l'Öppet API à lire avant
-toute republication.
+signalée comme telle ici. **Trafikverket, Suède** : l'Öppet API est publié sous
+**Creative Commons CC0** — aucune restriction, pas même l'obligation d'attribution. La
+source sera néanmoins mentionnée ici lors de la première publication d'une couche
+suédoise, par correction.
 
 ---
 

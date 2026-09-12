@@ -129,10 +129,25 @@ elle vaut aussi `no` et `customers`.
 
 | Script | Ce qu'il fait |
 |---|---|
-| `03-etape11-blocs.sh` | Géocode un point d'ancrage par bloc d'itinéraire |
+| `03-etape38-blocs-depuis-document.sh` | Lit le document d'itinéraire et produit la couche des blocs |
 | `03-etape32-parcs.sh` | Éprouve douze adresses de services de zones protégées |
 
 ---
+
+### Les blocs d'itinéraire, en détail
+
+`03-etape38` **remplace `03-etape11`**, supprimée. Celle-ci portait les seize blocs et les
+seize ancrages écrits en dur : le document d'itinéraire bougera, et une copie figée serait
+devenue fausse sans que rien ne le signale.
+
+Le script lit `docs/doc-periple-nordique-2027-itineraire.html` et
+`sources/blocs-ancrages.json`. Il compare la version du document à celle consignée au
+manifeste, et **refuse de produire une couche incomplète** : un bloc sans ancrage, un
+ancrage sans bloc, ou un géocodage en échec arrêtent la production avec un rapport qui
+nomme le point à traiter.
+
+**Si l'itinéraire gagne un bloc**, ajouter son entrée dans `sources/blocs-ancrages.json` —
+le lieu, son pays, et le motif de ce choix — puis relancer.
 
 ## Ce qui a échoué, et pourquoi
 

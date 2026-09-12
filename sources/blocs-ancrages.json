@@ -1,0 +1,24 @@
+{
+  "libelle": "Points d'ancrage des blocs d'itinéraire",
+  "etabli_le": "2026-09-12",
+  "principe": "Un bloc est une région traversée sur plusieurs jours. L'ancrage n'est PAS une donnée du document d'itinéraire : c'est un choix, celui du lieu qui représente le mieux le bloc sur une carte. Il est donc tenu à part, et modifiable sans toucher au document.",
+  "regle": "Une entrée par numéro de bloc. Si le document d'itinéraire gagne ou perd un bloc, le script de collecte le signale et refuse de produire une couche incomplète.",
+  "ancrages": {
+    "1":  { "lieu": "Malmö",        "pays": "SE", "motif": "Point d'entrée en Scandinavie par l'Øresund" },
+    "2":  { "lieu": "Simrishamn",   "pays": "SE", "motif": "Cœur de l'Österlen" },
+    "3":  { "lieu": "Stockholm",    "pays": "SE", "motif": "La ville et son archipel" },
+    "4":  { "lieu": "Falun",        "pays": "SE", "motif": "La mine de cuivre et le rouge de Falun" },
+    "5":  { "lieu": "Örnsköldsvik", "pays": "SE", "motif": "Accès nord de la Höga Kusten" },
+    "6":  { "lieu": "Östersund",    "pays": "SE", "motif": "Départ du barreau E14 vers l'ouest" },
+    "7":  { "lieu": "Brønnøysund",  "pays": "NO", "motif": "Torghatten, au milieu de la Kystriksveien" },
+    "8":  { "lieu": "Narvik",       "pays": "NO", "motif": "Base de l'antenne vers la Laponie suédoise" },
+    "9":  { "lieu": "Svolvær",      "pays": "NO", "motif": "Centre des Lofoten" },
+    "10": { "lieu": "Tromsø",       "pays": "NO", "motif": "Sas logistique avant le Finnmark" },
+    "11": { "lieu": "Alta",         "pays": "NO", "motif": "Gravures rupestres, porte du plateau" },
+    "12": { "lieu": "Vardø",        "pays": "NO", "motif": "Hornøya est en face — le bloc que le calendrier sert" },
+    "13": { "lieu": "Inari",        "pays": "FI", "motif": "Centre de la Laponie finlandaise" },
+    "14": { "lieu": "Kuusamo",      "pays": "FI", "motif": "Accès au parc d'Oulanka" },
+    "15": { "lieu": "Turku",        "pays": "FI", "motif": "Entrée de l'archipel du Sud-Ouest" },
+    "16": { "lieu": "Tallinn",      "pays": "EE", "motif": "Première escale du corridor de retour" }
+  }
+}

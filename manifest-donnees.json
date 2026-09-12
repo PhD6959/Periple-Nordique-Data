@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.33",
-    "genere_le": "2026-09-12T18:50:00+02:00",
+    "version": "1.34",
+    "genere_le": "2026-09-12T19:30:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -297,22 +297,22 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/blocs-itineraire.geojson",
-      "source": "doc-periple-nordique-2027-itineraire.html, version 3.19 du 9 septembre 2026 — document interne. Coordonnées obtenues par géocodage d'un point d'ancrage par bloc.",
+      "source": "Document interne doc-periple-nordique-2027-itineraire.html, version 3.19 du 9 septembre 2026, conservé dans docs/ du dépôt. Le script d'étape 38 LE LIT — il n'en porte plus de copie. Les points d'ancrage, qui ne sont pas une donnée du document mais un choix, vivent dans sources/blocs-ancrages.json.",
       "licence": "interne",
       "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Voir la question ouverte « troncons-blocs ».",
+      "prochaine_action": "Si le document change de version, relancer outils/03-etape38-blocs-depuis-document.sh et mettre à jour la version consignée ici. Voir aussi la question « itineraire-extraction-etendue ».",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire. PUBLIÉ le 10/09/2026 : 16 blocs, un fichier unique et non un fichier par bloc — à ce volume, seize requêtes n'auraient rien apporté. Le dossier sources/blocs/ reste disponible pour les tracés. Chaque bloc porte son numéro, ses dates, son contenu et son étape. LES POINTS D'ANCRAGE SONT UN CHOIX, PAS UNE DONNÉE : un bloc est une région traversée sur plusieurs jours, le point en marque le centre de gravité. Ancrages retenus : Malmö, Simrishamn, Stockholm, Falun, Örnsköldsvik, Östersund, Brønnøysund, Narvik, Svolvær, Tromsø, Alta, Vardø, Inari, Kuusamo, Turku, Tallinn. Contrôle de cohérence : le profil des latitudes monte du bloc 1 au bloc 12 — sommet à Vardø, 70,37° N — puis redescend, ce qui correspond à la structure du voyage. La carte du document source est en projection Lambert conforme conique : l'inverser aurait introduit une erreur évitable, d'où le géocodage.",
+      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire. PUBLIÉ le 10/09/2026 : 16 blocs, un fichier unique et non un fichier par bloc — à ce volume, seize requêtes n'auraient rien apporté. Le dossier sources/blocs/ reste disponible pour les tracés. Chaque bloc porte son numéro, ses dates, son contenu et son étape. LES POINTS D'ANCRAGE SONT UN CHOIX, PAS UNE DONNÉE : un bloc est une région traversée sur plusieurs jours, le point en marque le centre de gravité. Ancrages retenus : Malmö, Simrishamn, Stockholm, Falun, Örnsköldsvik, Östersund, Brønnøysund, Narvik, Svolvær, Tromsø, Alta, Vardø, Inari, Kuusamo, Turku, Tallinn. Contrôle de cohérence : le profil des latitudes monte du bloc 1 au bloc 12 — sommet à Vardø, 70,37° N — puis redescend, ce qui correspond à la structure du voyage. La carte du document source est en projection Lambert conforme conique : l'inverser aurait introduit une erreur évitable, d'où le géocodage. REPRIS le 12/09/2026 : l'étape 11 portait les seize blocs ET les seize ancrages écrits en dur. Le document bougera, et une copie figée serait devenue fausse en silence — la même classe d'erreur que le menu resté sur une version supprimée. L'étape 38 la remplace : elle lit le document, compare sa version à celle consignée ici, et REFUSE DE PRODUIRE une couche incomplète — un bloc sans ancrage, un ancrage sans bloc, ou un géocodage en échec arrêtent la production avec un rapport nommant le point à traiter. DÉFAUT CORRIGÉ au passage : l'ancien lecteur coupait le nom au premier chiffre et nommait le bloc 6 « Barreau E » au lieu de « Barreau E14 — d'est en ouest ». La couche publiée avant le 12/09/2026 porte cette erreur.",
       "verification": {
-        "scripts": "03-etape11-blocs.sh.",
-        "attendu": "16 blocs.",
-        "saisonnier": "NON, mais l'ITINÉRAIRE peut changer.",
-        "a_verifier": "Que le document d'itinéraire est toujours celui de référence, et que les dates et les ancrages n'ont pas bougé."
+        "scripts": "outils/03-etape38-blocs-depuis-document.sh",
+        "attendu": "16 blocs, autant que le document en déclare.",
+        "saisonnier": "NON, mais l'ITINÉRAIRE peut changer — c'est le cas le plus probable de tous.",
+        "a_verifier": "Que la version du document lue par le script correspond à celle consignée dans « source » ci-dessus. Le script le dit de lui-même. Le profil des latitudes qu'il affiche doit monter jusqu'au bloc le plus septentrional puis redescendre : une dent isolée signale un ancrage mal géocodé."
       }
     },
     {
@@ -752,6 +752,15 @@
       "constat": "La couche des hauteurs limitées a été produite le 12/09/2026 sur une hauteur de travail de 3,20 m, alors que le fourgon mesure 3,12 m hors tout. L'écart de 8 cm est une marge délibérée, et l'erreur va dans le bon sens : le filtre est plus sévère que la réalité. MESURÉ : 238 obstacles sont annoncés entre 3,12 et 3,20 m — 119 en Finlande, 67 en Norvège, 52 en Suède. Ils sont comptés bloquants alors qu'ils passeraient sur la cote exacte. Mais 210 des 238 sont annoncés à 3,20 m tout rond, soit 8 cm de marge réelle : c'est précisément le cas où l'on ne s'engage pas.",
       "a_creuser": "Ne rien changer, sauf décision contraire. Sur les 238 obstacles concernés, 210 sont à 3,20 m tout rond — 8 cm sous un ouvrage, c'est une marge que ni une galerie ni un affaissement ne laissent. Les 28 autres, entre 3,13 et 3,19 m, sont encore plus serrés.",
       "consequence": "Aucune en termes de sécurité. Quelques obstacles sont peut-être écartés à tort, ce qui coûte un détour, jamais un toit."
+    },
+    {
+      "id": "itineraire-extraction-etendue",
+      "titre": "Extraire davantage du document d'itinéraire",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "constat": "Le script d'étape 38 ne lit que le TABLEAU des blocs — numéro, nom, dates en texte, contenu, étape. Le document porte bien davantage sur ses 131 Ko : dix-sept mots-clés balisés — « Six ferries », « Solstice », « Gravures rupestres » —, un texte par bloc, et une carte SVG en projection Lambert conforme conique. DÉCISION DU 12/09/2026 : ne rien changer au document dans sa version actuelle, pour ne pas disperser l'effort.",
+      "a_creuser": "TROIS NIVEAUX, par coût croissant.\n1. Dates normalisées — décomposer « 21 mai – 1er juin · 12 jours » en début, fin et durée. C'est la seule extraction qui ajoute une CAPACITÉ et non de l'affichage : la carte pourrait montrer le bloc où l'on est censé être, et signaler un retard sur le calendrier. Aucune contrainte sur la façon d'écrire le document.\n2. Mot-clé par bloc — déjà balisé dans le document, gratuit à extraire, parfait pour une infobulle. RÉSERVE : il y en a dix-sept pour seize blocs, leur rattachement demande vérification.\n3. Texte de chaque bloc — ferait une fiche au clic. Suppose que le document porte des MARQUEURS stables, un attribut data-bloc sur la section de chaque bloc, sinon chaque remaniement casse le lecteur. À poser quand l'itinéraire sera révisé, pas avant : c'est le bon moment, et cela évite de faire le travail deux fois.\nÉCARTÉ : la carte SVG, en projection Lambert, qui fait doublon avec la carte du module 3 ; les étapes détaillées, qui relèveraient d'un module à part.",
+      "consequence": "Sans cela, la carte montre où sont les blocs et ce qu'ils contiennent, mais pas où l'on devrait être aujourd'hui."
     }
   ],
   "sources_api": {

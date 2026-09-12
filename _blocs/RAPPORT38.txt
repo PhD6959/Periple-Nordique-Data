@@ -1,0 +1,47 @@
+=== document source ===
+  docs/doc-periple-nordique-2027-itineraire.html
+  version 3.19 — 9 septembre 2026 à 17:34
+  blocs lus : 16
+  ancrages déclarés : 16
+  version conforme au manifeste (3.19)
+
+=== géocodage ===
+   1 Corridor d'accès                       Malmö            55.6059, 13.0007
+   2 Suède du Sud                           Simrishamn       55.5565, 14.3504
+   3 Stockholm et son archipel              Stockholm        59.3294, 18.0687
+   4 La Dalécarlie                          Falun            60.6036, 15.6260
+   5 La Höga Kusten                         Örnsköldsvik     63.2909, 18.7153
+   6 Barreau E14 — d'est en ouest           Östersund        63.1792, 14.6357
+   7 Kystriksveien — la côte de l'Helgeland Brønnøysund      65.4749, 12.2128
+   8 Narvik et antenne de Laponie suédoise  Narvik           68.4384, 17.4272
+   9 Lofoten et Vesterålen                  Svolvær          68.2342, 14.5683
+  10 Senja et Tromsø                        Tromsø           69.6489, 18.9551
+  11 Alta et le Cap Nord                    Alta             69.9689, 23.2717
+  12 Varanger et Hornøya                    Vardø            70.3705, 31.1107
+  13 Laponie finlandaise                    Inari            68.9060, 27.0288
+  14 Finlande des forêts et des lacs        Kuusamo          65.9645, 29.1888
+  15 Finlande du Sud                        Turku            60.4515, 22.2687
+  16 Corridor de retour                     Tallinn          59.4370, 24.7535
+
+-> _blocs/blocs-itineraire.geojson : 16 blocs, 8311 octets
+
+=== contrôle de cohérence géographique ===
+   1  55.61°N ##
+   2  55.56°N ##
+   3  59.33°N ########
+   4  60.60°N ##########
+   5  63.29°N ##############
+   6  63.18°N ##############
+   7  65.47°N ##################
+   8  68.44°N #######################
+   9  68.23°N ######################
+  10  69.65°N #########################
+  11  69.97°N #########################
+  12  70.37°N ##########################
+  13  68.91°N #######################
+  14  65.96°N ###################
+  15  60.45°N ##########
+  16  59.44°N ########
+
+  Le profil doit monter jusqu'au bloc le plus septentrional puis redescendre.
+  Une dent isolée signale un ancrage géocodé au mauvais endroit.

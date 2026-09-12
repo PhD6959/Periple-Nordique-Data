@@ -172,6 +172,20 @@ schemaversion 1.2).
 > Licence **Creative Commons CC0** — aucune restriction, pas même l'obligation
 > d'attribution. La source est mentionnée ici par correction, non par obligation.
 
+### `sources/hauteurs-limitees.geojson` — trois licences
+
+Cette couche réunit trois sources nationales, et relève donc de trois licences.
+La propriété `source` de chaque entité indique laquelle s'applique.
+
+| `source` | Origine | Licence |
+|---|---|---|
+| `NVDB` | Statens vegvesen, vegobjekttype 591 `Høydebegrensning` | NLOD |
+| `TRV` | Trafikverket, `Höjdhinder_upp_till_45_dm` | CC0 |
+| `VAYLA` | Väylävirasto, Digiroad `dr_max_korkeus` | CC BY 4.0 |
+
+> Lähde: Väylävirasto / latauspalvelu, lisenssi **CC 4.0 BY** — pour les entités finlandaises.
+> Contient des données de Statens vegvesen sous **NLOD** — pour les entités norvégiennes.
+
 ### Transformations appliquées
 
 Les fichiers publiés ne sont pas les données sources telles quelles. Ont été appliqués :

@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.21",
-    "genere_le": "2026-09-12T14:10:00+02:00",
+    "version": "1.22",
+    "genere_le": "2026-09-12T15:00:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -408,17 +408,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/hauteurs-limitees.geojson, sources/poids-limites.geojson, sources/largeurs-limites.geojson",
-      "source": "SE : base routière nationale de Trafikverket, namespace vägdata.nvdb_dk_o, schemaversion 1.2 — types Höjdhinder_upp_till_45_dm, BegränsadBruttovikt, BegränsadFordonsbredd. Extraction du 12 septembre 2026. NO et FI : à établir.",
-      "licence": "SE : CC0 — aucune restriction, pas même l'obligation d'attribution.",
+      "source": "NO : NVDB API Les V4, vegobjekttype 591 « Høydebegrensning » — tronçon où un véhicule peut entrer en conflit avec un obstacle situé au-dessus. SE : base routière de Trafikverket, Höjdhinder_upp_till_45_dm, BegränsadBruttovikt, BegränsadFordonsbredd. FI : Digiroad, couche WFS dr_max_korkeus. Extractions des 12 septembre 2026.",
+      "licence": "NO : NLOD. SE : CC0. FI : CC BY 4.0. La propriété « source » de chaque entité — NVDB, TRV ou VAYLA — indique laquelle s'applique.",
       "collecte_le": "2026-09-12",
       "qui": "claude",
-      "prochaine_action": "Chercher l'équivalent norvégien : la NVDB ne porte pas la hauteur sur le type Tunnel, mais un autre type d'objet la porte peut-être. Côté finlandais, Digiroad expose dr_max_korkeus.",
+      "prochaine_action": "Recette sur le terrain. Le panneau à l'entrée reste la référence.",
       "etats": {
-        "no": "a-faire",
+        "no": "publiee-github",
         "se": "publiee-github",
-        "fi": "source-identifiee"
+        "fi": "publiee-github"
       },
-      "notes": "PUBLIÉ le 12/09/2026 : 2 189 hauteurs, 1 047 poids, 28 largeurs. LA COUCHE LA PLUS UTILE DU MODULE POUR CE VÉHICULE : 1 292 obstacles sont infranchissables à 3,20 m — 983 passages sous voie, 139 obstacles divers, 92 ponts, 78 tunnels — et 195 laissent moins de 30 cm de marge. Le plus bas mesure 2,00 m. La base norvégienne ne porte pas cet attribut : les 48 hauteurs connues de la couche tunnels venaient d'OpenStreetMap. Chaque entité porte « franchissable » et « marge_cm », calculés sur 3,20 m. RÉSERVE : les hauteurs portent des décimales issues d'une conversion depuis des décimètres — 2,400000095 — et sont arrondies au centimètre. La marge est une indication, pas une mesure de terrain. 108 limitations de poids sont sous 3,5 t, 8 largeurs sous 2,2 m."
+      "notes": "PUBLIÉ le 12/09/2026 : 2 189 hauteurs, 1 047 poids, 28 largeurs. LA COUCHE LA PLUS UTILE DU MODULE POUR CE VÉHICULE : 1 292 obstacles sont infranchissables à 3,20 m — 983 passages sous voie, 139 obstacles divers, 92 ponts, 78 tunnels — et 195 laissent moins de 30 cm de marge. Le plus bas mesure 2,00 m. La base norvégienne ne porte pas cet attribut : les 48 hauteurs connues de la couche tunnels venaient d'OpenStreetMap. Chaque entité porte « franchissable » et « marge_cm », calculés sur 3,20 m. RÉSERVE : les hauteurs portent des décimales issues d'une conversion depuis des décimètres — 2,400000095 — et sont arrondies au centimètre. La marge est une indication, pas une mesure de terrain. 108 limitations de poids sont sous 3,5 t, 8 largeurs sous 2,2 m. COMPLÉTÉ le 12/09/2026, trois pays : 12 698 hauteurs — 5 794 finlandaises, 4 715 norvégiennes, 2 189 suédoises. 2 634 sont infranchissables à 3,20 m : 1 292 en Suède, 1 018 en Finlande, 324 en Norvège. 429 laissent moins de 30 cm de marge. La plus basse mesure 1,60 m. CHOIX DE MÉTHODE, NORVÈGE : le type 591 porte CINQ mesures de hauteur — signalée, calculée, et minimum mesuré à droite, à gauche et au milieu. La PLUS CONTRAIGNANTE est retenue, la hauteur signalée étant conservée à part. 65 obstacles montrent un écart d'au moins 10 cm entre panneau et mesure, et le pire est édifiant : Skiftingsfonna, panneau à 4,50 m, mesuré à 2,38 m au milieu. Retenir la hauteur signalée l'aurait fait passer pour franchissable. PIÈGE ÉVITÉ, FINLANDE : le champ « arvo » est en centimètres. Une détection d'unité fondée sur le maximum concluait aux millimètres à cause d'une valeur isolée à 3 000, ce qui divisait toutes les hauteurs par dix. La médiane, insensible aux valeurs extrêmes, donne la bonne unité. Valeurs hors de la plage 1 à 12 m écartées : 7."
     },
     {
       "id": "reseau-suedois",

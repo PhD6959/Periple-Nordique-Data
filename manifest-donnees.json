@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.17",
-    "genere_le": "2026-09-10T22:05:00+02:00",
+    "version": "1.19",
+    "genere_le": "2026-09-12T12:30:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -136,16 +136,16 @@
       "rafraichir_avant_depart": true,
       "fichier": "sources/cols-fermetures.geojson",
       "source": "NO : NVDB API Les V4, vegobjekttype 107 « Værutsatt veg » (1494 objets) et 883 « Skredutsatt veg » (325 objets). Écartés après extraction : 1005 « Vinterberedskap », vide en base ; 607 « Vegsperring », 27 788 objets de barrières physiques sans rapport avec la fermeture saisonnière. SE : Trafikverket Öppet API, types Situation et RoadCondition. FI : aucune couche de fermeture saisonnière au WFS Digiroad.",
-      "licence": "NO : NLOD, données ouvertes de Statens vegvesen. SE et FI : à établir.",
+      "licence": "NO : NLOD. SE et FI : ODbL. La propriété « source » indique l'origine de chaque entité.",
       "collecte_le": "2026-09-10",
       "qui": "claude",
       "prochaine_action": "Intégrer la couche au module 3, puis recette. Côté SE, extraire depuis l'Öppet API une fois la clé créée. Côté FI, chercher hors Digiroad.",
       "etats": {
         "no": "publiee-github",
-        "se": "source-identifiee",
-        "fi": "a-faire"
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "Point dur : la Norvège enregistre les tronçons exposés, mais les dates d'ouverture varient chaque année et relèvent du temps réel. Une couche statique donne les cols et leur caractère saisonnier ; l'état du jour restera à lire sur le service officiel. C'est un cas où « traité par lien » peut compléter la couche plutôt que la remplacer. Étape 1 faite le 10/09/2026 : le catalogue NVDB compte 424 types, les quatre identifiants ci-dessus sont confirmés. Côté finlandais, aucune couche de fermeture saisonnière n'apparaît au WFS Digiroad — à vérifier avant de conclure au « sans objet ». PUBLIÉ le 10/09/2026 : 1468 entités, 1357 Ko — 106 cols (Fjellovergang=Ja), 1039 tronçons à fermeture hivernale datée, 323 tronçons exposés aux avalanches. Contrôlé depuis le dépôt : identifiants uniques, schéma complet, emprise lon 5,08–31,04 / lat 58,83–71,17, aucune altitude résiduelle, 1099 dates au format MM-JJ toutes valides. Plausibilité vérifiée sur les cols nommés : Trollstigen, Sognefjellet, Gamle Strynefjellsvegen, Geiranger–Langvatn. 1070 noms sont composés par nous à partir du numéro de route et des lieux, marqués par la propriété nom_compose ; 66 cols sur 106 portent leur nom de source."
+      "notes": "Point dur : la Norvège enregistre les tronçons exposés, mais les dates d'ouverture varient chaque année et relèvent du temps réel. Une couche statique donne les cols et leur caractère saisonnier ; l'état du jour restera à lire sur le service officiel. C'est un cas où « traité par lien » peut compléter la couche plutôt que la remplacer. Étape 1 faite le 10/09/2026 : le catalogue NVDB compte 424 types, les quatre identifiants ci-dessus sont confirmés. Côté finlandais, aucune couche de fermeture saisonnière n'apparaît au WFS Digiroad — à vérifier avant de conclure au « sans objet ». PUBLIÉ le 10/09/2026 : 1468 entités, 1357 Ko — 106 cols (Fjellovergang=Ja), 1039 tronçons à fermeture hivernale datée, 323 tronçons exposés aux avalanches. Contrôlé depuis le dépôt : identifiants uniques, schéma complet, emprise lon 5,08–31,04 / lat 58,83–71,17, aucune altitude résiduelle, 1099 dates au format MM-JJ toutes valides. Plausibilité vérifiée sur les cols nommés : Trollstigen, Sognefjellet, Gamle Strynefjellsvegen, Geiranger–Langvatn. 1070 noms sont composés par nous à partir du numéro de route et des lieux, marqués par la propriété nom_compose ; 66 cols sur 106 portent leur nom de source. COMPLÉTÉ le 12/09/2026 : 1 669 entités — 1 468 norvégiennes, 113 suédoises, 88 finlandaises. CONFIRMÉ : la Suède et la Finlande n'ont pas de cols au sens norvégien — 9 cols en Suède, dont Tjäktjapass à 1 140 m, aucun en Finlande. L'équivalent local est la route fermée ou non déneigée l'hiver : 104 en Suède, 88 en Finlande, marquées « vinterstengt » avec la propriété « non_deneigee ». Obtenu sans la clé Trafikverket, par OpenStreetMap : ce que l'API apporterait est le temps réel, non les couches statiques."
     },
     {
       "id": "ferries",
@@ -156,17 +156,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/ferries.geojson",
-      "source": "NO : NVDB API Les V4, vegobjekttypes 770 « Ferjesamband » (141 liaisons) et 64 « Ferjekai » (379 quais). SE : Trafikverket Öppet API. FI : source à trouver, absente de Digiroad ; OSM en repli.",
-      "licence": "NO : NLOD, données ouvertes de Statens vegvesen. SE et FI : à établir.",
+      "source": "NO : NVDB API Les V4, vegobjekttypes 770 « Ferjesamband » (141 liaisons) et 64 « Ferjekai » (379 quais). SE et FI : OpenStreetMap via Overpass, extraction du 12 septembre 2026 — route=ferry et amenity=ferry_terminal.",
+      "licence": "NO : NLOD (Statens vegvesen). SE et FI : ODbL (OpenStreetMap). La couche relève des deux : la propriété « source » de chaque entité indique laquelle.",
       "collecte_le": "2026-09-10",
       "qui": "claude",
       "prochaine_action": "Intégrer au module 3, puis recette. Trouver les sources suédoise et finlandaise.",
       "etats": {
         "no": "publiee-github",
-        "se": "source-identifiee",
-        "fi": "a-faire"
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "Les bacs norvégiens sont un élément du réseau routier, d'où leur présence dans NVDB. Les horaires restent hors périmètre — trop volatils, ils relèvent du lien vers l'opérateur. À vérifier : la géométrie des liaisons (lignes) est-elle disponible, ou seulement les terminaux ? Étape 1 faite le 10/09/2026 : identifiants norvégiens confirmés au catalogue. Côté finlandais, la source reste à trouver. PUBLIÉ le 10/09/2026 : 520 entités, 275 Ko — 141 liaisons et 379 quais. À savoir pour l'affichage : 138 liaisons sont à l'année, 2 uniquement estivales, 1 étendue l'été ; une seule porte des dates de saison, Andenes–Gryllefjord du 18 mai au 5 septembre. Côté quais, 368 sont en service, 9 sont des quais de secours (Beredskapskai) et 2 sont désaffectés (Nedlagt) : à filtrer ou à distinguer visuellement. AutoPASS n'est renseigné que sur 13 liaisons."
+      "notes": "Les bacs norvégiens sont un élément du réseau routier, d'où leur présence dans NVDB. Les horaires restent hors périmètre — trop volatils, ils relèvent du lien vers l'opérateur. À vérifier : la géométrie des liaisons (lignes) est-elle disponible, ou seulement les terminaux ? Étape 1 faite le 10/09/2026 : identifiants norvégiens confirmés au catalogue. Côté finlandais, la source reste à trouver. PUBLIÉ le 10/09/2026 : 520 entités, 275 Ko — 141 liaisons et 379 quais. À savoir pour l'affichage : 138 liaisons sont à l'année, 2 uniquement estivales, 1 étendue l'été ; une seule porte des dates de saison, Andenes–Gryllefjord du 18 mai au 5 septembre. Côté quais, 368 sont en service, 9 sont des quais de secours (Beredskapskai) et 2 sont désaffectés (Nedlagt) : à filtrer ou à distinguer visuellement. AutoPASS n'est renseigné que sur 13 liaisons. COMPLÉTÉ le 12/09/2026 : 2 803 entités — 520 norvégiennes de la NVDB, 1 352 suédoises et 931 finlandaises d'OpenStreetMap. 352 liaisons écartées car interdites aux véhicules à moteur : canaux de plaisance et bacs piétons. Les entités suédoises et finlandaises portent souvent l'opérateur, la durée de traversée et l'accès des véhicules — Björköleden, 8 minutes, Trafikverket Färjerederiet ; Finferries côté finlandais. 9 doublons d'identifiant retirés après publication."
     },
     {
       "id": "services",
@@ -219,17 +219,17 @@
       "nature": "permanente",
       "rafraichir_avant_depart": false,
       "fichier": "sources/tunnels.geojson",
-      "source": "NO : NVDB API Les V4, vegobjekttype 581 « Tunnel ». SE et FI : à établir — Digiroad expose dr_tielinkki_silta_alikulku_tunneli.",
-      "licence": "NO : NLOD. SE : CC0 (Öppet API). FI : CC BY 4.0.",
+      "source": "NO : NVDB API Les V4, vegobjekttype 581 « Tunnel ». SE et FI : OpenStreetMap via Overpass, extraction du 12 septembre 2026 — tunnel=yes sur le réseau principal.",
+      "licence": "NO : NLOD. SE et FI : ODbL. La propriété « source » indique l'origine de chaque entité.",
       "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Intégrer au module 3. Traiter séparément les limitations de hauteur, absentes de ce type d'objet.",
+      "prochaine_action": "Recette. Rien ne remplace la lecture du panneau à l'entrée.",
       "etats": {
         "no": "publiee-github",
-        "se": "a-faire",
-        "fi": "a-faire"
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp ». PUBLIÉ le 10/09/2026 : 134 tunnels retenus sur 1289, 58 Ko. Critères appliqués : longueur d'au moins 3 000 m (122), sous-marin (40), restriction sur les marchandises dangereuses (4) — les critères se recoupent. Le plus long est Lærdalstunnelen, 24 500 m, suivi de Ryfylke, Gudvanga et Folgefonn. TROIS CRITÈRES VALIDÉS N'ONT PAS PU ÊTRE APPLIQUÉS : le type 581 ne porte ni la hauteur limite, ni le péage, ni les horaires de fermeture. La hauteur relève d'un autre type d'objet, le péage de la couche 45."
+      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp ». PUBLIÉ le 10/09/2026 : 134 tunnels retenus sur 1289, 58 Ko. Critères appliqués : longueur d'au moins 3 000 m (122), sous-marin (40), restriction sur les marchandises dangereuses (4) — les critères se recoupent. Le plus long est Lærdalstunnelen, 24 500 m, suivi de Ryfylke, Gudvanga et Folgefonn. TROIS CRITÈRES VALIDÉS N'ONT PAS PU ÊTRE APPLIQUÉS : le type 581 ne porte ni la hauteur limite, ni le péage, ni les horaires de fermeture. La hauteur relève d'un autre type d'objet, le péage de la couche 45. COMPLÉTÉ le 12/09/2026 : 375 ouvrages — 134 norvégiens, 187 suédois, 54 finlandais. APPORT DÉCISIF DES SOURCES OSM : elles portent la hauteur maximale, que le type NVDB 581 ne renseigne pas. 48 tunnels ont une hauteur limite connue : 17 sous 4,00 m, 4 sous 3,50 m, un seul sous 3,00 m — Arenavägen, 2,90 m. SEGMENTS REGROUPÉS : OSM découpe les tunnels en tronçons — Gärdestunneln en 12, Klaratunneln en 9. 312 segments ramenés à 94 ouvrages. Quand les tronçons donnent des hauteurs différentes, LA PLUS BASSE est retenue : elle décide du passage, une moyenne serait dangereuse. HAUTEUR DU FOURGON : 3,20 m hors tout, relevée le 12/09/2026. Chaque tunnel à hauteur connue porte les propriétés « franchissable » et « marge_cm » ; en dessous de 30 cm de marge, « vigilance » est posée. Deux tunnels sont infranchissables, tous deux à Stockholm : Arenavägen 2,90 m et Klaratunneln 3,00 m. Deux autres passent à 20 cm près, à 3,40 m. RÉSERVE : 327 des 375 tunnels ne renseignent pas leur hauteur. Une absence de donnée n'est pas une autorisation de passer."
     },
     {
       "id": "pois",

@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.16",
-    "genere_le": "2026-09-10T21:40:00+02:00",
+    "version": "1.17",
+    "genere_le": "2026-09-10T22:05:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -239,18 +239,18 @@
       "remplace": "POIs (Islande)",
       "nature": "permanente",
       "rafraichir_avant_depart": false,
-      "fichier": "sources/pois.geojson",
-      "source": null,
-      "licence": null,
-      "collecte_le": null,
+      "fichier": "sources/pois.geojson, sources/refuges.geojson, sources/zones-protegees.geojson",
+      "source": "OpenStreetMap via Overpass, extraction du 10 septembre 2026, 26 types d'objets par pays.",
+      "licence": "ODbL — attribution obligatoire, propagation aux données dérivées.",
+      "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Arrêter la liste des catégories, puis extraire par catégorie.",
+      "prochaine_action": "Reprendre les contours de parcs nationaux (voir questions ouvertes). Les incontournables restent un choix personnel, hors extraction.",
       "etats": {
-        "no": "a-faire",
-        "se": "a-faire",
-        "fi": "a-faire"
+        "no": "publiee-github",
+        "se": "publiee-github",
+        "fi": "publiee-github"
       },
-      "notes": "Le plus gros volume du module. Les catégories islandaises se transposent en partie ; « 100 incontournables » relève d'un choix personnel, pas d'une extraction."
+      "notes": "Le plus gros volume du module. Les catégories islandaises se transposent en partie ; « 100 incontournables » relève d'un choix personnel, pas d'une extraction. PUBLIÉ le 10/09/2026 en TROIS FICHIERS : 79 610 éléments extraits, 44 042 retenus, découpés par usage — pois.geojson 21 858 entités (nature, patrimoine, panorama, faune), refuges.geojson 10 813, zones-protegees.geojson 11 371. DEUX CATÉGORIES ABANDONNÉES après profilage : « eau chaude », une seule source chaude dans toute la Norvège — bains, baignades et saunas renseignés versés dans « nature » ; et les belvédères des routes touristiques norvégiennes, dont l'étiquette espérée n'est pas employée dans OSM — restent des points de vue ordinaires, nommés seulement. RÈGLE DE FILTRAGE : ce qui n'a pas de nom n'est gardé que si sa seule présence renseigne. Les 10 813 abris sont tous conservés, nommés ou non ; les 10 393 plages sans nom sont écartées. Les zones protégées sont des CENTROÏDES de réserves, pas des contours : l'infobulle du module 3 le rappelle. Écartés notamment : 10 393 plages, 5 992 points de vue, 4 570 sites archéologiques et 3 169 mines, tous sans nom."
     },
     {
       "id": "blocs-itineraire",

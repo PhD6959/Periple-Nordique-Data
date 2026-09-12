@@ -123,7 +123,7 @@ Données dérivées d'**OpenStreetMap**, extraites le 10 septembre 2026 via l'AP
 > © les contributeurs OpenStreetMap, sous licence **ODbL**.
 
 **Cette couche est publiée sous ODbL**, la licence se propageant aux données dérivées.
-Elle et la couche des aires de camping-car sont les seules du dépôt dans ce cas : les autres restent sous NLOD ou CC BY 4.0. Toute
+Cette couche, celle des aires de camping-car et les trois couches de points d'intérêt sont sous ODbL : les autres restent sous NLOD ou CC BY 4.0. Toute
 réutilisation de ce fichier est donc soumise à l'ODbL, y compris l'obligation de partager
 à l'identique les travaux qui en dériveraient.
 
@@ -136,6 +136,18 @@ Données dérivées d'**OpenStreetMap**, extraites le 10 septembre 2026 via l'AP
 > © les contributeurs OpenStreetMap, sous licence **ODbL**.
 
 Publiée sous ODbL, comme la couche des services.
+
+### `sources/pois.geojson`, `sources/refuges.geojson`, `sources/zones-protegees.geojson`
+
+Données dérivées d'**OpenStreetMap**, extraites le 10 septembre 2026 via l'API Overpass
+(26 types d'objets : cascades, points de vue, plages, glaciers, grottes, parcs nationaux,
+réserves, bains, sites archéologiques, pierres runiques, musées, mines, églises,
+observatoires ornithologiques, cabanes et abris).
+
+> © les contributeurs OpenStreetMap, sous licence **ODbL**.
+
+Les zones protégées sont des centroïdes de réserves, non des contours : le point signale
+l'existence de la zone, pas ses limites.
 
 ### Transformations appliquées
 

@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.36",
-    "genere_le": "2026-09-12T21:00:00+02:00",
+    "version": "1.37",
+    "genere_le": "2026-09-12T21:20:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -388,12 +388,12 @@
         "se": "source-identifiee",
         "fi": "publiee-github"
       },
-      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai. Pistes relevées : le type « Situation » de l'Öppet API suédois comporte une catégorie Bärighetsnedsättning (restriction de portance) ; côté finlandais, Digiroad expose une couche « Ajoneuvokohtainen rajoitus » (restriction par véhicule) en WFS ouvert. Confirmé le 10/09/2026 : la couche kelirikko existe bien au WFS Digiroad, extraction lancée en même temps que les cols. Extraction du 10/09 : 5000 entités récupérées, soit exactement le plafond demandé — le jeu est probablement tronqué, comptage réel à faire avant conversion. PUBLIÉ le 10/09/2026 : 15 296 entités, 5808 Ko, filtrées sur le PTAC de 3 500 kg à partir des 163 225 tronçons du jeu complet. Répartition des limites : 13 009 à 3 000 kg, 2 000 kg pour 1 053, 3 500 kg pour 856, le reste sous 2 500 kg. DEUX RÉSERVES : 52 entités portent une limite de 0 kg, valeur qui n'a pas de sens et qu'il faut traiter comme inconnue ; les 856 entités à 3 500 kg correspondent exactement au PTAC du fourgon, donc à la limite et non au-dessous. 10 113 entités portent une période, 5 183 n'en portent pas. Poids du fichier dû au nombre d'entités et non à la densité des tracés : simplifier davantage ne donnerait rien.",
+      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai. Pistes relevées : le type « Situation » de l'Öppet API suédois comporte une catégorie Bärighetsnedsättning (restriction de portance) ; côté finlandais, Digiroad expose une couche « Ajoneuvokohtainen rajoitus » (restriction par véhicule) en WFS ouvert. Confirmé le 10/09/2026 : la couche kelirikko existe bien au WFS Digiroad, extraction lancée en même temps que les cols. Extraction du 10/09 : 5000 entités récupérées, soit exactement le plafond demandé — le jeu est probablement tronqué, comptage réel à faire avant conversion. PUBLIÉ le 10/09/2026 : 15 296 entités, 5808 Ko, filtrées sur le PTAC de 3 500 kg à partir des 163 225 tronçons du jeu complet. Répartition des limites : 13 009 à 3 000 kg, 2 000 kg pour 1 053, 3 500 kg pour 856, le reste sous 2 500 kg. DEUX RÉSERVES : 52 entités portent une limite de 0 kg, valeur qui n'a pas de sens et qu'il faut traiter comme inconnue ; les 856 entités à 3 500 kg correspondent exactement au PTAC du fourgon, donc à la limite et non au-dessous. 10 113 entités portent une période, 5 183 n'en portent pas. Poids du fichier dû au nombre d'entités et non à la densité des tracés : simplifier davantage ne donnerait rien. LECTURE DE LA VALEUR, établie le 12/09/2026 : le panneau finlandais C24 indique la masse maximale AUTORISÉE — à 3 500 kg, un véhicule de 3 500 kg passe. Mais il vise la MASSE RÉELLE, chargement compris, et non le PTAC de la carte grise. Avec 2 945 kg à vide et 555 kg de charge utile, le passage sur les 856 tronçons à 3 500 kg se joue sur le chargement effectif. Le panneau ne peut par ailleurs être affiché que tant que dure l'affaiblissement de la chaussée : une restriction présente dans les données n'est pas forcément en vigueur au passage.",
       "verification": {
         "scripts": "03-etape5-extraction-conversion.sh, couche Digiroad dr_kelirikko.",
         "attendu": "15 296 tronçons à 3 500 kg ou moins, sur 163 225 au total.",
         "saisonnier": "OUI, et c'est le plus tardif : les restrictions finlandaises se publient en mars ou avril selon la fonte.",
-        "a_verifier": "Que le champ des dates porte la période 2027. Côté suédois, interroger l'Öppet API sur Situation, MessageCode « Bärighetsnedsättning » — absent en septembre 2026, présent en saison."
+        "a_verifier": "Que le champ des dates porte la période 2027. Côté suédois, interroger l'Öppet API sur Situation, MessageCode « Bärighetsnedsättning » — absent en septembre 2026, présent en saison. Les valeurs sont des masses RÉELLES autorisées, pas des PTAC : le filtre à 3 500 kg retient donc ce qui concerne un fourgon chargé au maximum."
       }
     },
     {
@@ -605,11 +605,13 @@
     {
       "id": "kelirikko-3500",
       "titre": "856 restrictions finlandaises à exactement 3 500 kg",
-      "priorite": "moyenne",
-      "pour": "philippe",
+      "priorite": "basse",
+      "pour": "claude",
       "constat": "Le PTAC du fourgon est de 3 500 kg : ces tronçons sont à la limite, pas au-dessous.",
-      "a_creuser": "Une limite de 3,5 t s'entend-elle inclusivement en Finlande ?",
-      "consequence": "Décide si ces 856 tronçons sont praticables ou non."
+      "a_creuser": "Rien sur l'interprétation. Reste la question pratique : connaître la masse réelle du fourgon chargé. Voir aussi la rubrique restrictions-degel et son protocole de vérification — les dates 2027 ne seront connues qu'au printemps.",
+      "consequence": "Décide si ces 856 tronçons sont praticables ou non.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "DEUX RÉPONSES, dont la seconde compte davantage que la première.\n1. LA VALEUR EST INCLUSIVE. Le panneau finlandais C24 « ajoneuvon suurin sallittu massa » indique la masse maximale AUTORISÉE : à 3 500 kg, 3 500 kg passe. Les 856 tronçons ne sont donc pas bloquants de ce fait.\n2. MAIS LE PANNEAU NE VISE PAS LE PTAC, IL VISE LA MASSE RÉELLE. Le texte est explicite : le panneau porte sur la masse réelle du véhicule, chargé ou non, et la masse maximale portée sur la carte grise n'entre pas en ligne de compte pour savoir si l'on peut emprunter la section restreinte. Ce qui est pesé, c'est ce que pèse le fourgon à cet instant, chargement compris.\nCONSÉQUENCE PRATIQUE. Masse en ordre de marche 2 945 kg, charge utile 555 kg. En configuration de voyage — deux personnes, eau, gaz, vivres, matériel photo, équipement de 162 jours — la masse réelle approchera le PTAC. Sur les 856 tronçons à 3 500 kg, le passage se joue donc sur le chargement effectif, pas sur un document. Un passage sur bascule avant le départ, en configuration réelle, vaut mieux qu'une estimation — le dossier pratique le recommandait déjà pour une autre raison, la surcharge étant contrôlée dans les pays nordiques.\nAUTRE POINT ÉTABLI : le panneau de dégel ne peut être affiché que tant que dure l'affaiblissement de la chaussée. Une restriction relevée dans les données n'est pas nécessairement en vigueur au moment du passage."
     },
     {
       "id": "affichage-volumineux",

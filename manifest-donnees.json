@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.32",
-    "genere_le": "2026-09-12T18:30:00+02:00",
+    "version": "1.33",
+    "genere_le": "2026-09-12T18:50:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -874,5 +874,81 @@
       "Un champ attendu absent : le schéma a évolué. Les scripts de profil le montrent, les scripts de conversion non — relancer le profil avant la conversion."
     ],
     "regle": "Ne jamais publier une couche dont le rapport de conversion n'a pas été lu. Chaque script produit un rapport qui dit les volumes, les écarts et les anomalies. C'est ce rapport qui décide, pas l'absence de message d'erreur."
+  },
+  "conventions_de_travail": {
+    "libelle": "Conventions de documentation et de travail",
+    "etabli_le": "2026-09-12",
+    "raison": "Le 12 septembre 2026, le constat a été fait qu'une grande partie du savoir accumulé ne vivait que dans les en-têtes de fichiers, dispersés, ou dans la mémoire d'une session de travail — qui ne survit pas. Trente et un scripts de collecte n'étaient ni versionnés ni sauvegardés, et le protocole de vérification avant départ les désignait par des noms de fichiers que rien ne garantissait. Ce qui n'est pas écrit dans un dépôt est perdu.",
+    "regle": "TOUT DÉVELOPPEMENT NOUVEAU SE DOCUMENTE AU MOMENT OÙ IL EST FAIT, pas après. Un livrable non documenté n'est pas terminé. La documentation n'est pas un supplément : c'est ce qui rend le travail rejouable dans six mois par quelqu'un — moi compris — qui aura tout oublié.",
+    "a_documenter_selon_le_cas": [
+      {
+        "cas": "Nouveau script de collecte ou de conversion",
+        "ou": [
+          "Bandeau en tête du script : ce qu'il fait, la source, ce qui a été constaté, ce qui reste incertain, comment le lancer",
+          "Une ligne dans outils/README.md du dépôt de données, dans la section du pays ou de la source",
+          "Les pièges rencontrés dans la section « Pièges » de cette même source",
+          "Le script lui-même versé dans outils/, jamais laissé dans le dossier de travail"
+        ]
+      },
+      {
+        "cas": "Nouvelle couche de données publiée",
+        "ou": [
+          "Une rubrique au manifeste : source, licence, date de collecte, volume, pièges évités, réserves",
+          "Un bloc « verification » dans cette rubrique : scripts à rejouer, volume attendu, ce qu'il faut contrôler",
+          "Une section au README du dépôt de données si la licence est nouvelle",
+          "Une entrée dans la table LAYERS du module 3 et les libellés dans les six langues"
+        ]
+      },
+      {
+        "cas": "Révision d'un module applicatif",
+        "ou": [
+          "Journal des changements dans le bandeau en tête du module",
+          "Version incrémentée aux trois endroits : nom du fichier, bandeau, constante VERSION",
+          "outils/generer-listes.sh lancé, pour que le service worker et le menu suivent",
+          "README du dépôt applicatif si un écart de conception change"
+        ]
+      },
+      {
+        "cas": "Changement de structure interne d'un module météo",
+        "ou": [
+          "docs/modules-meteo.md du dépôt applicatif : la structure touchée, le motif, ce qui reste incertain"
+        ]
+      },
+      {
+        "cas": "Nouvelle source de données interrogée",
+        "ou": [
+          "Rubrique sources_api du manifeste : point d'accès, forme des requêtes, licence, types vérifiés avec leur version",
+          "Ce qui a induit en erreur, explicitement — une documentation tierce périmée coûte des heures"
+        ]
+      },
+      {
+        "cas": "Décision, arbitrage, ou renoncement",
+        "ou": [
+          "Question ouverte au manifeste, avec le constat, ce qui a été essayé, ce qui ne l'a pas été, et la conséquence",
+          "Un renoncement se documente aussi soigneusement qu'une réussite : sans quoi la reprise refait les mêmes tentatives"
+        ]
+      }
+    ],
+    "carte_de_la_documentation": {
+      "Periple-Nordique-Data/manifest-donnees.json": "Source de vérité des données : rubriques, états par pays, questions ouvertes, protocole de vérification, sources API, profil du véhicule, ces conventions.",
+      "Periple-Nordique-Data/README.md": "Licences et attributions, source par source. Transformations appliquées.",
+      "Periple-Nordique-Data/outils/README.md": "Catalogue des scripts, par source. Pièges de chaque API. Ce qui a échoué et pourquoi.",
+      "Periple-Nordique-Data/outils/*.sh": "Les scripts eux-mêmes, chacun avec son bandeau.",
+      "Periple-Nordique-Data/docs/doc-module-03-nsf-suivi.html": "Document de suivi, ENGENDRÉ du manifeste. Ne jamais l'éditer à la main.",
+      "Periple-Nordique/README.md": "Architecture de l'application, écarts de chaque module avec son aîné islandais, coquille PWA, conventions, procédures de mise à jour.",
+      "Periple-Nordique/docs/modules-meteo.md": "Structures internes des modules météo : pays, Excel, endpoints, consensus, traductions.",
+      "Periple-Nordique/outils/generer-listes.sh": "Tient à jour les deux listes de fichiers. À lancer après chaque révision de module.",
+      "en-têtes des fichiers de modules": "Version, aîné islandais, écarts, journal des changements. Première chose à lire avant de modifier."
+    },
+    "ce_qui_ne_doit_jamais_entrer_dans_un_depot": [
+      "La clé de l'API suédoise : lue dans ~/.trafikverket-key, chmod 600.",
+      "Les extractions brutes : reproductibles en relançant un script, des centaines de mégaoctets.",
+      "Deux versions d'un même module : la version remplacée est supprimée au moment où la nouvelle est déposée."
+    ],
+    "sauvegarde": {
+      "commande": "rclone copy \"/Users/philippedestine/Documents/Projets\" \"dropbox:Norvège Suède Finlande Sauvegarde développement IA\" --exclude \".DS_Store\" --exclude \"**/.DS_Store\" --exclude \"_travail-module-03/_*/**\" -P",
+      "portee": "Les deux dépôts avec leur historique Git, et les scripts présents dans le dossier de travail. Exclus : les sous-dossiers de données brutes du dossier de travail, dont le nom commence par un tiret bas.",
+      "attention": "L'exclusion initiale portait sur le dossier de travail entier, ce qui laissait trente et un scripts sans sauvegarde. Corrigée le 12/09/2026. Toute nouvelle exclusion doit être examinée sous cet angle : qu'est-ce qu'elle emporte qui ne se reproduit pas ?"
+    }
   }
 }

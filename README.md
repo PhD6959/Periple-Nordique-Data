@@ -186,6 +186,18 @@ La propriété `source` de chaque entité indique laquelle s'applique.
 > Lähde: Väylävirasto / latauspalvelu, lisenssi **CC 4.0 BY** — pour les entités finlandaises.
 > Contient des données de Statens vegvesen sous **NLOD** — pour les entités norvégiennes.
 
+### `sources/zones-protegees-fi.geojson`
+
+Zones protégées finlandaises avec leurs contours, extraites le 12 septembre 2026 du
+GeoServer de **SYKE** (couche `inspire_ps:PS.ProtectedSitesValtionOmistamaLuonnonsuojelualue`).
+
+> Lähde: SYKE / paikkatiedot.ymparisto.fi, lisenssi **CC BY 4.0**.
+
+Contours simplifiés avec une tolérance proportionnelle à la taille de chaque zone —
+de 9 m pour une réserve d'un hectare à 270 m pour un parc de 285 000 ha. Aucun contour
+principal n'est approché ; la propriété `anneaux_approches` signale les îlots satellites
+dont le tracé a été remplacé par son enveloppe.
+
 ### Transformations appliquées
 
 Les fichiers publiés ne sont pas les données sources telles quelles. Ont été appliqués :

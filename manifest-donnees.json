@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.22",
-    "genere_le": "2026-09-12T15:00:00+02:00",
+    "version": "1.24",
+    "genere_le": "2026-09-12T16:30:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -440,6 +440,27 @@
         "fi": "sans-objet"
       },
       "notes": "PUBLIÉ le 12/09/2026 : 69 484 barrières (21 398 Ko), 180 liaisons de bacs, 321 aires de repos. BARRIÈRES : 65 747 sont verrouillées, soit 95 % — proportion voisine des 94 % norvégiens. Filtrées sur la nature de l'obstacle : retenus les barrières verrouillées, portails non ouvrables et barrières souples ; écartés pollards, blocs de béton, obstacles de voirie urbaine. Le type suédois ne porte pas la catégorie de voie, contrairement au norvégien : pas de filtrage possible de ce côté. AIRES DE REPOS : 211 avec vidange de toilettes chimiques et 304 avec toilettes, sur 321. Mieux renseignées que ce qu'OpenStreetMap donne, avec places voiture et poids lourd, tables, aire de jeu, gestionnaire. IDENTIFIANTS : la base est à positionnement linéaire. L'identité d'une entité tient à Feature_Oid, Element_Id ET la position sur le tronçon ; trois passes ont été nécessaires pour l'établir. Quatre cas résiduels ont été tranchés sur la distance : deux occurrences à moins de 50 m sont un doublon, au-delà ce sont deux objets — Förkärla Ö en comptait deux à 165 km l'un de l'autre."
+    },
+    {
+      "id": "zones-protegees-contours",
+      "ordre": 16,
+      "libelle": "Zones protégées — contours",
+      "description": "Limites réelles des zones protégées, par opposition aux centroïdes. C'est aux limites que les règles de circulation changent.",
+      "remplace": null,
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/zones-protegees-fi.geojson",
+      "source": "FI : SYKE, GeoServer paikkatiedot.ymparisto.fi, couche inspire_ps:PS.ProtectedSitesValtionOmistamaLuonnonsuojelualue. Extraction du 12 septembre 2026.",
+      "licence": "FI : CC BY 4.0 (Väylävirasto / SYKE).",
+      "collecte_le": "2026-09-12",
+      "qui": "claude",
+      "prochaine_action": "Norvège : voir la question ouverte « zones-protegees-no ». Suède : les 11 371 centroïdes d'OpenStreetMap couvrent le besoin, les contours restent souhaitables.",
+      "etats": {
+        "no": "a-faire",
+        "se": "traite-par-lien",
+        "fi": "publiee-github"
+      },
+      "notes": "PUBLIÉ le 12/09/2026 : 1 091 zones finlandaises avec leurs CONTOURS RÉELS, dont les 42 parcs nationaux, avec catégorie UICN, surface et lien vers la fiche. Répartition UICN : 847 en IV, 168 en Ib, 41 en II, 20 en Ia. SIMPLIFICATION : 101 Mo ramenés à 3,9 Mo, soit 4,5 % des points conservés, sans perdre une seule entité. La tolérance est PROPORTIONNELLE À LA TAILLE — 270 m pour un parc de 285 000 ha, 9 m pour une réserve d'un hectare. Une tolérance unique de 90 m effaçait 96 zones sur 1 091. MARQUAGE : « contour_approche » ne vaut que si le contour PRINCIPAL est approché — aucun ne l'est. « anneaux_approches » donne le détail : Lemmenjoki porte « 1 sur 25 », un îlot satellite sur vingt-cinq. Un premier marquage, posé dès qu'un anneau quelconque était approché, désignait 120 entités dont Lemmenjoki et sa surface de 285 791 ha : le contrôle par comparaison des surfaces médianes l'a invalidé."
     }
   ],
   "questions_ouvertes": [
@@ -571,6 +592,15 @@
       "constat": "Deux tentatives d'extraction ont échoué le 10/09/2026. Première passe : requête unique sur les trois zones, 32 parcs seulement et une répartition par pays fausse — 2 en Norvège. Seconde passe, pays par pays : 55 objets lus en Norvège pour 5 contours obtenus, 47 en Suède pour 5, réponse finlandaise illisible. Les fichiers par pays se mélangeaient : Gutulia et Fulufjellet, parcs norvégiens, apparaissaient aussi dans le lot suédois avec des contours identiques. Deux parcs du Svalbard figuraient dans le lot norvégien.",
       "a_creuser": "Pourquoi la géométrie des relations multipolygones ne revient pas, et pourquoi le filtre de zone n'opère pas sur ces objets. Pistes non essayées : demander les membres explicitement, passer par le service de contours administratifs plutôt que par Overpass, ou récupérer les limites depuis les portails nationaux — Miljødirektoratet, Naturvårdsverket, Metsähallitus, qui publient tous des données ouvertes.",
       "consequence": "Les 238 parcs nationaux sont présents comme points dans pois.geojson : leur existence est signalée, pas leur étendue. Pour un parc de plusieurs centaines de kilomètres carrés, savoir où commencent ses limites a une valeur pratique — c'est là que des règles de circulation particulières s'appliquent."
+    },
+    {
+      "id": "zones-protegees-no",
+      "titre": "Zones protégées norvégiennes — contours",
+      "priorite": "moyenne",
+      "pour": "claude",
+      "constat": "Le service Naturvernområder de Miljødirektoratet expose six couches. Les deux qui portent les zones — naturvern_omrade et naturvern_klasser_omrade — répondent « Application Error : Could not access any server machines » alors que les autres couches du MÊME service fonctionnent. Panne partielle et persistante côté serveur, constatée deux fois le 12/09/2026 à plusieurs minutes d'intervalle, et non une erreur de requête. Repli examiné : la couche 3, naturvern_grense, répond et compte 27 735 LineString. Mais ce sont des segments de limite SANS NOM ni rattachement à la zone qu'ils bordent : on saurait qu'une limite passe là, sans savoir de quelle zone. Écarté d'un commun accord : une information dégradée à ce point ne vaut pas 27 735 entités.",
+      "a_creuser": "Réessayer le service de Miljødirektoratet, la panne pouvant se résoudre d'elle-même. Sinon : chercher chez Geonorge, dont wfs.naturvernomrader était indisponible au même moment ; ou le téléchargement direct de Naturbase, que je n'ai pas exploré ; ou vérifier si les limites de la couche 3 portent un rattachement dans des champs que l'échantillon de 200 ne montrait pas.",
+      "consequence": "La Finlande a ses 1 091 zones avec contours, dont 42 parcs nationaux. La Suède a 11 371 centroïdes de réserves tirés d'OpenStreetMap, sans contours. La Norvège n'a RIEN : ni contour ni centroïde. C'est le pays où la question de l'accès en zone protégée se pose le plus — l'arrêté du Finnmark, la règle de l'utmark."
     }
   ],
   "sources_api": {

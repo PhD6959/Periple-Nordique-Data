@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.24",
-    "genere_le": "2026-09-12T16:30:00+02:00",
+    "version": "1.26",
+    "genere_le": "2026-09-12T17:10:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -139,7 +139,7 @@
       "licence": "NO : NLOD. SE et FI : ODbL. La propriété « source » indique l'origine de chaque entité.",
       "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Intégrer la couche au module 3, puis recette. Côté SE, extraire depuis l'Öppet API une fois la clé créée. Côté FI, chercher hors Digiroad.",
+      "prochaine_action": "Recette. Les trois pays sont couverts ; la Suède et la Finlande ont été obtenues par OpenStreetMap, sans la clé Trafikverket.",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
@@ -160,7 +160,7 @@
       "licence": "NO : NLOD (Statens vegvesen). SE et FI : ODbL (OpenStreetMap). La couche relève des deux : la propriété « source » de chaque entité indique laquelle.",
       "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Intégrer au module 3, puis recette. Trouver les sources suédoise et finlandaise.",
+      "prochaine_action": "Recette. Les trois pays sont couverts. Les tables horaires suédoises de FerryRoute, valables jusqu'en 2029, restent à exploiter — voir sources_api.",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
@@ -181,7 +181,7 @@
       "licence": "ODbL — attribution obligatoire et propagation aux données dérivées. Première couche du dépôt sous cette licence.",
       "collecte_le": "2026-09-10",
       "qui": "claude",
-      "prochaine_action": "Ajouter la couche à la table du module 3 et faire la recette.",
+      "prochaine_action": "Recette sur le terrain. Les 82 % d'enseignes rattachées peuvent être affinés, le libellé d'origine étant conservé sur chaque entité.",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
@@ -244,7 +244,7 @@
       "licence": "ODbL — attribution obligatoire, propagation aux données dérivées.",
       "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Reprendre les contours de parcs nationaux (voir questions ouvertes). Les incontournables restent un choix personnel, hors extraction.",
+      "prochaine_action": "Les incontournables restent un choix personnel, hors extraction. Les belvédères des routes touristiques norvégiennes n'ont pas de source identifiée.",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
@@ -265,7 +265,7 @@
       "licence": "interne",
       "collecte_le": "2026-09-10",
       "qui": "les-deux",
-      "prochaine_action": "Produire les tracés de tronçons, si l'on en veut : soit depuis des traces GPX, soit par calcul d'itinéraire. Le module 3 sait déjà importer des GPX, ce qui peut suffire.",
+      "prochaine_action": "Voir la question ouverte « troncons-blocs ».",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
@@ -286,7 +286,7 @@
       "licence": "interne",
       "collecte_le": "2026-09-09",
       "qui": "claude",
-      "prochaine_action": "Décliner le fichier des modules 02 et 05 pour le module 03, avec le chemin de chargement propre à ce module.",
+      "prochaine_action": "Aucun fichier Excel pour le module 03 : il lit les favoris depuis le stockage partagé nsf:favorites, alimenté par les modules 02, 04 et 05. Décision du 10/09/2026, la ligne correspondante a été retirée du service worker.",
       "etats": {
         "no": "donnees-collectees",
         "se": "donnees-collectees",
@@ -412,7 +412,7 @@
       "licence": "NO : NLOD. SE : CC0. FI : CC BY 4.0. La propriété « source » de chaque entité — NVDB, TRV ou VAYLA — indique laquelle s'applique.",
       "collecte_le": "2026-09-12",
       "qui": "claude",
-      "prochaine_action": "Recette sur le terrain. Le panneau à l'entrée reste la référence.",
+      "prochaine_action": "Recette sur le terrain. Le panneau à l'entrée reste la référence. Voir aussi « Høydehinder » dans la question « hauteur-tunnels ».",
       "etats": {
         "no": "publiee-github",
         "se": "publiee-github",
@@ -433,7 +433,7 @@
       "licence": "CC0",
       "collecte_le": "2026-09-12",
       "qui": "claude",
-      "prochaine_action": "Éprouver les 69 484 barrières sur iPad. La couche norvégienne, 18 110 points, s'affiche sans peine ; rien ne dit que la charge croisse linéairement.",
+      "prochaine_action": "Éprouvé sur iPad le 12/09/2026 : les 69 484 barrières s'affichent instantanément. La question du volume est close pour ce module.",
       "etats": {
         "no": "sans-objet",
         "se": "publiee-github",
@@ -527,11 +527,13 @@
     {
       "id": "sources-fi-manquantes",
       "titre": "Sources finlandaises pour cols et ferries",
-      "priorite": "moyenne",
+      "priorite": "basse",
       "pour": "claude",
       "constat": "Aucune couche de bac ni de fermeture saisonnière parmi les 46 couches Digiroad.",
       "a_creuser": "Chercher hors Digiroad. Ne pas conclure au « sans objet » sans avoir cherché.",
-      "consequence": "Deux rubriques bloquées côté finlandais."
+      "consequence": "Deux rubriques bloquées côté finlandais.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "FERRIES : 931 entités finlandaises obtenues par OpenStreetMap le 12/09/2026, avec opérateur, durée de traversée et horaires — Finferries apparaît partout. Digiroad n'expose effectivement aucune couche de bac. COLS : confirmé, la Finlande n'en a aucun au sens norvégien. L'équivalent local est la route non déneigée : 88 entités publiées."
     },
     {
       "id": "cle-suede",
@@ -547,20 +549,24 @@
     {
       "id": "hauteur-tunnels",
       "titre": "Limitations de hauteur",
-      "priorite": "moyenne",
+      "priorite": "basse",
       "pour": "claude",
       "constat": "Le type NVDB 581 ne porte pas la hauteur limite : le critère validé n'a pas pu être appliqué.",
-      "a_creuser": "Identifier le type d'objet NVDB portant les limitations de hauteur, et la couche équivalente en Suède et en Finlande — Digiroad expose dr_max_korkeus.",
-      "consequence": "Critère de sécurité pour un fourgon aménagé."
+      "a_creuser": "Le type norvégien « Høydehinder » désigne l'obstacle PHYSIQUE placé au-dessus de la chaussée devant tunnels et passages inférieurs — un portique de gabarit. Distinct du 591, non extrait, et potentiellement contraignant.",
+      "consequence": "Critère de sécurité pour un fourgon aménagé.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "Résolu pour les trois pays, mais pas là où je la cherchais : la hauteur n'est pas portée par le type Tunnel. NO : vegobjekttype 591 « Høydebegrensning », 4 715 entités. SE : Höjdhinder_upp_till_45_dm, 2 189 entités. FI : Digiroad dr_max_korkeus, 5 794 entités. Couche publiée le 12/09/2026 : 12 698 hauteurs, dont 2 634 infranchissables à 3,20 m."
     },
     {
       "id": "blocs-itineraire",
       "titre": "Tracés des blocs d'itinéraire 2027",
-      "priorite": "moyenne",
+      "priorite": "basse",
       "pour": "les-deux",
       "constat": "Seule rubrique dont la source est interne et déjà disponible, mais les tracés restent à produire.",
-      "a_creuser": "Correspondance entre les blocs du plan 2027 et les fichiers à produire.",
-      "consequence": "Rubrique 7."
+      "a_creuser": "Les tracés de tronçons font l'objet de la question « troncons-blocs ».",
+      "consequence": "Rubrique 7.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "Les seize blocs sont publiés comme marqueurs le 12/09/2026, avec dates, contenu et étape, et affichés par défaut dans le module 3. Un fichier unique et non un par bloc : à ce volume, seize requêtes n'apportaient rien. Les ancrages sont un choix, pas une donnée, et le profil des latitudes en valide la cohérence — montée du bloc 1 au bloc 12, sommet à Vardø, puis redescente."
     },
     {
       "id": "module-3-app",
@@ -587,11 +593,13 @@
     {
       "id": "contours-parcs",
       "titre": "Contours des parcs nationaux",
-      "priorite": "moyenne",
+      "priorite": "basse",
       "pour": "claude",
       "constat": "Deux tentatives d'extraction ont échoué le 10/09/2026. Première passe : requête unique sur les trois zones, 32 parcs seulement et une répartition par pays fausse — 2 en Norvège. Seconde passe, pays par pays : 55 objets lus en Norvège pour 5 contours obtenus, 47 en Suède pour 5, réponse finlandaise illisible. Les fichiers par pays se mélangeaient : Gutulia et Fulufjellet, parcs norvégiens, apparaissaient aussi dans le lot suédois avec des contours identiques. Deux parcs du Svalbard figuraient dans le lot norvégien.",
-      "a_creuser": "Pourquoi la géométrie des relations multipolygones ne revient pas, et pourquoi le filtre de zone n'opère pas sur ces objets. Pistes non essayées : demander les membres explicitement, passer par le service de contours administratifs plutôt que par Overpass, ou récupérer les limites depuis les portails nationaux — Miljødirektoratet, Naturvårdsverket, Metsähallitus, qui publient tous des données ouvertes.",
-      "consequence": "Les 238 parcs nationaux sont présents comme points dans pois.geojson : leur existence est signalée, pas leur étendue. Pour un parc de plusieurs centaines de kilomètres carrés, savoir où commencent ses limites a une valeur pratique — c'est là que des règles de circulation particulières s'appliquent."
+      "a_creuser": "Voir « zones-protegees-no ».",
+      "consequence": "Les 238 parcs nationaux sont présents comme points dans pois.geojson : leur existence est signalée, pas leur étendue. Pour un parc de plusieurs centaines de kilomètres carrés, savoir où commencent ses limites a une valeur pratique — c'est là que des règles de circulation particulières s'appliquent.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "Repris et scindé. FINLANDE : 1 091 zones protégées publiées le 12/09/2026 avec leurs contours réels, dont les 42 parcs nationaux, depuis le GeoServer de SYKE. NORVÈGE : le service de Miljødirektoratet est en panne sur les couches qui portent les zones — voir la question « zones-protegees-no », qui prend la suite. SUÈDE : quatre adresses éprouvées, toutes fermées ; les 11 371 centroïdes d'OpenStreetMap couvrent le besoin sans les contours. Les tentatives par Overpass sont abandonnées : les portails nationaux sont la bonne voie."
     },
     {
       "id": "zones-protegees-no",
@@ -601,6 +609,42 @@
       "constat": "Le service Naturvernområder de Miljødirektoratet expose six couches. Les deux qui portent les zones — naturvern_omrade et naturvern_klasser_omrade — répondent « Application Error : Could not access any server machines » alors que les autres couches du MÊME service fonctionnent. Panne partielle et persistante côté serveur, constatée deux fois le 12/09/2026 à plusieurs minutes d'intervalle, et non une erreur de requête. Repli examiné : la couche 3, naturvern_grense, répond et compte 27 735 LineString. Mais ce sont des segments de limite SANS NOM ni rattachement à la zone qu'ils bordent : on saurait qu'une limite passe là, sans savoir de quelle zone. Écarté d'un commun accord : une information dégradée à ce point ne vaut pas 27 735 entités.",
       "a_creuser": "Réessayer le service de Miljødirektoratet, la panne pouvant se résoudre d'elle-même. Sinon : chercher chez Geonorge, dont wfs.naturvernomrader était indisponible au même moment ; ou le téléchargement direct de Naturbase, que je n'ai pas exploré ; ou vérifier si les limites de la couche 3 portent un rattachement dans des champs que l'échantillon de 200 ne montrait pas.",
       "consequence": "La Finlande a ses 1 091 zones avec contours, dont 42 parcs nationaux. La Suède a 11 371 centroïdes de réserves tirés d'OpenStreetMap, sans contours. La Norvège n'a RIEN : ni contour ni centroïde. C'est le pays où la question de l'accès en zone protégée se pose le plus — l'arrêté du Finnmark, la règle de l'utmark."
+    },
+    {
+      "id": "descriptions-menu",
+      "titre": "Descriptions des modules dans le menu",
+      "priorite": "basse",
+      "pour": "claude",
+      "constat": "config-menu.json porte pour chaque module un titre et une description en six langues. Celles des services officiels ont été refaites le 12/09/2026 à partir du module 06, qui porte le détail vérifié. Celles des modules 02, 04, 05 et 06 eux-mêmes restent sommaires — écrites à la volée lors de l'assemblage de la coquille.",
+      "a_creuser": "Les reprendre à partir des documentations de chaque module, dans les six langues. Purement cosmétique, sans effet sur le fonctionnement.",
+      "consequence": "Le tableau de bord dit moins que ce que les modules contiennent."
+    },
+    {
+      "id": "relecture-traductions",
+      "titre": "Relecture des traductions nordiques",
+      "priorite": "moyenne",
+      "pour": "philippe",
+      "constat": "Cinq modules, six langues. Les traductions norvégienne, suédoise, finnoise et allemande n'ont JAMAIS été relues par un locuteur. Elles sont de mon fait, et le module 04 comptait déjà 118 libellés signalés à relire lors de sa livraison.",
+      "a_creuser": "Faire relire, au moins les libellés d'interface et les avertissements — ceux qui portent une conséquence pratique, comme la mention des centroïdes ou celle des hauteurs.",
+      "consequence": "Une erreur de traduction sur un avertissement de sécurité serait plus grave qu'une maladresse de style."
+    },
+    {
+      "id": "portance-suedoise",
+      "titre": "Portance du réseau suédois — Bärighet",
+      "priorite": "moyenne",
+      "pour": "claude",
+      "constat": "Le type Bärighet de la base routière suédoise est accessible en schemaversion 1.2 et porte une classe de portance — BK 1 sur l'échantillon. Ces classes déterminent le tonnage admis et se dégradent au dégel. Écarté de l'extraction du 12/09/2026 pour deux raisons : je ne sais pas ce que valent exactement les classes suédoises, et le jeu couvre l'ensemble du réseau, donc un volume considérable.",
+      "a_creuser": "Établir ce que recouvrent BK 1, BK 2, BK 3 et BK 4 en tonnage, vérifier qu'un fourgon de 3,5 t est concerné — il ne l'est probablement pas — et n'extraire que si la réponse est utile.",
+      "consequence": "Sans elle, la couche des poids se limite aux 1 047 limitations ponctuelles, sans la portance du réseau lui-même."
+    },
+    {
+      "id": "troncons-blocs",
+      "titre": "Tracés entre les blocs d'itinéraire",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "constat": "Les seize blocs sont publiés comme MARQUEURS, un point d'ancrage par bloc. La carte montre les étapes du voyage, pas son parcours.",
+      "a_creuser": "Trois voies : des traces GPX si tu en as, un calcul d'itinéraire, ou rien — le module 3 sait déjà importer des GPX, ce qui peut suffire en cours de route.",
+      "consequence": "La carte montre où l'on s'arrête, pas comment on y va."
     }
   ],
   "sources_api": {

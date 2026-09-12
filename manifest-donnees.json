@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.29",
-    "genere_le": "2026-09-12T17:50:00+02:00",
+    "version": "1.30",
+    "genere_le": "2026-09-12T18:00:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -492,7 +492,7 @@
       "priorite": "basse",
       "pour": "claude",
       "constat": "Les péages norvégiens distinguent petit et gros véhicule, avec un rapport de 1 à 2,3 sur l'échantillon de Bergen.",
-      "a_creuser": "Classes de longueur des bacs norvégiens et tarifs correspondants, pour 6,64 m hors tout. Suède : redevance d'infrastructure sur les ponts de Motala et Sundsvall, taxe de congestion à Stockholm et Göteborg, prélevées par lecture de plaque — à vérifier pour un véhicule étranger. Finlande : aucun péage routier à ce jour, à confirmer avant le départ.",
+      "a_creuser": "Bornes exactes du groupe AP2 et tarifs par zone : établis par le tableau des tarifs du régulatif AutoPASS, que je n'ai pas encore lu. Mesurer la longueur réelle du fourgon chargé, porte-vélos et attelage compris — c'est elle qui est taxée, pas celle de la carte grise. Suède : redevance d'infrastructure sur les ponts de Motala et Sundsvall, taxe de congestion à Stockholm et Göteborg, prélevées par lecture de plaque — à vérifier pour un véhicule étranger. Finlande : aucun péage routier à ce jour, à confirmer avant le départ.",
       "consequence": "Change l'estimation du budget péages, la Norvège en étant truffée.",
       "statut": "traitée le 12/09/2026",
       "reponse": "NORVÈGE. Deux catégories seulement. La takstgruppe 1 couvre les véhicules dont le poids total autorisé est « inntil 3 500 kg » — jusqu'à 3 500 kg inclus. Le fourgon, à 3 500 kg de PTAC exactement, relève donc de la catégorie la moins chère, mais à la limite : un kilo de plus le ferait basculer en takstgruppe 2, sans rabais. RABAIS : 20 % sur tous les passages, à condition d'avoir un contrat AutoPASS valide ET un badge correctement posé. Sans badge, pas de rabais. Les véhicules de catégorie M1 au-delà de 3 500 kg — la plupart des camping-cars — peuvent rester en takstgruppe 1, mais seulement avec contrat et badge ; sans badge, ils sont taxés comme des camions. Cela ne concerne pas ce fourgon, qui est sous la limite. FERRIES NORVÉGIENS : le badge donne 10 % sur plus de 130 liaisons, et 40 à 50 % avec un contrat de prépaiement « AutoPASS for ferje forskuddsavtale ». MAIS le tarif des bacs se calcule sur la LONGUEUR du véhicule, pas sur son poids — c'est la donnée qui manque pour chiffrer. Règle horaire et plafond mensuel s'appliquent dans les installations qui les proposent, avec contrat et badge."
@@ -739,7 +739,7 @@
     "consequences": {
       "hauteurs": "La couche des hauteurs limitées a été calculée sur 3,20 m et non sur 3,12 m : 2 634 obstacles marqués infranchissables sur 12 698. Le filtre est donc plus sévère que la réalité, ce qui est le sens souhaitable de l'erreur. Les obstacles annoncés entre 3,12 et 3,20 m sont comptés comme bloquants alors qu'ils passeraient peut-être — à vérifier au panneau, jamais sur la donnée.",
       "peage_norvege": "PTAC de 3 500 kg : takstgruppe 1, la catégorie la moins chère, exactement à la limite. Rabais de 20 % sur les passages avec contrat AutoPASS et badge posé.",
-      "ferries_norvege": "Le tarif se calcule sur la LONGUEUR, pas sur le poids. 6,64 m hors tout. Les classes tarifaires des bacs norvégiens restent à établir — à vérifier avant le départ, notamment pour la Kystriksveien et ses six traversées.",
+      "ferries_norvege": "TARIFICATION À LA LONGUEUR. Le régulatif AutoPASS pour les bacs compte neuf groupes, AP1 à AP9, définis par intervalles de longueur, plus un groupe pour les motos. AP1 couvre les véhicules jusqu'à 6 mètres : à 6,64 m, le fourgon est AU-DESSUS et relève du groupe suivant. POINT CRITIQUE : la longueur retenue est la longueur TOTALE MESURÉE à quai ou à bord, charge comprise — et non celle de la carte grise. Un porte-vélos, un attelage, un coffre arrière s'ajoutent. La mesure au laser est en cours de déploiement, et la question a été portée devant le Storting par des transporteurs dont les véhicules, sous 6 m sur le papier, sont mesurés au-dessus. RABAIS : 10 % avec un badge AutoPASS valide sans contrat de rabais, davantage avec un compte de prépaiement AutoPASS ferje. Le régulatif s'applique sur quinze des seize liaisons d'État et sur la plupart des liaisons départementales ; Moss-Horten a son propre barème. Le prix dépend aussi de la ZONE, fonction de la longueur de la traversée. Le riksregulativ a cessé de s'appliquer le 1er janvier 2025 ; seul subsiste le régulatif AutoPASS.",
       "largeur": "8 limitations de largeur suédoises sont sous 2,20 m ; à 2,38 m hors tout, elles bloquent. Les 28 relevées vont de 2,00 à 2,80 m.",
       "longueur": "Sans objet en pratique : la seule limitation suédoise sous 7 m est unique, et 18 687 des 20 000 relevées sont à 12 m, la limite des camions."
     }

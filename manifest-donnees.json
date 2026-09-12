@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.19",
-    "genere_le": "2026-09-12T12:30:00+02:00",
+    "version": "1.20",
+    "genere_le": "2026-09-12T13:00:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -473,11 +473,13 @@
     {
       "id": "cle-suede",
       "titre": "Accès à l'Öppet API suédois",
-      "priorite": "haute",
+      "priorite": "basse",
       "pour": "philippe",
       "constat": "Compte créé mais connexion impossible. Demande envoyée au support le 10/09/2026. Licence établie : CC0.",
-      "a_creuser": "Réponse du support, puis création de la clé.",
-      "consequence": "Cinq rubriques attendent la Suède."
+      "a_creuser": "Explorer le namespace vägdata.nvdb_dk_o, la base routière suédoise. Voir sources_api.a_explorer.",
+      "consequence": "Cinq rubriques attendent la Suède.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "Clé obtenue et éprouvée. Sept types vérifiés, avec leur namespace et leur schemaversion — voir la rubrique sources_api du manifeste. La clé n'était pas nécessaire aux couches statiques : cols, ferries et tunnels suédois ont été obtenus par OpenStreetMap le 12/09. Elle sert au temps réel, donc à partir de mars 2027. Trois obstacles ont fait perdre du temps : le bouton de connexion — « Login (Other) » et non celui du compte Trafikverket —, l'attribut namespace omis dans mes requêtes, et une documentation tierce périmée sur les noms de types et les versions."
     },
     {
       "id": "hauteur-tunnels",
@@ -528,5 +530,66 @@
       "a_creuser": "Pourquoi la géométrie des relations multipolygones ne revient pas, et pourquoi le filtre de zone n'opère pas sur ces objets. Pistes non essayées : demander les membres explicitement, passer par le service de contours administratifs plutôt que par Overpass, ou récupérer les limites depuis les portails nationaux — Miljødirektoratet, Naturvårdsverket, Metsähallitus, qui publient tous des données ouvertes.",
       "consequence": "Les 238 parcs nationaux sont présents comme points dans pois.geojson : leur existence est signalée, pas leur étendue. Pour un parc de plusieurs centaines de kilomètres carrés, savoir où commencent ses limites a une valeur pratique — c'est là que des règles de circulation particulières s'appliquent."
     }
-  ]
+  ],
+  "sources_api": {
+    "trafikverket": {
+      "libelle": "Öppet API de Trafikverket — Suède",
+      "etabli_le": "2026-09-12",
+      "point_acces": "https://api.trafikinfo.trafikverket.se/v2/data.json",
+      "forme": "Requête POST d'un document XML. L'élément QUERY exige trois attributs : objecttype, namespace et schemaversion. L'omission du namespace fait répondre « ObjectType does not exists » — littéralement vrai, et trompeur.",
+      "licence": "CC0 — aucune restriction, pas même l'obligation d'attribution.",
+      "cle": "Compte contact@philippedestine.com. La clé est lue dans ~/.trafikverket-key, jamais écrite dans un script versionné.",
+      "connexion": "Sur le portail data.trafikverket.se, utiliser « Login (Other) » et non « Login (Trafikverket account) » : la seconde est l'authentification interne des agents, au format domain\\user.",
+      "reference": "Le banc d'essai du portail — Data and API:s, API Open Data, Testbench — donne pour chaque type son namespace et sa schemaversion exacts. C'est la seule référence fiable : la documentation tierce consultée a induit en erreur trois fois, sur des noms de types disparus, sur l'attribut namespace passé sous silence et sur une version périmée.",
+      "types_verifies": [
+        {
+          "type": "Situation",
+          "namespace": "road.trafficinfo",
+          "schemaversion": "1.6",
+          "contenu": "Déviations : travaux, messages de trafic, bacs. 32 champs, dont 12 présents sur toutes les déviations — géométrie en SWEREF 99 TM et WGS 84, numéro de route, descriptif lisible, dates de début et de fin, gravité sur quatre niveaux, nombre de voies restreintes.",
+          "reserve": "Bärighetsnedsättning (restriction de portance), Kolonnkörning (conduite en convoi) et Avvikande färjetider (horaires de bacs modifiés) sont ABSENTS en septembre 2026. Ce sont les trois catégories décisives pour avril 2027 ; leur absence hors saison ne présume pas de leur absence en saison. Sur 500 situations tirées le 12/09 : 461 travaux, 226 messages de trafic, 40 bacs."
+        },
+        {
+          "type": "RoadCondition",
+          "namespace": "road.trafficinfo",
+          "schemaversion": "1.2",
+          "contenu": "État de la chaussée, avec code et libellé, et un descriptif de tronçon lisible.",
+          "reserve": "Le dernier enregistrement observé datait du 3 mai 2026 : jeu alimenté en saison hivernale."
+        },
+        {
+          "type": "WeatherMeasurepoint",
+          "namespace": "road.weatherinfo",
+          "schemaversion": "2.0",
+          "contenu": "Stations météo routières avec observations en direct : température de surface, précipitations."
+        },
+        {
+          "type": "FrostDepthMeasurepoint",
+          "namespace": "road.weatherinfo",
+          "schemaversion": "1.0",
+          "contenu": "Profondeur de gel du sol, par paliers, avec température à chaque profondeur. C'est l'indicateur qui PRÉCÈDE les restrictions de tonnage : savoir où le sol dégèle vaut mieux qu'une restriction publiée après coup.",
+          "reserve": "Dernier relevé observé le 27 août 2026 — mesure probablement saisonnière."
+        },
+        {
+          "type": "FerryRoute",
+          "namespace": "ferry.trafficinfo",
+          "schemaversion": "1.2",
+          "contenu": "Liaisons de bacs avec leurs ports d'escale ordonnés ET LEURS TABLES HORAIRES, dont la validité court sur plusieurs années — jusqu'en 2029 sur l'exemple d'Ammeröleden.",
+          "reserve": "Remet en cause l'exclusion des horaires décidée au début du projet : des tables pluriannuelles ne relèvent pas de la volatilité qui motivait cette exclusion."
+        },
+        {
+          "type": "FerryAnnouncement",
+          "namespace": "ferry.trafficinfo",
+          "schemaversion": "1.2",
+          "contenu": "Départs de bacs : heure, port de départ, port d'arrivée, liaison."
+        },
+        {
+          "type": "Camera",
+          "namespace": "road.infrastructure",
+          "schemaversion": "1.0",
+          "contenu": "Caméras routières avec l'URL de la photo, son horodatage, l'orientation et la description. Équivalent suédois des caméras finlandaises de Fintraffic."
+        }
+      ],
+      "a_explorer": "Le namespace vägdata.nvdb_dk_o expose la base routière suédoise, équivalent de la NVDB norvégienne : Höjdhinder_upp_till_45_dm (obstacles en hauteur — décisif à 3,20 m hors tout), BegränsadBruttovikt, Bärighet, BegränsadFordonsbredd, BegränsadFordonslängd, Färjeled, Rastplatser, Vägnummer, Vägtrafiknät. C'est une session à part entière, et probablement une meilleure source que ce qu'on a tiré d'OpenStreetMap côté suédois."
+    }
+  }
 }

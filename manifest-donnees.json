@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.37",
-    "genere_le": "2026-09-12T21:20:00+02:00",
+    "version": "1.38",
+    "genere_le": "2026-09-12T21:50:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -724,11 +724,11 @@
     {
       "id": "relecture-traductions",
       "titre": "Relecture des traductions nordiques",
-      "priorite": "moyenne",
-      "pour": "philippe",
-      "constat": "Cinq modules, six langues. Les traductions norvégienne, suédoise, finnoise et allemande n'ont JAMAIS été relues par un locuteur. Elles sont de mon fait, et le module 04 comptait déjà 118 libellés signalés à relire lors de sa livraison.",
-      "a_creuser": "Faire relire, au moins les libellés d'interface et les avertissements — ceux qui portent une conséquence pratique, comme la mention des centroïdes ou celle des hauteurs.",
-      "consequence": "Une erreur de traduction sur un avertissement de sécurité serait plus grave qu'une maladresse de style."
+      "priorite": "basse",
+      "pour": "claude",
+      "constat": "Cinq modules, six langues. Les traductions norvégienne, suédoise, finnoise et allemande sont de Claude et n'ont jamais été relues par un locuteur. Philippe ne pratique aucune de ces langues et n'a pas de locuteur à solliciter : la question lui avait été attribuée à tort.\nTRAITÉE AUTREMENT, le 12/09/2026, par trois moyens.\n1. CONTRÔLE MÉCANIQUE — outils/controle-traductions.py, qui vérifie ce qui se vérifie sans connaître les langues : clés manquantes dans les deux sens, traductions restées en français, mêmes termes traduits différemment d'un module à l'autre, écarts de longueur aberrants. Il isole aussi les libellés portant une CONSÉQUENCE PRATIQUE dans docs/traductions-a-relire.html — une page à montrer à qui saurait la lire.\n2. RECOUPEMENT AVEC LE VOCABULAIRE DES SOURCES — meilleur que le jugement de Claude sur sa propre traduction. Les termes employés correspondent à ceux des organismes eux-mêmes : Høydebegrensning est le nom du type NVDB 591, kelirikko celui de la couche Digiroad, teleløsning le terme norvégien du dégel.\n3. RELECTURE CRITIQUE — qui a trouvé une collision qu'aucun contrôle mécanique ne pouvait voir.",
+      "a_creuser": "La relecture par un locuteur reste souhaitable et n'a pas eu lieu. Si l'occasion se présente en route — un gardien de camping, un office de tourisme —, la page docs/traductions-a-relire.html tient sur un écran. Ce qui compte est la poignée de libellés qui avertissent d'un risque, pas les libellés d'interface.",
+      "consequence": "Une erreur de traduction sur un avertissement de sécurité serait plus grave qu'une maladresse de style. Les avertissements ont été relus en priorité."
     },
     {
       "id": "portance-suedoise",
@@ -767,6 +767,17 @@
       "constat": "Le script d'étape 38 ne lit que le TABLEAU des blocs — numéro, nom, dates en texte, contenu, étape. Le document porte bien davantage sur ses 131 Ko : dix-sept mots-clés balisés — « Six ferries », « Solstice », « Gravures rupestres » —, un texte par bloc, et une carte SVG en projection Lambert conforme conique. DÉCISION DU 12/09/2026 : ne rien changer au document dans sa version actuelle, pour ne pas disperser l'effort.",
       "a_creuser": "TROIS NIVEAUX, par coût croissant.\n1. Dates normalisées — décomposer « 21 mai – 1er juin · 12 jours » en début, fin et durée. C'est la seule extraction qui ajoute une CAPACITÉ et non de l'affichage : la carte pourrait montrer le bloc où l'on est censé être, et signaler un retard sur le calendrier. Aucune contrainte sur la façon d'écrire le document.\n2. Mot-clé par bloc — déjà balisé dans le document, gratuit à extraire, parfait pour une infobulle. RÉSERVE : il y en a dix-sept pour seize blocs, leur rattachement demande vérification.\n3. Texte de chaque bloc — ferait une fiche au clic. Suppose que le document porte des MARQUEURS stables, un attribut data-bloc sur la section de chaque bloc, sinon chaque remaniement casse le lecteur. À poser quand l'itinéraire sera révisé, pas avant : c'est le bon moment, et cela évite de faire le travail deux fois.\nÉCARTÉ : la carte SVG, en projection Lambert, qui fait doublon avec la carte du module 3 ; les étapes détaillées, qui relèveraient d'un module à part.",
       "consequence": "Sans cela, la carte montre où sont les blocs et ce qu'ils contiennent, mais pas où l'on devrait être aujourd'hui."
+    },
+    {
+      "id": "collision-bom-no",
+      "titre": "Collision de vocabulaire en norvégien — bom",
+      "priorite": "basse",
+      "pour": "claude",
+      "statut": "traitée le 12/09/2026",
+      "constat": "Les barrières s'appelaient « Bommer » et les péages « Bomstasjoner ». En norvégien, « bom » désigne aussi bien une barrière qu'un péage — « bompenger », ce sont les péages. Deux couches voisines dans la liste, aux noms presque identiques et de sens opposé. Chaque libellé était correct pris séparément : seul un regard sur l'ensemble pouvait le voir.",
+      "reponse": "Module 03 v1.3.1 : les barrières prennent « Vegsperringer », terme de la NVDB elle-même — c'est le nom du type d'objet 607 dont la couche est tirée. La documentation suit. ENSEIGNEMENT GÉNÉRAL : quand une couche vient d'une base nationale, le vocabulaire de cette base est le meilleur guide de traduction. Il est exact, il est celui que l'utilisateur retrouvera sur les panneaux et les sites officiels, et il évite les ambiguïtés de la langue courante.",
+      "a_creuser": "Vérifier le suédois et le finnois selon le même principe quand une couche vient de Trafikverket ou de Digiroad.",
+      "consequence": "Sans la correction, un utilisateur norvégien pouvait confondre les barrières forestières et les péages."
     }
   ],
   "sources_api": {

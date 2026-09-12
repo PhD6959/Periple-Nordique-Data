@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.30",
-    "genere_le": "2026-09-12T18:00:00+02:00",
+    "version": "1.32",
+    "genere_le": "2026-09-12T18:30:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -145,7 +145,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Point dur : la Norvège enregistre les tronçons exposés, mais les dates d'ouverture varient chaque année et relèvent du temps réel. Une couche statique donne les cols et leur caractère saisonnier ; l'état du jour restera à lire sur le service officiel. C'est un cas où « traité par lien » peut compléter la couche plutôt que la remplacer. Étape 1 faite le 10/09/2026 : le catalogue NVDB compte 424 types, les quatre identifiants ci-dessus sont confirmés. Côté finlandais, aucune couche de fermeture saisonnière n'apparaît au WFS Digiroad — à vérifier avant de conclure au « sans objet ». PUBLIÉ le 10/09/2026 : 1468 entités, 1357 Ko — 106 cols (Fjellovergang=Ja), 1039 tronçons à fermeture hivernale datée, 323 tronçons exposés aux avalanches. Contrôlé depuis le dépôt : identifiants uniques, schéma complet, emprise lon 5,08–31,04 / lat 58,83–71,17, aucune altitude résiduelle, 1099 dates au format MM-JJ toutes valides. Plausibilité vérifiée sur les cols nommés : Trollstigen, Sognefjellet, Gamle Strynefjellsvegen, Geiranger–Langvatn. 1070 noms sont composés par nous à partir du numéro de route et des lieux, marqués par la propriété nom_compose ; 66 cols sur 106 portent leur nom de source. COMPLÉTÉ le 12/09/2026 : 1 669 entités — 1 468 norvégiennes, 113 suédoises, 88 finlandaises. CONFIRMÉ : la Suède et la Finlande n'ont pas de cols au sens norvégien — 9 cols en Suède, dont Tjäktjapass à 1 140 m, aucun en Finlande. L'équivalent local est la route fermée ou non déneigée l'hiver : 104 en Suède, 88 en Finlande, marquées « vinterstengt » avec la propriété « non_deneigee ». Obtenu sans la clé Trafikverket, par OpenStreetMap : ce que l'API apporterait est le temps réel, non les couches statiques."
+      "notes": "Point dur : la Norvège enregistre les tronçons exposés, mais les dates d'ouverture varient chaque année et relèvent du temps réel. Une couche statique donne les cols et leur caractère saisonnier ; l'état du jour restera à lire sur le service officiel. C'est un cas où « traité par lien » peut compléter la couche plutôt que la remplacer. Étape 1 faite le 10/09/2026 : le catalogue NVDB compte 424 types, les quatre identifiants ci-dessus sont confirmés. Côté finlandais, aucune couche de fermeture saisonnière n'apparaît au WFS Digiroad — à vérifier avant de conclure au « sans objet ». PUBLIÉ le 10/09/2026 : 1468 entités, 1357 Ko — 106 cols (Fjellovergang=Ja), 1039 tronçons à fermeture hivernale datée, 323 tronçons exposés aux avalanches. Contrôlé depuis le dépôt : identifiants uniques, schéma complet, emprise lon 5,08–31,04 / lat 58,83–71,17, aucune altitude résiduelle, 1099 dates au format MM-JJ toutes valides. Plausibilité vérifiée sur les cols nommés : Trollstigen, Sognefjellet, Gamle Strynefjellsvegen, Geiranger–Langvatn. 1070 noms sont composés par nous à partir du numéro de route et des lieux, marqués par la propriété nom_compose ; 66 cols sur 106 portent leur nom de source. COMPLÉTÉ le 12/09/2026 : 1 669 entités — 1 468 norvégiennes, 113 suédoises, 88 finlandaises. CONFIRMÉ : la Suède et la Finlande n'ont pas de cols au sens norvégien — 9 cols en Suède, dont Tjäktjapass à 1 140 m, aucun en Finlande. L'équivalent local est la route fermée ou non déneigée l'hiver : 104 en Suède, 88 en Finlande, marquées « vinterstengt » avec la propriété « non_deneigee ». Obtenu sans la clé Trafikverket, par OpenStreetMap : ce que l'API apporterait est le temps réel, non les couches statiques.",
+      "verification": {
+        "scripts": "03-etape2-extraction.sh puis 03-etape3b/3c/3d, côté norvégien. 03-etape15-se-fi.sh puis 03-etape16, côté suédois et finlandais.",
+        "attendu": "1 468 entités NO, 113 SE, 88 FI, soit 1 669 au total.",
+        "saisonnier": "OUI. Les dates de fermeture de la saison 2027 remplacent celles de 2026. C'est la rubrique dont le rafraîchissement compte le plus.",
+        "a_verifier": "Que les dates d'ouverture et de fermeture portent bien l'année 2027. Une date 2026 signale une donnée non mise à jour à la source."
+      }
     },
     {
       "id": "ferries",
@@ -166,7 +172,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Les bacs norvégiens sont un élément du réseau routier, d'où leur présence dans NVDB. Les horaires restent hors périmètre — trop volatils, ils relèvent du lien vers l'opérateur. À vérifier : la géométrie des liaisons (lignes) est-elle disponible, ou seulement les terminaux ? Étape 1 faite le 10/09/2026 : identifiants norvégiens confirmés au catalogue. Côté finlandais, la source reste à trouver. PUBLIÉ le 10/09/2026 : 520 entités, 275 Ko — 141 liaisons et 379 quais. À savoir pour l'affichage : 138 liaisons sont à l'année, 2 uniquement estivales, 1 étendue l'été ; une seule porte des dates de saison, Andenes–Gryllefjord du 18 mai au 5 septembre. Côté quais, 368 sont en service, 9 sont des quais de secours (Beredskapskai) et 2 sont désaffectés (Nedlagt) : à filtrer ou à distinguer visuellement. AutoPASS n'est renseigné que sur 13 liaisons. COMPLÉTÉ le 12/09/2026 : 2 803 entités — 520 norvégiennes de la NVDB, 1 352 suédoises et 931 finlandaises d'OpenStreetMap. 352 liaisons écartées car interdites aux véhicules à moteur : canaux de plaisance et bacs piétons. Les entités suédoises et finlandaises portent souvent l'opérateur, la durée de traversée et l'accès des véhicules — Björköleden, 8 minutes, Trafikverket Färjerederiet ; Finferries côté finlandais. 9 doublons d'identifiant retirés après publication."
+      "notes": "Les bacs norvégiens sont un élément du réseau routier, d'où leur présence dans NVDB. Les horaires restent hors périmètre — trop volatils, ils relèvent du lien vers l'opérateur. À vérifier : la géométrie des liaisons (lignes) est-elle disponible, ou seulement les terminaux ? Étape 1 faite le 10/09/2026 : identifiants norvégiens confirmés au catalogue. Côté finlandais, la source reste à trouver. PUBLIÉ le 10/09/2026 : 520 entités, 275 Ko — 141 liaisons et 379 quais. À savoir pour l'affichage : 138 liaisons sont à l'année, 2 uniquement estivales, 1 étendue l'été ; une seule porte des dates de saison, Andenes–Gryllefjord du 18 mai au 5 septembre. Côté quais, 368 sont en service, 9 sont des quais de secours (Beredskapskai) et 2 sont désaffectés (Nedlagt) : à filtrer ou à distinguer visuellement. AutoPASS n'est renseigné que sur 13 liaisons. COMPLÉTÉ le 12/09/2026 : 2 803 entités — 520 norvégiennes de la NVDB, 1 352 suédoises et 931 finlandaises d'OpenStreetMap. 352 liaisons écartées car interdites aux véhicules à moteur : canaux de plaisance et bacs piétons. Les entités suédoises et finlandaises portent souvent l'opérateur, la durée de traversée et l'accès des véhicules — Björköleden, 8 minutes, Trafikverket Färjerederiet ; Finferries côté finlandais. 9 doublons d'identifiant retirés après publication.",
+      "verification": {
+        "scripts": "03-etape4 côté norvégien, 03-etape15 et 03-etape16 pour la Suède et la Finlande.",
+        "attendu": "2 803 entités.",
+        "saisonnier": "PARTIELLEMENT : les horaires d'été diffèrent des horaires d'hiver.",
+        "a_verifier": "Les tables horaires suédoises de FerryRoute, valables jusqu'en 2029 sur l'exemple observé, n'ont pas été exploitées. Côté norvégien, vérifier les tarifs, pas les liaisons."
+      }
     },
     {
       "id": "services",
@@ -187,7 +199,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "La fonction normalizeBrand du module islandais code en dur N1, Olís, Bónus, Vínbúðin. Son équivalent nordique est à établir enseigne par enseigne, et non de mémoire. PUBLIÉ le 10/09/2026 : 21 906 entités, 6661 Ko — 8 050 stations-service, 12 673 commerces d'alimentation, 1 183 points de vente d'alcool. Par pays : 7 357 en Norvège, 9 020 en Suède, 5 529 en Finlande. 1 099 points de monopole d'alcool : 416 Systembolaget, 354 Vinmonopolet, 329 Alko — horaires restrictifs, aucune alternative. 13 583 entités portent leurs horaires d'ouverture. TABLE DE NORMALISATION établie à partir des libellés réellement observés, comme la note de cette rubrique l'exigeait : 82 % des entités rattachées à une enseigne, le libellé d'origine étant conservé sur chacune. Enseignes dominantes : St1 1051, Circle K 866, Coop 783, Kiwi 739, K-Market 727, Rema 1000 703. RÉSERVE : le gazole n'est renseigné que sur 4 151 des 8 050 stations — l'absence de l'étiquette ne signifie pas l'absence de pompe."
+      "notes": "La fonction normalizeBrand du module islandais code en dur N1, Olís, Bónus, Vínbúðin. Son équivalent nordique est à établir enseigne par enseigne, et non de mémoire. PUBLIÉ le 10/09/2026 : 21 906 entités, 6661 Ko — 8 050 stations-service, 12 673 commerces d'alimentation, 1 183 points de vente d'alcool. Par pays : 7 357 en Norvège, 9 020 en Suède, 5 529 en Finlande. 1 099 points de monopole d'alcool : 416 Systembolaget, 354 Vinmonopolet, 329 Alko — horaires restrictifs, aucune alternative. 13 583 entités portent leurs horaires d'ouverture. TABLE DE NORMALISATION établie à partir des libellés réellement observés, comme la note de cette rubrique l'exigeait : 82 % des entités rattachées à une enseigne, le libellé d'origine étant conservé sur chacune. Enseignes dominantes : St1 1051, Circle K 866, Coop 783, Kiwi 739, K-Market 727, Rema 1000 703. RÉSERVE : le gazole n'est renseigné que sur 4 151 des 8 050 stations — l'absence de l'étiquette ne signifie pas l'absence de pompe.",
+      "verification": {
+        "scripts": "03-etape7-services.sh puis 03-etape8.",
+        "attendu": "21 906 entités, dont 1 099 monopoles d'alcool.",
+        "saisonnier": "NON, mais OpenStreetMap évolue en continu : attendre un volume légèrement supérieur.",
+        "a_verifier": "Que le taux d'enseignes reconnues reste au-dessus de 80 %. S'il chute, la table de normalisation est à compléter depuis le profil."
+      }
     },
     {
       "id": "aires-camping-car",
@@ -208,7 +226,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Le volet réglementaire — droit d'accès à la nature en Suède et en Finlande, encadrement plus strict en Norvège — va dans la documentation du module, pas dans le GeoJSON. PUBLIÉ le 10/09/2026 : 8 545 entités, 2361 Ko — 1 300 aires, 3 822 campings, 2 374 points d'eau, 625 bornes de vidange, 424 laveries. Par pays : 3 094 en Norvège, 3 639 en Suède, 1 812 en Finlande. 4 225 points offrent au moins un des trois services décisifs — vidange, eau potable ou électricité —, marqués par la propriété calculée « equipee ». Détail : 1 206 vidanges effectives, 3 138 points d'eau potable, 983 avec électricité, 823 avec douche. PIÈGE ÉVITÉ : la présence de l'étiquette sanitary_dump_station ne vaut pas présence du service — elle vaut « no » 232 fois et « customers » 61 fois. Les valeurs sont lues, pas seulement la présence. Le champ de tarif porte parfois un montant plutôt qu'un oui ou non ; 6 304 points ne le renseignent pas du tout, ce qui n'autorise pas à les croire gratuits. Exploitants dominants : Metsähallitus 131 sites en Finlande, services environnementaux d'Helsinki 66, Caravan Club of Sweden 28."
+      "notes": "Le volet réglementaire — droit d'accès à la nature en Suède et en Finlande, encadrement plus strict en Norvège — va dans la documentation du module, pas dans le GeoJSON. PUBLIÉ le 10/09/2026 : 8 545 entités, 2361 Ko — 1 300 aires, 3 822 campings, 2 374 points d'eau, 625 bornes de vidange, 424 laveries. Par pays : 3 094 en Norvège, 3 639 en Suède, 1 812 en Finlande. 4 225 points offrent au moins un des trois services décisifs — vidange, eau potable ou électricité —, marqués par la propriété calculée « equipee ». Détail : 1 206 vidanges effectives, 3 138 points d'eau potable, 983 avec électricité, 823 avec douche. PIÈGE ÉVITÉ : la présence de l'étiquette sanitary_dump_station ne vaut pas présence du service — elle vaut « no » 232 fois et « customers » 61 fois. Les valeurs sont lues, pas seulement la présence. Le champ de tarif porte parfois un montant plutôt qu'un oui ou non ; 6 304 points ne le renseignent pas du tout, ce qui n'autorise pas à les croire gratuits. Exploitants dominants : Metsähallitus 131 sites en Finlande, services environnementaux d'Helsinki 66, Caravan Club of Sweden 28.",
+      "verification": {
+        "scripts": "03-etape9-aires.sh puis 03-etape10.",
+        "attendu": "8 545 entités, 1 206 vidanges effectives.",
+        "saisonnier": "NON.",
+        "a_verifier": "Que les valeurs de sanitary_dump_station sont toujours lues et non seulement leur présence : « no » et « customers » ne valent pas service disponible."
+      }
     },
     {
       "id": "tunnels",
@@ -229,7 +253,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp ». PUBLIÉ le 10/09/2026 : 134 tunnels retenus sur 1289, 58 Ko. Critères appliqués : longueur d'au moins 3 000 m (122), sous-marin (40), restriction sur les marchandises dangereuses (4) — les critères se recoupent. Le plus long est Lærdalstunnelen, 24 500 m, suivi de Ryfylke, Gudvanga et Folgefonn. TROIS CRITÈRES VALIDÉS N'ONT PAS PU ÊTRE APPLIQUÉS : le type 581 ne porte ni la hauteur limite, ni le péage, ni les horaires de fermeture. La hauteur relève d'un autre type d'objet, le péage de la couche 45. COMPLÉTÉ le 12/09/2026 : 375 ouvrages — 134 norvégiens, 187 suédois, 54 finlandais. APPORT DÉCISIF DES SOURCES OSM : elles portent la hauteur maximale, que le type NVDB 581 ne renseigne pas. 48 tunnels ont une hauteur limite connue : 17 sous 4,00 m, 4 sous 3,50 m, un seul sous 3,00 m — Arenavägen, 2,90 m. SEGMENTS REGROUPÉS : OSM découpe les tunnels en tronçons — Gärdestunneln en 12, Klaratunneln en 9. 312 segments ramenés à 94 ouvrages. Quand les tronçons donnent des hauteurs différentes, LA PLUS BASSE est retenue : elle décide du passage, une moyenne serait dangereuse. HAUTEUR DU FOURGON : 3,20 m hors tout, relevée le 12/09/2026. Chaque tunnel à hauteur connue porte les propriétés « franchissable » et « marge_cm » ; en dessous de 30 cm de marge, « vigilance » est posée. Deux tunnels sont infranchissables, tous deux à Stockholm : Arenavägen 2,90 m et Klaratunneln 3,00 m. Deux autres passent à 20 cm près, à 3,40 m. RÉSERVE : 327 des 375 tunnels ne renseignent pas leur hauteur. Une absence de donnée n'est pas une autorisation de passer."
+      "notes": "Douze entrées en Islande, plusieurs centaines en Norvège. Le critère de sélection est un arbitrage, pas une extraction : à trancher avant de collecter. Piste relevée : NVDB expose une vegobjekttype « Tunnel » sous licence NLOD, ce qui couvrirait la Norvège sans travail d'extraction manuel. Identifiants NVDB confirmés au catalogue : 581 « Tunnel », 67 « Tunnelløp ». PUBLIÉ le 10/09/2026 : 134 tunnels retenus sur 1289, 58 Ko. Critères appliqués : longueur d'au moins 3 000 m (122), sous-marin (40), restriction sur les marchandises dangereuses (4) — les critères se recoupent. Le plus long est Lærdalstunnelen, 24 500 m, suivi de Ryfylke, Gudvanga et Folgefonn. TROIS CRITÈRES VALIDÉS N'ONT PAS PU ÊTRE APPLIQUÉS : le type 581 ne porte ni la hauteur limite, ni le péage, ni les horaires de fermeture. La hauteur relève d'un autre type d'objet, le péage de la couche 45. COMPLÉTÉ le 12/09/2026 : 375 ouvrages — 134 norvégiens, 187 suédois, 54 finlandais. APPORT DÉCISIF DES SOURCES OSM : elles portent la hauteur maximale, que le type NVDB 581 ne renseigne pas. 48 tunnels ont une hauteur limite connue : 17 sous 4,00 m, 4 sous 3,50 m, un seul sous 3,00 m — Arenavägen, 2,90 m. SEGMENTS REGROUPÉS : OSM découpe les tunnels en tronçons — Gärdestunneln en 12, Klaratunneln en 9. 312 segments ramenés à 94 ouvrages. Quand les tronçons donnent des hauteurs différentes, LA PLUS BASSE est retenue : elle décide du passage, une moyenne serait dangereuse. HAUTEUR DU FOURGON : 3,20 m hors tout, relevée le 12/09/2026. Chaque tunnel à hauteur connue porte les propriétés « franchissable » et « marge_cm » ; en dessous de 30 cm de marge, « vigilance » est posée. Deux tunnels sont infranchissables, tous deux à Stockholm : Arenavägen 2,90 m et Klaratunneln 3,00 m. Deux autres passent à 20 cm près, à 3,40 m. RÉSERVE : 327 des 375 tunnels ne renseignent pas leur hauteur. Une absence de donnée n'est pas une autorisation de passer.",
+      "verification": {
+        "scripts": "03-etape4 côté norvégien, 03-etape15 et 03-etape16 ailleurs.",
+        "attendu": "375 ouvrages après regroupement des tronçons.",
+        "saisonnier": "NON.",
+        "a_verifier": "Que le regroupement des tronçons opère toujours : 94 ouvrages étaient éclatés en 312 segments."
+      }
     },
     {
       "id": "pois",
@@ -250,7 +280,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Le plus gros volume du module. Les catégories islandaises se transposent en partie ; « 100 incontournables » relève d'un choix personnel, pas d'une extraction. PUBLIÉ le 10/09/2026 en TROIS FICHIERS : 79 610 éléments extraits, 44 042 retenus, découpés par usage — pois.geojson 21 858 entités (nature, patrimoine, panorama, faune), refuges.geojson 10 813, zones-protegees.geojson 11 371. DEUX CATÉGORIES ABANDONNÉES après profilage : « eau chaude », une seule source chaude dans toute la Norvège — bains, baignades et saunas renseignés versés dans « nature » ; et les belvédères des routes touristiques norvégiennes, dont l'étiquette espérée n'est pas employée dans OSM — restent des points de vue ordinaires, nommés seulement. RÈGLE DE FILTRAGE : ce qui n'a pas de nom n'est gardé que si sa seule présence renseigne. Les 10 813 abris sont tous conservés, nommés ou non ; les 10 393 plages sans nom sont écartées. Les zones protégées sont des CENTROÏDES de réserves, pas des contours : l'infobulle du module 3 le rappelle. Écartés notamment : 10 393 plages, 5 992 points de vue, 4 570 sites archéologiques et 3 169 mines, tous sans nom."
+      "notes": "Le plus gros volume du module. Les catégories islandaises se transposent en partie ; « 100 incontournables » relève d'un choix personnel, pas d'une extraction. PUBLIÉ le 10/09/2026 en TROIS FICHIERS : 79 610 éléments extraits, 44 042 retenus, découpés par usage — pois.geojson 21 858 entités (nature, patrimoine, panorama, faune), refuges.geojson 10 813, zones-protegees.geojson 11 371. DEUX CATÉGORIES ABANDONNÉES après profilage : « eau chaude », une seule source chaude dans toute la Norvège — bains, baignades et saunas renseignés versés dans « nature » ; et les belvédères des routes touristiques norvégiennes, dont l'étiquette espérée n'est pas employée dans OSM — restent des points de vue ordinaires, nommés seulement. RÈGLE DE FILTRAGE : ce qui n'a pas de nom n'est gardé que si sa seule présence renseigne. Les 10 813 abris sont tous conservés, nommés ou non ; les 10 393 plages sans nom sont écartées. Les zones protégées sont des CENTROÏDES de réserves, pas des contours : l'infobulle du module 3 le rappelle. Écartés notamment : 10 393 plages, 5 992 points de vue, 4 570 sites archéologiques et 3 169 mines, tous sans nom.",
+      "verification": {
+        "scripts": "03-etape12-pois.sh puis 03-etape13 et 03-etape14.",
+        "attendu": "44 042 entités réparties en trois fichiers.",
+        "saisonnier": "NON.",
+        "a_verifier": "Rien de particulier. C'est la rubrique la moins critique."
+      }
     },
     {
       "id": "blocs-itineraire",
@@ -271,7 +307,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire. PUBLIÉ le 10/09/2026 : 16 blocs, un fichier unique et non un fichier par bloc — à ce volume, seize requêtes n'auraient rien apporté. Le dossier sources/blocs/ reste disponible pour les tracés. Chaque bloc porte son numéro, ses dates, son contenu et son étape. LES POINTS D'ANCRAGE SONT UN CHOIX, PAS UNE DONNÉE : un bloc est une région traversée sur plusieurs jours, le point en marque le centre de gravité. Ancrages retenus : Malmö, Simrishamn, Stockholm, Falun, Örnsköldsvik, Östersund, Brønnøysund, Narvik, Svolvær, Tromsø, Alta, Vardø, Inari, Kuusamo, Turku, Tallinn. Contrôle de cohérence : le profil des latitudes monte du bloc 1 au bloc 12 — sommet à Vardø, 70,37° N — puis redescend, ce qui correspond à la structure du voyage. La carte du document source est en projection Lambert conforme conique : l'inverser aurait introduit une erreur évitable, d'où le géocodage."
+      "notes": "Seule rubrique dont la source est interne et déjà disponible. Les tracés de tronçons restent à produire. PUBLIÉ le 10/09/2026 : 16 blocs, un fichier unique et non un fichier par bloc — à ce volume, seize requêtes n'auraient rien apporté. Le dossier sources/blocs/ reste disponible pour les tracés. Chaque bloc porte son numéro, ses dates, son contenu et son étape. LES POINTS D'ANCRAGE SONT UN CHOIX, PAS UNE DONNÉE : un bloc est une région traversée sur plusieurs jours, le point en marque le centre de gravité. Ancrages retenus : Malmö, Simrishamn, Stockholm, Falun, Örnsköldsvik, Östersund, Brønnøysund, Narvik, Svolvær, Tromsø, Alta, Vardø, Inari, Kuusamo, Turku, Tallinn. Contrôle de cohérence : le profil des latitudes monte du bloc 1 au bloc 12 — sommet à Vardø, 70,37° N — puis redescend, ce qui correspond à la structure du voyage. La carte du document source est en projection Lambert conforme conique : l'inverser aurait introduit une erreur évitable, d'où le géocodage.",
+      "verification": {
+        "scripts": "03-etape11-blocs.sh.",
+        "attendu": "16 blocs.",
+        "saisonnier": "NON, mais l'ITINÉRAIRE peut changer.",
+        "a_verifier": "Que le document d'itinéraire est toujours celui de référence, et que les dates et les ancrages n'ont pas bougé."
+      }
     },
     {
       "id": "favoris",
@@ -292,7 +334,13 @@
         "se": "donnees-collectees",
         "fi": "donnees-collectees"
       },
-      "notes": "28 lieux repris de l'itinéraire, coordonnées résolues par géocodage dans les modules 02 et 05. Attention : ce module charge son fichier depuis le dossier parent, contrairement aux autres."
+      "notes": "28 lieux repris de l'itinéraire, coordonnées résolues par géocodage dans les modules 02 et 05. Attention : ce module charge son fichier depuis le dossier parent, contrairement aux autres.",
+      "verification": {
+        "scripts": "Aucun : fichiers Excel maintenus à la main.",
+        "attendu": "Sans objet.",
+        "saisonnier": "NON.",
+        "a_verifier": "Que les lieux favoris correspondent à l'itinéraire retenu."
+      }
     },
     {
       "id": "peages",
@@ -313,7 +361,13 @@
         "se": "a-faire",
         "fi": "a-faire"
       },
-      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ. Piste relevée : Statens vegvesen publie un jeu « bomstasjoner » géolocalisé avec les tarifs de péage. Identifiant NVDB confirmé au catalogue : 45 « Bomstasjon ». PUBLIÉ le 10/09/2026 : 463 stations, 277 Ko — 438 en AutoPASS, 19 sur voie locale ou privée, 6 points de perception sur ferry. Chaque station porte les tarifs petit et gros véhicule, le tarif d'heure de pointe et ses plages horaires, le sens de perception, la règle de l'heure et sa durée, l'exploitant et son lien. Tarif petit véhicule : de 7 à 186 NOK, médiane 33."
+      "notes": "Classée saisonnière non pour la localisation, qui est stable, mais pour les tarifs et la catégorie applicable à un fourgon, qui évoluent. À revérifier avant le départ. Piste relevée : Statens vegvesen publie un jeu « bomstasjoner » géolocalisé avec les tarifs de péage. Identifiant NVDB confirmé au catalogue : 45 « Bomstasjon ». PUBLIÉ le 10/09/2026 : 463 stations, 277 Ko — 438 en AutoPASS, 19 sur voie locale ou privée, 6 points de perception sur ferry. Chaque station porte les tarifs petit et gros véhicule, le tarif d'heure de pointe et ses plages horaires, le sens de perception, la règle de l'heure et sa durée, l'exploitant et son lien. Tarif petit véhicule : de 7 à 186 NOK, médiane 33.",
+      "verification": {
+        "scripts": "03-etape4-tunnels-peages-barrieres.sh, type NVDB 45.",
+        "attendu": "463 entités norvégiennes.",
+        "saisonnier": "NON, mais les TARIFS changent au 1er janvier.",
+        "a_verifier": "Relire le régulatif AutoPASS et son tableau des tarifs, tous deux révisés en début d'année. Vérifier que la takstgruppe 1 couvre toujours les véhicules jusqu'à 3 500 kg."
+      }
     },
     {
       "id": "restrictions-degel",
@@ -334,7 +388,13 @@
         "se": "source-identifiee",
         "fi": "publiee-github"
       },
-      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai. Pistes relevées : le type « Situation » de l'Öppet API suédois comporte une catégorie Bärighetsnedsättning (restriction de portance) ; côté finlandais, Digiroad expose une couche « Ajoneuvokohtainen rajoitus » (restriction par véhicule) en WFS ouvert. Confirmé le 10/09/2026 : la couche kelirikko existe bien au WFS Digiroad, extraction lancée en même temps que les cols. Extraction du 10/09 : 5000 entités récupérées, soit exactement le plafond demandé — le jeu est probablement tronqué, comptage réel à faire avant conversion. PUBLIÉ le 10/09/2026 : 15 296 entités, 5808 Ko, filtrées sur le PTAC de 3 500 kg à partir des 163 225 tronçons du jeu complet. Répartition des limites : 13 009 à 3 000 kg, 2 000 kg pour 1 053, 3 500 kg pour 856, le reste sous 2 500 kg. DEUX RÉSERVES : 52 entités portent une limite de 0 kg, valeur qui n'a pas de sens et qu'il faut traiter comme inconnue ; les 856 entités à 3 500 kg correspondent exactement au PTAC du fourgon, donc à la limite et non au-dessous. 10 113 entités portent une période, 5 183 n'en portent pas. Poids du fichier dû au nombre d'entités et non à la densité des tracés : simplifier davantage ne donnerait rien."
+      "notes": "Le service Liikennetilanne finlandais publie ces restrictions ; l'existence d'un équivalent norvégien et suédois reste à vérifier. Enjeu réel pour un fourgon de 3,5 t sur route gravillonnée en avril-mai. Pistes relevées : le type « Situation » de l'Öppet API suédois comporte une catégorie Bärighetsnedsättning (restriction de portance) ; côté finlandais, Digiroad expose une couche « Ajoneuvokohtainen rajoitus » (restriction par véhicule) en WFS ouvert. Confirmé le 10/09/2026 : la couche kelirikko existe bien au WFS Digiroad, extraction lancée en même temps que les cols. Extraction du 10/09 : 5000 entités récupérées, soit exactement le plafond demandé — le jeu est probablement tronqué, comptage réel à faire avant conversion. PUBLIÉ le 10/09/2026 : 15 296 entités, 5808 Ko, filtrées sur le PTAC de 3 500 kg à partir des 163 225 tronçons du jeu complet. Répartition des limites : 13 009 à 3 000 kg, 2 000 kg pour 1 053, 3 500 kg pour 856, le reste sous 2 500 kg. DEUX RÉSERVES : 52 entités portent une limite de 0 kg, valeur qui n'a pas de sens et qu'il faut traiter comme inconnue ; les 856 entités à 3 500 kg correspondent exactement au PTAC du fourgon, donc à la limite et non au-dessous. 10 113 entités portent une période, 5 183 n'en portent pas. Poids du fichier dû au nombre d'entités et non à la densité des tracés : simplifier davantage ne donnerait rien.",
+      "verification": {
+        "scripts": "03-etape5-extraction-conversion.sh, couche Digiroad dr_kelirikko.",
+        "attendu": "15 296 tronçons à 3 500 kg ou moins, sur 163 225 au total.",
+        "saisonnier": "OUI, et c'est le plus tardif : les restrictions finlandaises se publient en mars ou avril selon la fonte.",
+        "a_verifier": "Que le champ des dates porte la période 2027. Côté suédois, interroger l'Öppet API sur Situation, MessageCode « Bärighetsnedsättning » — absent en septembre 2026, présent en saison."
+      }
     },
     {
       "id": "routes-glace",
@@ -355,7 +415,13 @@
         "se": "a-faire",
         "fi": "a-faire"
       },
-      "notes": "Publiées par Fintraffic en Finlande. Je n'ai pas vérifié s'il en existe en Suède ou en Norvège : ne pas les classer « sans objet » sans l'avoir cherché. Probablement hors saison au moment du passage."
+      "notes": "Publiées par Fintraffic en Finlande. Je n'ai pas vérifié s'il en existe en Suède ou en Norvège : ne pas les classer « sans objet » sans l'avoir cherché. Probablement hors saison au moment du passage.",
+      "verification": {
+        "scripts": "Aucun : rubrique jamais traitée.",
+        "attendu": "Inconnu.",
+        "saisonnier": "OUI, par nature.",
+        "a_verifier": "Vérifier d'abord l'existence de routes de glace officielles dans les trois pays. Fintraffic en publie côté finlandais ; leur période d'ouverture ne couvre probablement pas avril."
+      }
     },
     {
       "id": "pistes-carrossables",
@@ -376,7 +442,13 @@
         "se": "a-faire",
         "fi": "source-identifiee"
       },
-      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13. PUBLIÉ le 10/09/2026 : 18 110 barrières retenues sur 27 784, 6226 Ko. Écartés : 8 654 séparateurs de trafic urbains, 81 sas à bus, et 939 barrières sur route européenne, nationale, départementale ou sans catégorie — fermetures d'exploitation, non des accès. Retenues par catégorie de voie : 8 841 privées, 5 406 forestières, 3 863 communales. RÉSULTAT MAJEUR : 17 022 des 18 110, soit 94 %, sont verrouillées. Sur les voies privées et forestières norvégiennes, la barrière ouverte est l'exception. La couche cartographie donc où l'on ne passe pas, plus que des accès disponibles. REQUALIFIÉ le 10/09/2026 après recherche juridique : la couche marque les exceptions à une autorisation de principe, non une interdiction générale. Une piste forestière norvégienne aménagée pour l'automobile, sans barrière ni panneau, est ouverte."
+      "notes": "Rubrique rétablie après arbitrage : je l'avais écartée sur son volume, alors que la question posée n'est pas « où sont les barrières » mais « quelles pistes puis-je emprunter légalement ». Le hors-piste est explicitement hors périmètre. La couche n'a de sens que lue avec la rubrique 13. PUBLIÉ le 10/09/2026 : 18 110 barrières retenues sur 27 784, 6226 Ko. Écartés : 8 654 séparateurs de trafic urbains, 81 sas à bus, et 939 barrières sur route européenne, nationale, départementale ou sans catégorie — fermetures d'exploitation, non des accès. Retenues par catégorie de voie : 8 841 privées, 5 406 forestières, 3 863 communales. RÉSULTAT MAJEUR : 17 022 des 18 110, soit 94 %, sont verrouillées. Sur les voies privées et forestières norvégiennes, la barrière ouverte est l'exception. La couche cartographie donc où l'on ne passe pas, plus que des accès disponibles. REQUALIFIÉ le 10/09/2026 après recherche juridique : la couche marque les exceptions à une autorisation de principe, non une interdiction générale. Une piste forestière norvégienne aménagée pour l'automobile, sans barrière ni panneau, est ouverte.",
+      "verification": {
+        "scripts": "03-etape4 puis 03-etape6-filtrage-barrieres.sh.",
+        "attendu": "18 110 entités norvégiennes.",
+        "saisonnier": "NON.",
+        "a_verifier": "Que la proportion de barrières verrouillées reste autour de 94 %. Un écart signalerait un changement de filtre ou de codification."
+      }
     },
     {
       "id": "regles-circulation",
@@ -397,7 +469,13 @@
         "se": "donnees-collectees",
         "fi": "donnees-collectees"
       },
-      "notes": "CORRECTION du 10/09/2026 : j'avais présenté la Norvège comme interdisant la circulation sur les voies privées. C'est l'inverse — elle l'autorise par principe sur les voies aménagées pour l'automobile, le propriétaire pouvant l'interdire, la fermer ou la faire payer. Reste exact : le traktorvei, non aménagé pour l'automobile, est assimilé à l'utmark et interdit au 4x4 ; une voie aménagée mais non déneigée l'est également, en hiver. SUÈDE : la voie privée subventionnée doit rester ouverte, sauf limitation de tonnage au dégel. FINLANDE : usage occasionnel autorisé sauf panneau ; la subvention publique d'entretien empêche l'interdiction ; le financement Kemera impose dix ans d'ouverture récréative gratuite. Dans les trois pays, le droit d'accès à la nature ne couvre pas les véhicules motorisés. ARRÊTÉ DU FINNMARK, tranché le 10/09/2026 : l'interdiction du 5 mai au 30 juin vise la circulation motorisée en utmark, non la circulation routière. Les routes publiques et les voies privées carrossables ne sont pas concernées. Communes du Nord-Troms visées : Kvænangen, Kåfjord, Lyngen, Nordreisa, Skjervøy, Storfjord, plus tout le Finnmark. Le préfet peut déplacer ces dates : à revérifier avant le départ."
+      "notes": "CORRECTION du 10/09/2026 : j'avais présenté la Norvège comme interdisant la circulation sur les voies privées. C'est l'inverse — elle l'autorise par principe sur les voies aménagées pour l'automobile, le propriétaire pouvant l'interdire, la fermer ou la faire payer. Reste exact : le traktorvei, non aménagé pour l'automobile, est assimilé à l'utmark et interdit au 4x4 ; une voie aménagée mais non déneigée l'est également, en hiver. SUÈDE : la voie privée subventionnée doit rester ouverte, sauf limitation de tonnage au dégel. FINLANDE : usage occasionnel autorisé sauf panneau ; la subvention publique d'entretien empêche l'interdiction ; le financement Kemera impose dix ans d'ouverture récréative gratuite. Dans les trois pays, le droit d'accès à la nature ne couvre pas les véhicules motorisés. ARRÊTÉ DU FINNMARK, tranché le 10/09/2026 : l'interdiction du 5 mai au 30 juin vise la circulation motorisée en utmark, non la circulation routière. Les routes publiques et les voies privées carrossables ne sont pas concernées. Communes du Nord-Troms visées : Kvænangen, Kåfjord, Lyngen, Nordreisa, Skjervøy, Storfjord, plus tout le Finnmark. Le préfet peut déplacer ces dates : à revérifier avant le départ.",
+      "verification": {
+        "scripts": "Aucun : recherche documentaire, consignée aux questions traitées.",
+        "attendu": "Sans objet.",
+        "saisonnier": "OUI pour l'arrêté du Finnmark, qui court du 5 mai au 30 juin et se reconduit par décision annuelle.",
+        "a_verifier": "Que l'arrêté est reconduit pour 2027 et que ses communes sont inchangées. Que la règle de l'utmark et celle des voies non déneigées n'ont pas évolué."
+      }
     },
     {
       "id": "gabarit-vehicule",
@@ -418,7 +496,13 @@
         "se": "publiee-github",
         "fi": "publiee-github"
       },
-      "notes": "PUBLIÉ le 12/09/2026 : 2 189 hauteurs, 1 047 poids, 28 largeurs. LA COUCHE LA PLUS UTILE DU MODULE POUR CE VÉHICULE : 1 292 obstacles sont infranchissables à 3,20 m — 983 passages sous voie, 139 obstacles divers, 92 ponts, 78 tunnels — et 195 laissent moins de 30 cm de marge. Le plus bas mesure 2,00 m. La base norvégienne ne porte pas cet attribut : les 48 hauteurs connues de la couche tunnels venaient d'OpenStreetMap. Chaque entité porte « franchissable » et « marge_cm », calculés sur 3,20 m. RÉSERVE : les hauteurs portent des décimales issues d'une conversion depuis des décimètres — 2,400000095 — et sont arrondies au centimètre. La marge est une indication, pas une mesure de terrain. 108 limitations de poids sont sous 3,5 t, 8 largeurs sous 2,2 m. COMPLÉTÉ le 12/09/2026, trois pays : 12 698 hauteurs — 5 794 finlandaises, 4 715 norvégiennes, 2 189 suédoises. 2 634 sont infranchissables à 3,20 m : 1 292 en Suède, 1 018 en Finlande, 324 en Norvège. 429 laissent moins de 30 cm de marge. La plus basse mesure 1,60 m. CHOIX DE MÉTHODE, NORVÈGE : le type 591 porte CINQ mesures de hauteur — signalée, calculée, et minimum mesuré à droite, à gauche et au milieu. La PLUS CONTRAIGNANTE est retenue, la hauteur signalée étant conservée à part. 65 obstacles montrent un écart d'au moins 10 cm entre panneau et mesure, et le pire est édifiant : Skiftingsfonna, panneau à 4,50 m, mesuré à 2,38 m au milieu. Retenir la hauteur signalée l'aurait fait passer pour franchissable. PIÈGE ÉVITÉ, FINLANDE : le champ « arvo » est en centimètres. Une détection d'unité fondée sur le maximum concluait aux millimètres à cause d'une valeur isolée à 3 000, ce qui divisait toutes les hauteurs par dix. La médiane, insensible aux valeurs extrêmes, donne la bonne unité. Valeurs hors de la plage 1 à 12 m écartées : 7."
+      "notes": "PUBLIÉ le 12/09/2026 : 2 189 hauteurs, 1 047 poids, 28 largeurs. LA COUCHE LA PLUS UTILE DU MODULE POUR CE VÉHICULE : 1 292 obstacles sont infranchissables à 3,20 m — 983 passages sous voie, 139 obstacles divers, 92 ponts, 78 tunnels — et 195 laissent moins de 30 cm de marge. Le plus bas mesure 2,00 m. La base norvégienne ne porte pas cet attribut : les 48 hauteurs connues de la couche tunnels venaient d'OpenStreetMap. Chaque entité porte « franchissable » et « marge_cm », calculés sur 3,20 m. RÉSERVE : les hauteurs portent des décimales issues d'une conversion depuis des décimètres — 2,400000095 — et sont arrondies au centimètre. La marge est une indication, pas une mesure de terrain. 108 limitations de poids sont sous 3,5 t, 8 largeurs sous 2,2 m. COMPLÉTÉ le 12/09/2026, trois pays : 12 698 hauteurs — 5 794 finlandaises, 4 715 norvégiennes, 2 189 suédoises. 2 634 sont infranchissables à 3,20 m : 1 292 en Suède, 1 018 en Finlande, 324 en Norvège. 429 laissent moins de 30 cm de marge. La plus basse mesure 1,60 m. CHOIX DE MÉTHODE, NORVÈGE : le type 591 porte CINQ mesures de hauteur — signalée, calculée, et minimum mesuré à droite, à gauche et au milieu. La PLUS CONTRAIGNANTE est retenue, la hauteur signalée étant conservée à part. 65 obstacles montrent un écart d'au moins 10 cm entre panneau et mesure, et le pire est édifiant : Skiftingsfonna, panneau à 4,50 m, mesuré à 2,38 m au milieu. Retenir la hauteur signalée l'aurait fait passer pour franchissable. PIÈGE ÉVITÉ, FINLANDE : le champ « arvo » est en centimètres. Une détection d'unité fondée sur le maximum concluait aux millimètres à cause d'une valeur isolée à 3 000, ce qui divisait toutes les hauteurs par dix. La médiane, insensible aux valeurs extrêmes, donne la bonne unité. Valeurs hors de la plage 1 à 12 m écartées : 7.",
+      "verification": {
+        "scripts": "03-etape24 et 03-etape25 côté suédois, 03-etape30 et 03-etape31 pour la Norvège et la Finlande.",
+        "attendu": "12 698 hauteurs dont 2 634 infranchissables, 1 047 poids, 28 largeurs.",
+        "saisonnier": "NON.",
+        "a_verifier": "Que le type NVDB 591 et la couche dr_max_korkeus existent toujours sous ce nom. Que l'unité finlandaise est toujours le centimètre : contrôler la médiane, pas le maximum."
+      }
     },
     {
       "id": "reseau-suedois",
@@ -439,7 +523,13 @@
         "se": "publiee-github",
         "fi": "sans-objet"
       },
-      "notes": "PUBLIÉ le 12/09/2026 : 69 484 barrières (21 398 Ko), 180 liaisons de bacs, 321 aires de repos. BARRIÈRES : 65 747 sont verrouillées, soit 95 % — proportion voisine des 94 % norvégiens. Filtrées sur la nature de l'obstacle : retenus les barrières verrouillées, portails non ouvrables et barrières souples ; écartés pollards, blocs de béton, obstacles de voirie urbaine. Le type suédois ne porte pas la catégorie de voie, contrairement au norvégien : pas de filtrage possible de ce côté. AIRES DE REPOS : 211 avec vidange de toilettes chimiques et 304 avec toilettes, sur 321. Mieux renseignées que ce qu'OpenStreetMap donne, avec places voiture et poids lourd, tables, aire de jeu, gestionnaire. IDENTIFIANTS : la base est à positionnement linéaire. L'identité d'une entité tient à Feature_Oid, Element_Id ET la position sur le tronçon ; trois passes ont été nécessaires pour l'établir. Quatre cas résiduels ont été tranchés sur la distance : deux occurrences à moins de 50 m sont un doublon, au-delà ce sont deux objets — Förkärla Ö en comptait deux à 165 km l'un de l'autre."
+      "notes": "PUBLIÉ le 12/09/2026 : 69 484 barrières (21 398 Ko), 180 liaisons de bacs, 321 aires de repos. BARRIÈRES : 65 747 sont verrouillées, soit 95 % — proportion voisine des 94 % norvégiens. Filtrées sur la nature de l'obstacle : retenus les barrières verrouillées, portails non ouvrables et barrières souples ; écartés pollards, blocs de béton, obstacles de voirie urbaine. Le type suédois ne porte pas la catégorie de voie, contrairement au norvégien : pas de filtrage possible de ce côté. AIRES DE REPOS : 211 avec vidange de toilettes chimiques et 304 avec toilettes, sur 321. Mieux renseignées que ce qu'OpenStreetMap donne, avec places voiture et poids lourd, tables, aire de jeu, gestionnaire. IDENTIFIANTS : la base est à positionnement linéaire. L'identité d'une entité tient à Feature_Oid, Element_Id ET la position sur le tronçon ; trois passes ont été nécessaires pour l'établir. Quatre cas résiduels ont été tranchés sur la distance : deux occurrences à moins de 50 m sont un doublon, au-delà ce sont deux objets — Förkärla Ö en comptait deux à 165 km l'un de l'autre.",
+      "verification": {
+        "scripts": "03-etape24, 03-etape26, 03-etape27, 03-etape29.",
+        "attendu": "69 484 barrières, 180 bacs, 321 aires de repos.",
+        "saisonnier": "NON.",
+        "a_verifier": "Que la pagination par tranches d'identifiant couvre toujours la plage : le rapport affiche la plage trouvée, elle allait de 4 à 93 766 en septembre 2026."
+      }
     },
     {
       "id": "zones-protegees-contours",
@@ -460,7 +550,13 @@
         "se": "traite-par-lien",
         "fi": "publiee-github"
       },
-      "notes": "PUBLIÉ le 12/09/2026 : 1 091 zones finlandaises avec leurs CONTOURS RÉELS, dont les 42 parcs nationaux, avec catégorie UICN, surface et lien vers la fiche. Répartition UICN : 847 en IV, 168 en Ib, 41 en II, 20 en Ia. SIMPLIFICATION : 101 Mo ramenés à 3,9 Mo, soit 4,5 % des points conservés, sans perdre une seule entité. La tolérance est PROPORTIONNELLE À LA TAILLE — 270 m pour un parc de 285 000 ha, 9 m pour une réserve d'un hectare. Une tolérance unique de 90 m effaçait 96 zones sur 1 091. MARQUAGE : « contour_approche » ne vaut que si le contour PRINCIPAL est approché — aucun ne l'est. « anneaux_approches » donne le détail : Lemmenjoki porte « 1 sur 25 », un îlot satellite sur vingt-cinq. Un premier marquage, posé dès qu'un anneau quelconque était approché, désignait 120 entités dont Lemmenjoki et sa surface de 285 791 ha : le contrôle par comparaison des surfaces médianes l'a invalidé."
+      "notes": "PUBLIÉ le 12/09/2026 : 1 091 zones finlandaises avec leurs CONTOURS RÉELS, dont les 42 parcs nationaux, avec catégorie UICN, surface et lien vers la fiche. Répartition UICN : 847 en IV, 168 en Ib, 41 en II, 20 en Ia. SIMPLIFICATION : 101 Mo ramenés à 3,9 Mo, soit 4,5 % des points conservés, sans perdre une seule entité. La tolérance est PROPORTIONNELLE À LA TAILLE — 270 m pour un parc de 285 000 ha, 9 m pour une réserve d'un hectare. Une tolérance unique de 90 m effaçait 96 zones sur 1 091. MARQUAGE : « contour_approche » ne vaut que si le contour PRINCIPAL est approché — aucun ne l'est. « anneaux_approches » donne le détail : Lemmenjoki porte « 1 sur 25 », un îlot satellite sur vingt-cinq. Un premier marquage, posé dès qu'un anneau quelconque était approché, désignait 120 entités dont Lemmenjoki et sa surface de 285 791 ha : le contrôle par comparaison des surfaces médianes l'a invalidé.",
+      "verification": {
+        "scripts": "03-etape33 puis 03-etape37.",
+        "attendu": "1 091 zones finlandaises, 42 parcs nationaux.",
+        "saisonnier": "NON.",
+        "a_verifier": "Reprendre la Norvège : le service de Miljødirektoratet était en panne le 12/09/2026 sur les couches qui portent les zones. Une nouvelle tentative coûte trois minutes."
+      }
     }
   ],
   "questions_ouvertes": [
@@ -492,7 +588,7 @@
       "priorite": "basse",
       "pour": "claude",
       "constat": "Les péages norvégiens distinguent petit et gros véhicule, avec un rapport de 1 à 2,3 sur l'échantillon de Bergen.",
-      "a_creuser": "Bornes exactes du groupe AP2 et tarifs par zone : établis par le tableau des tarifs du régulatif AutoPASS, que je n'ai pas encore lu. Mesurer la longueur réelle du fourgon chargé, porte-vélos et attelage compris — c'est elle qui est taxée, pas celle de la carte grise. Suède : redevance d'infrastructure sur les ponts de Motala et Sundsvall, taxe de congestion à Stockholm et Göteborg, prélevées par lecture de plaque — à vérifier pour un véhicule étranger. Finlande : aucun péage routier à ce jour, à confirmer avant le départ.",
+      "a_creuser": "Le tableau des tarifs (taksttabell) est un document distinct du régulatif : il donne les bornes exactes d'AP2 et les montants par zone. À lire pour chiffrer les traversées de la Kystriksveien. Mesurer la longueur réelle du fourgon chargé, porte-vélos et attelage compris. Suède : redevance d'infrastructure sur les ponts de Motala et Sundsvall, taxe de congestion à Stockholm et Göteborg. Finlande : aucun péage routier à ce jour.",
       "consequence": "Change l'estimation du budget péages, la Norvège en étant truffée.",
       "statut": "traitée le 12/09/2026",
       "reponse": "NORVÈGE. Deux catégories seulement. La takstgruppe 1 couvre les véhicules dont le poids total autorisé est « inntil 3 500 kg » — jusqu'à 3 500 kg inclus. Le fourgon, à 3 500 kg de PTAC exactement, relève donc de la catégorie la moins chère, mais à la limite : un kilo de plus le ferait basculer en takstgruppe 2, sans rabais. RABAIS : 20 % sur tous les passages, à condition d'avoir un contrat AutoPASS valide ET un badge correctement posé. Sans badge, pas de rabais. Les véhicules de catégorie M1 au-delà de 3 500 kg — la plupart des camping-cars — peuvent rester en takstgruppe 1, mais seulement avec contrat et badge ; sans badge, ils sont taxés comme des camions. Cela ne concerne pas ce fourgon, qui est sous la limite. FERRIES NORVÉGIENS : le badge donne 10 % sur plus de 130 liaisons, et 40 à 50 % avec un contrat de prépaiement « AutoPASS for ferje forskuddsavtale ». MAIS le tarif des bacs se calcule sur la LONGUEUR du véhicule, pas sur son poids — c'est la donnée qui manque pour chiffrer. Règle horaire et plafond mensuel s'appliquent dans les installations qui les proposent, avec contrat et badge."
@@ -739,9 +835,44 @@
     "consequences": {
       "hauteurs": "La couche des hauteurs limitées a été calculée sur 3,20 m et non sur 3,12 m : 2 634 obstacles marqués infranchissables sur 12 698. Le filtre est donc plus sévère que la réalité, ce qui est le sens souhaitable de l'erreur. Les obstacles annoncés entre 3,12 et 3,20 m sont comptés comme bloquants alors qu'ils passeraient peut-être — à vérifier au panneau, jamais sur la donnée.",
       "peage_norvege": "PTAC de 3 500 kg : takstgruppe 1, la catégorie la moins chère, exactement à la limite. Rabais de 20 % sur les passages avec contrat AutoPASS et badge posé.",
-      "ferries_norvege": "TARIFICATION À LA LONGUEUR. Le régulatif AutoPASS pour les bacs compte neuf groupes, AP1 à AP9, définis par intervalles de longueur, plus un groupe pour les motos. AP1 couvre les véhicules jusqu'à 6 mètres : à 6,64 m, le fourgon est AU-DESSUS et relève du groupe suivant. POINT CRITIQUE : la longueur retenue est la longueur TOTALE MESURÉE à quai ou à bord, charge comprise — et non celle de la carte grise. Un porte-vélos, un attelage, un coffre arrière s'ajoutent. La mesure au laser est en cours de déploiement, et la question a été portée devant le Storting par des transporteurs dont les véhicules, sous 6 m sur le papier, sont mesurés au-dessus. RABAIS : 10 % avec un badge AutoPASS valide sans contrat de rabais, davantage avec un compte de prépaiement AutoPASS ferje. Le régulatif s'applique sur quinze des seize liaisons d'État et sur la plupart des liaisons départementales ; Moss-Horten a son propre barème. Le prix dépend aussi de la ZONE, fonction de la longueur de la traversée. Le riksregulativ a cessé de s'appliquer le 1er janvier 2025 ; seul subsiste le régulatif AutoPASS.",
+      "ferries_norvege": "TARIFICATION À LA LONGUEUR. Neuf groupes AP1 à AP9 par intervalles de longueur, plus un groupe motos. AP1 s'arrête à 6 m : à 6,64 m le fourgon est au-dessus, en AP2 selon toute vraisemblance — les bornes exactes d'AP2 figurent dans le tableau des tarifs, document distinct du régulatif, non encore lu. Sans conséquence pratique sur le prépaiement : la classe 1 couvre MC, AP1 et AP2 indifféremment. LONGUEUR RETENUE : « la longueur totale MESURÉE à quai ou à bord, charge comprise et équipement rapporté compris ». Le texte est explicite : un porte-vélos ou un attelage entrent dans la mesure. La carte grise ne fait pas foi, et le conducteur doit la présenter sur demande. RABAIS, ET C'EST L'ESSENTIEL : un contrat AutoPASS central seul donne 10 %. Un compte AutoPASS ferje - Privé donne 50 % SUR TOUTES LES LIAISONS, moyennant un prépaiement minimum de 2 000 NOK pour les groupes MC à AP2. Le solde est remboursé à la clôture du contrat, et un avertissement est envoyé quand il reste 25 % du montant. Deux véhicules peuvent être rattachés à un même contrat privé. Les PASSAGERS VOYAGENT GRATUITEMENT : le tarif couvre le véhicule et son conducteur. AMENDE : 2 200 NOK par véhicule en cas de non-paiement ou de défaut d'enregistrement au contrôle. Moss-Horten a son propre barème. Le prix dépend de la zone, fonction de la longueur de la traversée.",
       "largeur": "8 limitations de largeur suédoises sont sous 2,20 m ; à 2,38 m hors tout, elles bloquent. Les 28 relevées vont de 2,00 à 2,80 m.",
       "longueur": "Sans objet en pratique : la seule limitation suédoise sous 7 m est unique, et 18 687 des 20 000 relevées sont à 12 m, la limite des camions."
     }
+  },
+  "protocole_verification": {
+    "libelle": "Vérification des données avant le départ",
+    "etabli_le": "2026-09-12",
+    "principe": "Toute donnée extraite a une date de collecte, portée par la propriété « updated » de chaque entité et par « collecte_le » de chaque rubrique. Une donnée de septembre 2026 n'est pas fausse en avril 2027, mais elle n'est plus à jour : des routes ferment, des bacs changent d'horaire, des restrictions de dégel se publient. Le principe est de TOUT REJOUER, pas de vérifier par échantillon : les scripts de collecte existent, sont numérotés dans l'ordre et documentés. Les rejouer coûte quelques heures et donne une certitude.",
+    "calendrier": [
+      {
+        "quand": "Début mars 2027, six semaines avant le départ",
+        "quoi": "Rejouer l'intégralité des extractions permanentes. Comparer les volumes obtenus aux volumes consignés dans chaque rubrique : un écart de plus de 5 % mérite qu'on regarde pourquoi.",
+        "pourquoi": "Laisse le temps de traiter une source disparue ou un format changé sans urgence."
+      },
+      {
+        "quand": "Fin mars 2027",
+        "quoi": "Collecter les données saisonnières, qui n'existent pas en septembre : restrictions de dégel, fermetures hivernales, routes de glace, conduite en convoi.",
+        "pourquoi": "Elles se publient au printemps. Les collecter plus tôt ne donnerait rien."
+      },
+      {
+        "quand": "Une semaine avant le départ",
+        "quoi": "Rejouer les seules données saisonnières et l'état des cols. Vider le cache du service worker sur l'iPad et laisser recharger.",
+        "pourquoi": "Dernier état connu au moment de partir."
+      },
+      {
+        "quand": "En route, hebdomadairement",
+        "quoi": "Les modules 02, 04 et 05 interrogent les services météo en direct : rien à faire. Pour les routes, utiliser le module 06 et les services officiels — vegvesen.no, Trafikverket, Fintraffic.",
+        "pourquoi": "Aucune donnée embarquée ne remplace un bulletin du jour."
+      }
+    ],
+    "signes_qu_une_source_a_change": [
+      "Un script renvoie zéro entité là où il en renvoyait des milliers : l'adresse ou le nom de couche a changé.",
+      "Un script renvoie un volume très différent : le filtre ne porte plus sur les mêmes champs.",
+      "Une réponse en HTML au lieu de JSON : page d'erreur du serveur, souvent temporaire.",
+      "« ObjectType does not exists » côté suédois : il manque l'attribut namespace, ou la version de schéma a changé.",
+      "Un champ attendu absent : le schéma a évolué. Les scripts de profil le montrent, les scripts de conversion non — relancer le profil avant la conversion."
+    ],
+    "regle": "Ne jamais publier une couche dont le rapport de conversion n'a pas été lu. Chaque script produit un rapport qui dit les volumes, les écarts et les anomalies. C'est ce rapport qui décide, pas l'absence de message d'erreur."
   }
 }

@@ -198,6 +198,19 @@ de 9 m pour une réserve d'un hectare à 270 m pour un parc de 285 000 ha. Aucun
 principal n'est approché ; la propriété `anneaux_approches` signale les îlots satellites
 dont le tracé a été remplacé par son enveloppe.
 
+### `sources/zones-protegees-no.geojson`
+
+Zones protégées norvégiennes avec leurs contours, extraites le 12 septembre 2026 du service
+**Naturvernområder** de Miljødirektoratet (couche `naturvern_omrade`).
+
+> Contient des données de Miljødirektoratet, mises à disposition sous
+> **Norsk lisens for offentlige data (NLOD)**.
+
+3 512 zones, dont 48 parcs nationaux. Contours simplifiés avec la même tolérance
+proportionnelle que la couche finlandaise. **31 entités sont au Svalbard ou à Jan Mayen**,
+hors de l'emprise de toutes les autres couches : c'est volontaire, un filtre d'emprise
+risquerait de mordre sur le Finnmark.
+
 ### Transformations appliquées
 
 Les fichiers publiés ne sont pas les données sources telles quelles. Ont été appliqués :

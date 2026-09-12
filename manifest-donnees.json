@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.35",
-    "genere_le": "2026-09-12T20:30:00+02:00",
+    "version": "1.36",
+    "genere_le": "2026-09-12T21:00:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -731,11 +731,13 @@
     {
       "id": "portance-suedoise",
       "titre": "Portance du réseau suédois — Bärighet",
-      "priorite": "moyenne",
+      "priorite": "basse",
       "pour": "claude",
       "constat": "Le type Bärighet de la base routière suédoise est accessible en schemaversion 1.2 et porte une classe de portance — BK 1 sur l'échantillon. Ces classes déterminent le tonnage admis et se dégradent au dégel. Écarté de l'extraction du 12/09/2026 pour deux raisons : je ne sais pas ce que valent exactement les classes suédoises, et le jeu couvre l'ensemble du réseau, donc un volume considérable.",
-      "a_creuser": "Établir ce que recouvrent BK 1, BK 2, BK 3 et BK 4 en tonnage, vérifier qu'un fourgon de 3,5 t est concerné — il ne l'est probablement pas — et n'extraire que si la réponse est utile.",
-      "consequence": "Sans elle, la couche des poids se limite aux 1 047 limitations ponctuelles, sans la portance du réseau lui-même."
+      "a_creuser": "Rien sur la portance elle-même. Ce qui reste pertinent est la RESTRICTION TEMPORAIRE de dégel, un objet différent : côté suédois elle apparaît dans Situation sous le code Bärighetsnedsättning, absent en septembre et attendu au printemps ; côté finlandais elle est déjà publiée, 15 296 tronçons limités à 3 500 kg ou moins. Voir le protocole de vérification, rubrique restrictions-degel.",
+      "consequence": "Sans elle, la couche des poids se limite aux 1 047 limitations ponctuelles, sans la portance du réseau lui-même.",
+      "statut": "traitée le 12/09/2026",
+      "reponse": "SANS OBJET POUR CE VÉHICULE, et la couche n'a donc pas été extraite. Les quatre classes de portance suédoises fixent un poids total autorisé en DIZAINES de tonnes : BK1 64 t, BK2 51,4 t, BK3 37,5 t, BK4 74 t. La plus contraignante, BK3, autorise dix fois le PTAC du fourgon. BK1 couvre l'essentiel du réseau public — les sources citent 83 à 95 % selon les années. Ces classes visent les convois : le poids réellement admis dépend de l'empattement et de la charge à l'essieu, paramètres sans portée pour un véhicule de 3,5 t. DEUX PRÉCISIONS UTILES AILLEURS. Les VOIES PRIVÉES ne sont pas classées : elles relèvent de règles locales, ce qui rejoint la question traitée sur l'accès aux pistes. Et les classes BK2 et BK3 doivent être SIGNALÉES sur place, contrairement à BK1 qui est la règle par défaut — s'il fallait un jour s'en soucier, l'information serait au panneau."
     },
     {
       "id": "troncons-blocs",

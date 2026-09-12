@@ -97,6 +97,16 @@ Vegobjekttyper 770 « Ferjesamband » et 64 « Ferjekai », extraites le 10 sept
 > Contient des données de Statens vegvesen, mises à disposition sous
 > **Norsk lisens for offentlige data (NLOD)**.
 
+Ces deux couches ont été complétées le 12 septembre 2026 par des entités suédoises et
+finlandaises tirées d'**OpenStreetMap** (`route=ferry`, `amenity=ferry_terminal`,
+`tunnel=yes`), de même que `cols-fermetures.geojson`.
+
+> © les contributeurs OpenStreetMap, sous licence **ODbL**.
+
+**Ces trois couches relèvent donc de deux licences.** La propriété `source` de chaque
+entité — `NVDB` ou `OSM` — indique laquelle s'applique. Toute réutilisation partielle doit
+en tenir compte.
+
 ### `sources/restrictions-degel.geojson`
 
 Données dérivées de **Digiroad**, Väylävirasto (Agence finlandaise des infrastructures
@@ -148,6 +158,19 @@ observatoires ornithologiques, cabanes et abris).
 
 Les zones protégées sont des centroïdes de réserves, non des contours : le point signale
 l'existence de la zone, pas ses limites.
+
+### Couches issues de la base routière suédoise
+
+`sources/hauteurs-limitees.geojson`, `sources/poids-limites.geojson`,
+`sources/largeurs-limites.geojson`, `sources/barrieres-se.geojson`,
+`sources/bacs-se.geojson`, `sources/aires-repos-se.geojson`
+
+Données de la **base routière nationale suédoise**, extraites le 12 septembre 2026 via
+l'Öppet API de Trafikverket (namespaces `vägdata.nvdb_dk_o` et `vägdata.vis_dk_o`,
+schemaversion 1.2).
+
+> Licence **Creative Commons CC0** — aucune restriction, pas même l'obligation
+> d'attribution. La source est mentionnée ici par correction, non par obligation.
 
 ### Transformations appliquées
 

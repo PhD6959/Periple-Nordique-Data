@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.20",
-    "genere_le": "2026-09-12T13:00:00+02:00",
+    "version": "1.21",
+    "genere_le": "2026-09-12T14:10:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -398,6 +398,48 @@
         "fi": "donnees-collectees"
       },
       "notes": "CORRECTION du 10/09/2026 : j'avais présenté la Norvège comme interdisant la circulation sur les voies privées. C'est l'inverse — elle l'autorise par principe sur les voies aménagées pour l'automobile, le propriétaire pouvant l'interdire, la fermer ou la faire payer. Reste exact : le traktorvei, non aménagé pour l'automobile, est assimilé à l'utmark et interdit au 4x4 ; une voie aménagée mais non déneigée l'est également, en hiver. SUÈDE : la voie privée subventionnée doit rester ouverte, sauf limitation de tonnage au dégel. FINLANDE : usage occasionnel autorisé sauf panneau ; la subvention publique d'entretien empêche l'interdiction ; le financement Kemera impose dix ans d'ouverture récréative gratuite. Dans les trois pays, le droit d'accès à la nature ne couvre pas les véhicules motorisés. ARRÊTÉ DU FINNMARK, tranché le 10/09/2026 : l'interdiction du 5 mai au 30 juin vise la circulation motorisée en utmark, non la circulation routière. Les routes publiques et les voies privées carrossables ne sont pas concernées. Communes du Nord-Troms visées : Kvænangen, Kåfjord, Lyngen, Nordreisa, Skjervøy, Storfjord, plus tout le Finnmark. Le préfet peut déplacer ces dates : à revérifier avant le départ."
+    },
+    {
+      "id": "gabarit-vehicule",
+      "ordre": 14,
+      "libelle": "Gabarit du véhicule — hauteurs, poids, largeurs",
+      "description": "Obstacles et limitations qui décident du passage d'un fourgon de 3,20 m hors tout et 3,5 t de PTAC.",
+      "remplace": null,
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/hauteurs-limitees.geojson, sources/poids-limites.geojson, sources/largeurs-limites.geojson",
+      "source": "SE : base routière nationale de Trafikverket, namespace vägdata.nvdb_dk_o, schemaversion 1.2 — types Höjdhinder_upp_till_45_dm, BegränsadBruttovikt, BegränsadFordonsbredd. Extraction du 12 septembre 2026. NO et FI : à établir.",
+      "licence": "SE : CC0 — aucune restriction, pas même l'obligation d'attribution.",
+      "collecte_le": "2026-09-12",
+      "qui": "claude",
+      "prochaine_action": "Chercher l'équivalent norvégien : la NVDB ne porte pas la hauteur sur le type Tunnel, mais un autre type d'objet la porte peut-être. Côté finlandais, Digiroad expose dr_max_korkeus.",
+      "etats": {
+        "no": "a-faire",
+        "se": "publiee-github",
+        "fi": "source-identifiee"
+      },
+      "notes": "PUBLIÉ le 12/09/2026 : 2 189 hauteurs, 1 047 poids, 28 largeurs. LA COUCHE LA PLUS UTILE DU MODULE POUR CE VÉHICULE : 1 292 obstacles sont infranchissables à 3,20 m — 983 passages sous voie, 139 obstacles divers, 92 ponts, 78 tunnels — et 195 laissent moins de 30 cm de marge. Le plus bas mesure 2,00 m. La base norvégienne ne porte pas cet attribut : les 48 hauteurs connues de la couche tunnels venaient d'OpenStreetMap. Chaque entité porte « franchissable » et « marge_cm », calculés sur 3,20 m. RÉSERVE : les hauteurs portent des décimales issues d'une conversion depuis des décimètres — 2,400000095 — et sont arrondies au centimètre. La marge est une indication, pas une mesure de terrain. 108 limitations de poids sont sous 3,5 t, 8 largeurs sous 2,2 m."
+    },
+    {
+      "id": "reseau-suedois",
+      "ordre": 15,
+      "libelle": "Réseau routier suédois — barrières, bacs, aires de repos",
+      "description": "Éléments du réseau tirés de la base nationale suédoise, complémentaires des couches multi-pays.",
+      "remplace": null,
+      "nature": "permanente",
+      "rafraichir_avant_depart": false,
+      "fichier": "sources/barrieres-se.geojson, sources/bacs-se.geojson, sources/aires-repos-se.geojson",
+      "source": "Trafikverket, namespace vägdata.nvdb_dk_o pour Väghinder et Färjeled, vägdata.vis_dk_o pour Rastplatser, schemaversion 1.2. Extraction du 12 septembre 2026.",
+      "licence": "CC0",
+      "collecte_le": "2026-09-12",
+      "qui": "claude",
+      "prochaine_action": "Éprouver les 69 484 barrières sur iPad. La couche norvégienne, 18 110 points, s'affiche sans peine ; rien ne dit que la charge croisse linéairement.",
+      "etats": {
+        "no": "sans-objet",
+        "se": "publiee-github",
+        "fi": "sans-objet"
+      },
+      "notes": "PUBLIÉ le 12/09/2026 : 69 484 barrières (21 398 Ko), 180 liaisons de bacs, 321 aires de repos. BARRIÈRES : 65 747 sont verrouillées, soit 95 % — proportion voisine des 94 % norvégiens. Filtrées sur la nature de l'obstacle : retenus les barrières verrouillées, portails non ouvrables et barrières souples ; écartés pollards, blocs de béton, obstacles de voirie urbaine. Le type suédois ne porte pas la catégorie de voie, contrairement au norvégien : pas de filtrage possible de ce côté. AIRES DE REPOS : 211 avec vidange de toilettes chimiques et 304 avec toilettes, sur 321. Mieux renseignées que ce qu'OpenStreetMap donne, avec places voiture et poids lourd, tables, aire de jeu, gestionnaire. IDENTIFIANTS : la base est à positionnement linéaire. L'identité d'une entité tient à Feature_Oid, Element_Id ET la position sur le tronçon ; trois passes ont été nécessaires pour l'établir. Quatre cas résiduels ont été tranchés sur la distance : deux occurrences à moins de 50 m sont un doublon, au-delà ce sont deux objets — Förkärla Ö en comptait deux à 165 km l'un de l'autre."
     }
   ],
   "questions_ouvertes": [

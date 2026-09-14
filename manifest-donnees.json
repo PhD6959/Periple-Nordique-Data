@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.38",
-    "genere_le": "2026-09-12T21:50:00+02:00",
+    "version": "1.39",
+    "genere_le": "2026-09-14T10:15:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -611,7 +611,7 @@
       "a_creuser": "Rien sur l'interprétation. Reste la question pratique : connaître la masse réelle du fourgon chargé. Voir aussi la rubrique restrictions-degel et son protocole de vérification — les dates 2027 ne seront connues qu'au printemps.",
       "consequence": "Décide si ces 856 tronçons sont praticables ou non.",
       "statut": "traitée le 12/09/2026",
-      "reponse": "DEUX RÉPONSES, dont la seconde compte davantage que la première.\n1. LA VALEUR EST INCLUSIVE. Le panneau finlandais C24 « ajoneuvon suurin sallittu massa » indique la masse maximale AUTORISÉE : à 3 500 kg, 3 500 kg passe. Les 856 tronçons ne sont donc pas bloquants de ce fait.\n2. MAIS LE PANNEAU NE VISE PAS LE PTAC, IL VISE LA MASSE RÉELLE. Le texte est explicite : le panneau porte sur la masse réelle du véhicule, chargé ou non, et la masse maximale portée sur la carte grise n'entre pas en ligne de compte pour savoir si l'on peut emprunter la section restreinte. Ce qui est pesé, c'est ce que pèse le fourgon à cet instant, chargement compris.\nCONSÉQUENCE PRATIQUE. Masse en ordre de marche 2 945 kg, charge utile 555 kg. En configuration de voyage — deux personnes, eau, gaz, vivres, matériel photo, équipement de 162 jours — la masse réelle approchera le PTAC. Sur les 856 tronçons à 3 500 kg, le passage se joue donc sur le chargement effectif, pas sur un document. Un passage sur bascule avant le départ, en configuration réelle, vaut mieux qu'une estimation — le dossier pratique le recommandait déjà pour une autre raison, la surcharge étant contrôlée dans les pays nordiques.\nAUTRE POINT ÉTABLI : le panneau de dégel ne peut être affiché que tant que dure l'affaiblissement de la chaussée. Une restriction relevée dans les données n'est pas nécessairement en vigueur au moment du passage."
+      "reponse": "DEUX RÉPONSES, dont la seconde compte davantage que la première.\n1. LA VALEUR EST INCLUSIVE. Le panneau finlandais C24 « ajoneuvon suurin sallittu massa » indique la masse maximale AUTORISÉE : à 3 500 kg, 3 500 kg passe. Les 856 tronçons ne sont donc pas bloquants de ce fait.\n2. MAIS LE PANNEAU NE VISE PAS LE PTAC, IL VISE LA MASSE RÉELLE. Le texte est explicite : le panneau porte sur la masse réelle du véhicule, chargé ou non, et la masse maximale portée sur la carte grise n'entre pas en ligne de compte pour savoir si l'on peut emprunter la section restreinte. Ce qui est pesé, c'est ce que pèse le fourgon à cet instant, chargement compris.\nCONSÉQUENCE PRATIQUE. Masse en ordre de marche 2 945 kg, charge utile 555 kg. En configuration de voyage — deux personnes, eau, gaz, vivres, matériel photo, équipement de 169 jours — la masse réelle approchera le PTAC. Sur les 856 tronçons à 3 500 kg, le passage se joue donc sur le chargement effectif, pas sur un document. Un passage sur bascule avant le départ, en configuration réelle, vaut mieux qu'une estimation — le dossier pratique le recommandait déjà pour une autre raison, la surcharge étant contrôlée dans les pays nordiques.\nAUTRE POINT ÉTABLI : le panneau de dégel ne peut être affiché que tant que dure l'affaiblissement de la chaussée. Une restriction relevée dans les données n'est pas nécessairement en vigueur au moment du passage."
     },
     {
       "id": "affichage-volumineux",
@@ -778,6 +778,17 @@
       "reponse": "Module 03 v1.3.1 : les barrières prennent « Vegsperringer », terme de la NVDB elle-même — c'est le nom du type d'objet 607 dont la couche est tirée. La documentation suit. ENSEIGNEMENT GÉNÉRAL : quand une couche vient d'une base nationale, le vocabulaire de cette base est le meilleur guide de traduction. Il est exact, il est celui que l'utilisateur retrouvera sur les panneaux et les sites officiels, et il évite les ambiguïtés de la langue courante.",
       "a_creuser": "Vérifier le suédois et le finnois selon le même principe quand une couche vient de Trafikverket ou de Digiroad.",
       "consequence": "Sans la correction, un utilisateur norvégien pouvait confondre les barrières forestières et les péages."
+    },
+    {
+      "id": "duree-voyage-corrigee",
+      "titre": "Durée du voyage — 169 jours et non 162",
+      "priorite": "basse",
+      "pour": "claude",
+      "statut": "traitée le 14/09/2026",
+      "constat": "J'ai employé « 162 jours » à plusieurs reprises, dans le manifeste, le document des formalités et les messages de reprise. Ce chiffre correspond à une fin au 23 septembre 2027, date que j'avais reprise sans la vérifier. Le voyage court du 15 AVRIL AU 30 SEPTEMBRE 2027, soit 169 JOURS inclus.",
+      "reponse": "Corrigé le 14/09/2026 dans le manifeste, le document des formalités et les deux messages de reprise. CONSÉQUENCE SUR LA TÉLÉPHONIE : l'itinérance européenne est plafonnée à quatre mois consécutifs. Avec 169 jours, le dépassement est de cinq semaines et demie au lieu de quatre — la conclusion est inchangée et même renforcée, mais la marge était déjà dépassée avec le chiffre erroné.",
+      "a_creuser": "Vérifier que la date de fin du document d'itinéraire est bien le 30 septembre : c'est lui qui fait foi.",
+      "consequence": "Aucune donnée n'était fausse, seulement une durée citée en prose. Les couches et les blocs ne sont pas concernés."
     }
   ],
   "sources_api": {

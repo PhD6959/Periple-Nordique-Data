@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.39",
-    "genere_le": "2026-09-14T10:15:00+02:00",
+    "version": "1.40",
+    "genere_le": "2026-09-14T14:30:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -789,6 +789,17 @@
       "reponse": "Corrigé le 14/09/2026 dans le manifeste, le document des formalités et les deux messages de reprise. CONSÉQUENCE SUR LA TÉLÉPHONIE : l'itinérance européenne est plafonnée à quatre mois consécutifs. Avec 169 jours, le dépassement est de cinq semaines et demie au lieu de quatre — la conclusion est inchangée et même renforcée, mais la marge était déjà dépassée avec le chiffre erroné.",
       "a_creuser": "Vérifier que la date de fin du document d'itinéraire est bien le 30 septembre : c'est lui qui fait foi.",
       "consequence": "Aucune donnée n'était fausse, seulement une durée citée en prose. Les couches et les blocs ne sont pas concernés."
+    },
+    {
+      "id": "numerotation-modules",
+      "titre": "Numérotation des modules — alignement partiel avec l'islandais",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "statut": "arbitrée le 14/09/2026",
+      "constat": "L'environnement Islande/Féroé tient UN MODULE PAR SUJET, sur vingt-cinq numéros : 07-livres-cartes, 09-telephonie, 11-fichiers-GPS, 12-drone, 14-sante, 16-payer-tunnels-ferries, 17-pneus, 18-garagistes, 19-gaz-propane, 21-documentations-voyage, 22-google-earth, 89-points-gps. Le périple nordique REGROUPE : santé, assurance, garages, pneus, péages et cartes de camping dans le 07 « dossier pratique » ; drone, douanes, gaz et téléphonie dans le 09 « formalités ». DEUX COLLISIONS de numérotation en résultent, sur le 07 et le 09.",
+      "reponse": "ARBITRÉ : on garde les regroupements. Ils sont plus pratiques sur la route qu'une tuile par sujet, et un tableau de bord qui compte déjà vingt-neuf tuiles n'en supporterait pas neuf de plus. L'alignement est tenu partout ailleurs : 08 vidéos, 10 faune, 20 devises, 90 pratique.",
+      "a_creuser": "Si un jour le 07 ou le 09 devait être éclaté, les numéros islandais correspondants sont libres côté nordique : 11, 12, 14, 16, 17, 18, 19, 21, 22, 89. Reprendre alors la numérotation islandaise plutôt que d'en inventer une.",
+      "consequence": "Deux numéros désignent autre chose d'un environnement à l'autre. Sans cette note, une reprise croirait à une erreur."
     }
   ],
   "sources_api": {

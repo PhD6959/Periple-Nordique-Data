@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.44",
-    "genere_le": "2026-09-19T16:26:00+02:00",
+    "version": "1.45",
+    "genere_le": "2026-09-19T16:34:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -1049,6 +1049,7 @@
       "Periple-Nordique-Data/outils/README.md": "Catalogue des scripts, par source. Pièges de chaque API. Ce qui a échoué et pourquoi.",
       "Periple-Nordique-Data/outils/*.sh": "Les scripts eux-mêmes, chacun avec son bandeau.",
       "Periple-Nordique-Data/docs/doc-module-03-nsf-suivi.html": "Document de suivi, ENGENDRÉ du manifeste. Ne jamais l'éditer à la main.",
+      "Periple-Nordique-Data/docs/fiches-poi-photo-norvege.md": "Fiche du chat de recherche, volet Norvège : ressources photo et points d'intérêt vérifiées, écartés et leurs motifs, ressources à ouvrir, reste à faire. Source du classeur du module 06, rubrique Photo, et de la question ressources-photo-norvege. Seule à porter le détail de vérification de chaque ressource.",
       "Periple-Nordique/README.md": "Architecture de l'application, écarts de chaque module avec son aîné islandais, coquille PWA, conventions, procédures de mise à jour.",
       "Periple-Nordique/docs/modules-meteo.md": "Structures internes des modules météo : pays, Excel, endpoints, consensus, traductions.",
       "Periple-Nordique/outils/generer-listes.sh": "Tient à jour les deux listes de fichiers. À lancer après chaque révision de module.",

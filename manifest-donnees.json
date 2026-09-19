@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.42",
-    "genere_le": "2026-09-19T13:11:00+02:00",
+    "version": "1.43",
+    "genere_le": "2026-09-19T15:06:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -844,6 +844,17 @@
       "reponse": "ARBITRÉ : un script de préparation vit dans outils/ de son dépôt, versionné, jamais dans un dossier de module. enrichir-livres-isbn.py y a été déplacé par git mv et passe en 1.0.1 : mode d'emploi depuis la racine, « HORS DÉPÔT » corrigé en « HORS APPLICATION ». Il ne porte aucune clé. Seule exception maintenue : l'extracteur YouTube du module 08, hors dépôt parce qu'il porte une clé d'API en clair.",
       "a_creuser": "Élargir le motif EST_OUTIL de generer-listes.sh aux .py a été écarté : ce motif classe aussi les fichiers comme « hors dépôt », ce qui aurait été faux pour un script versionné.",
       "consequence": "Le contrôle croisé de generer-listes.sh redevient un signal : tout fichier non cité dans un dossier de module est une anomalie, pas un outil toléré."
+    },
+    {
+      "id": "ressources-photo-norvege",
+      "titre": "Ressources photo et points d'intérêt — Norvège en cours, Suède et Finlande à faire",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "statut": "",
+      "constat": "Passe du chat de recherche du 16/09 sur les lignes « Points d'intérêt » et « Ressources photo » de l'inventaire, volet Norvège seul, consignée dans fiches-poi-photo-norvege.md. SEPT RESSOURCES VÉRIFIÉES par lecture le 16/09 : routes touristiques nationales (nasjonaleturistveger.no, six des dix-huit routes sur le tracé), guides Max Rive Norvège et Senja, carte Rexby de Vanita Safaniuk aux Lofoten, The Wandering Lens aux Lofoten, parc national du Varanger, itinéraire Photo Tours Norway au Varanger. ÉCARTÉS : explorewithjohan.com (domaine en pendingDelete, confirmé en source primaire le 16/09) ; stianklo.com (portail bloquant, contenu de 2017) ; Rexby JurisAdventure, Rachel Pohl et Charles Post, Ása Steinars (critère de résidence) ; ScandiHikes (catalogue non chargé, primo-visiteurs). CONSTATS : le critère « chaîne YouTube plus site » n'a pas d'équivalent nordique, les créateurs sont sur Instagram ; trois sites personnels sur trois étaient défaillants ; le Varanger est un territoire d'ornithologie, pas de photo de paysage ; pour la Suède, aucun guide de spots comparable aux cartes Rexby n'a été trouvé.",
+      "reponse": "",
+      "a_creuser": "NORVÈGE, À OUVRIR : visitnorway.com, page ornithologique du Varanger (adresse exacte à retrouver) ; 68north.com (Cody Duncan, Lofoten, plus Kungsleden et Padjelantaleden côté suédois) ; l'article de lifeinnorway.net sur le Varanger (adresse à retrouver). NORVÈGE, À FAIRE : tester lofotentours.com ; explorer les sections faune et points d'accès de varangerhalvoya.no ; vérifier en source primaire norvégienne la réglementation drone énoncée par Max Rive ; Nordkapp et la Kystriksveien restent sans ressource éditoriale propre ; trancher le calendrier ornithologique — lek des combattants et nidification fin mai à début juin selon Photo Tours Norway, passage prévu début juillet ; divergence sur l'effectif de Hornøya, 80 000 couples chez Photo Tours Norway, jusqu'à 100 000 ailleurs. SUÈDE ET FINLANDE : non commencées.",
+      "consequence": "DÉCISION DU 19/09 : les ressources vont au module 06, rubrique Photo, v2.1.0 — le 06 est la bibliothèque complète, une tuile du menu ne double une entrée que si l'usage en route le justifie. Les trois tuiles du groupe Photo ont été retirées du menu ; la tuile du parc du Varanger reste auprès de la faune, pour le calage du 4 juillet. Les RÉSERVES sont écrites à la fin du descriptif, dans les six langues : Max Rive, deux régions sur cinq sur le tracé ; Vanita Safaniuk, payant ; The Wandering Lens, guide de 2017-2018 ; Photo Tours Norway, séjour payant lu comme repérage. Check_PhD à Non pour les sept : lues par le chat de recherche, pas encore par Philippe. Les trois ressources non ouvertes ne sont pas au classeur."
     }
   ],
   "sources_api": {

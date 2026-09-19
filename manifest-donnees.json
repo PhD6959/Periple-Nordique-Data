@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.43",
-    "genere_le": "2026-09-19T15:06:00+02:00",
+    "version": "1.44",
+    "genere_le": "2026-09-19T16:26:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -855,6 +855,17 @@
       "reponse": "",
       "a_creuser": "NORVÈGE, À OUVRIR : visitnorway.com, page ornithologique du Varanger (adresse exacte à retrouver) ; 68north.com (Cody Duncan, Lofoten, plus Kungsleden et Padjelantaleden côté suédois) ; l'article de lifeinnorway.net sur le Varanger (adresse à retrouver). NORVÈGE, À FAIRE : tester lofotentours.com ; explorer les sections faune et points d'accès de varangerhalvoya.no ; vérifier en source primaire norvégienne la réglementation drone énoncée par Max Rive ; Nordkapp et la Kystriksveien restent sans ressource éditoriale propre ; trancher le calendrier ornithologique — lek des combattants et nidification fin mai à début juin selon Photo Tours Norway, passage prévu début juillet ; divergence sur l'effectif de Hornøya, 80 000 couples chez Photo Tours Norway, jusqu'à 100 000 ailleurs. SUÈDE ET FINLANDE : non commencées.",
       "consequence": "DÉCISION DU 19/09 : les ressources vont au module 06, rubrique Photo, v2.1.0 — le 06 est la bibliothèque complète, une tuile du menu ne double une entrée que si l'usage en route le justifie. Les trois tuiles du groupe Photo ont été retirées du menu ; la tuile du parc du Varanger reste auprès de la faune, pour le calage du 4 juillet. Les RÉSERVES sont écrites à la fin du descriptif, dans les six langues : Max Rive, deux régions sur cinq sur le tracé ; Vanita Safaniuk, payant ; The Wandering Lens, guide de 2017-2018 ; Photo Tours Norway, séjour payant lu comme repérage. Check_PhD à Non pour les sept : lues par le chat de recherche, pas encore par Philippe. Les trois ressources non ouvertes ne sont pas au classeur."
+    },
+    {
+      "id": "classeurs-utf8",
+      "titre": "Classeurs écrits par script — UTF-8 direct, sinon les emojis cassent",
+      "priorite": "basse",
+      "pour": "claude",
+      "statut": "arbitrée le 19/09/2026",
+      "constat": "Les icônes du classeur 06-liens-internet-nsf-data.xlsx s'affichaient cassées dans le module depuis le 14/09 : pictogramme rayé à la place de 🌦️, 🛣️, 🆘, 📷, et un idéogramme chinois à la place de 🦅. Seul ⚠️, hors du plan astral, passait. openpyxl écrit les caractères non ASCII en références numériques (&#129413;) ; SheetJS 0.18.5 les décode sur seize bits, U+1F985 devenant U+F985. Reproduit avec SheetJS 0.18.5 sur le classeur du 14/09 et sur celui du 19/09.",
+      "reponse": "ARBITRÉ : tout classeur écrit ou modifié par un script est réécrit en UTF-8 direct avant d'être déposé — les références numériques des feuilles XML sont décodées. Classeur 06 corrigé le 19/09, commit 569d587 du dépôt applicatif ; affichage constaté juste par Philippe. Un classeur enregistré depuis Excel n'a pas ce défaut.",
+      "a_creuser": "Les classeurs 08 (vide) et 12 n'ont pas été contrôlés. Le script outils/enrichir-livres-isbn.py écrit par openpyxl : ses copies sont concernées si un titre, un auteur ou un éditeur porte un caractère hors du plan de base. Le comportement de l'openpyxl du Mac de Philippe n'a pas été vérifié.",
+      "consequence": "Règle inscrite à conventions_de_travail, clé classeurs_ecrits_par_script."
     }
   ],
   "sources_api": {
@@ -1050,6 +1061,7 @@
       "Deux versions d'un même module : la version remplacée est supprimée au moment où la nouvelle est déposée."
     ],
     "emplacement_des_outils": "Un script de préparation — collecte, conversion, enrichissement d'un classeur — vit dans outils/ de son dépôt, versionné, jamais dans un dossier de module : ceux-ci ne contiennent que ce que l'application sert. Seule exception, hors dépôt : un outil portant une clé en clair, comme l'extracteur YouTube du module 08, exclu par .gitignore. Décidé le 19/09/2026 — voir la question emplacement-outils-preparation.",
+    "classeurs_ecrits_par_script": "Tout classeur .xlsx écrit ou modifié par un script — openpyxl compris — est réécrit en UTF-8 direct avant d'être déposé : les références numériques des feuilles XML sont décodées. Sinon SheetJS 0.18.5, qui lit les classeurs dans les modules, tronque les emojis. Un classeur enregistré depuis Excel n'est pas concerné. Décidé le 19/09/2026 — voir la question classeurs-utf8.",
     "sauvegarde": {
       "commande": "rclone copy \"/Users/philippedestine/Documents/Projets\" \"dropbox:Norvège Suède Finlande Sauvegarde développement IA\" --exclude \".DS_Store\" --exclude \"**/.DS_Store\" --exclude \"_travail-module-03/_*/**\" -P",
       "portee": "Les deux dépôts avec leur historique Git, et les scripts présents dans le dossier de travail. Exclus : les sous-dossiers de données brutes du dossier de travail, dont le nom commence par un tiret bas.",

@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.40",
-    "genere_le": "2026-09-14T14:30:00+02:00",
+    "version": "1.41",
+    "genere_le": "2026-09-19T12:58:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -800,6 +800,39 @@
       "reponse": "ARBITRÉ : on garde les regroupements. Ils sont plus pratiques sur la route qu'une tuile par sujet, et un tableau de bord qui compte déjà vingt-neuf tuiles n'en supporterait pas neuf de plus. L'alignement est tenu partout ailleurs : 08 vidéos, 10 faune, 20 devises, 90 pratique.",
       "a_creuser": "Si un jour le 07 ou le 09 devait être éclaté, les numéros islandais correspondants sont libres côté nordique : 11, 12, 14, 16, 17, 18, 19, 21, 22, 89. Reprendre alors la numérotation islandaise plutôt que d'en inventer une.",
       "consequence": "Deux numéros désignent autre chose d'un environnement à l'autre. Sans cette note, une reprise croirait à une erreur."
+    },
+    {
+      "id": "bibliotheques-distantes",
+      "titre": "Bibliothèques distantes — une seule origine, versions figées, mise au cache",
+      "priorite": "basse",
+      "pour": "claude",
+      "statut": "arbitrée le 14/09/2026",
+      "constat": "Les modules chargent React, ReactDOM, Babel, Tailwind, Chart.js, SheetJS et Leaflet depuis des CDN, et aucune de ces ressources n'était dans le cache du service worker : sans réseau, ces pages s'ouvraient vides. Les origines divergeaient : quatre modules — 03, 06, 08, 10 — tiraient d'unpkg, les autres de cdnjs, et trois adresses unpkg ne portaient aucun numéro de version précis, le serveur choisissait.",
+      "reponse": "ARBITRÉ : tout est ramené sur cdnjs, aux versions figées déjà en usage — React 18.2.0, ReactDOM 18.2.0, Babel 7.23.5, Chart.js 4.4.0, SheetJS 0.18.5, Leaflet 1.9.4 — et le service worker porte une troisième liste, LIB_FILES, qui les met au cache à l'installation. Le versement local sous vendor/ a été examiné puis écarté : Starlink fonctionne en continu pendant les voyages, et l'environnement islandais a servi tout un voyage dans cette configuration.",
+      "a_creuser": "Reste à éprouver : iPad en mode avion, chaque tuile ouverte une fois — aucun contrôle par lecture n'établit qu'une page s'ouvre sans réseau. La police Inter du module 06 vient de Google Fonts et n'est pas au cache : sans réseau, le texte s'affiche dans une autre police, cosmétique et voulu.",
+      "consequence": "LIB_FILES est la seule liste du service worker tenue à la main : toute bibliothèque ajoutée à un module doit y être inscrite, sans quoi la page s'ouvre vide hors ligne. Aucun outil ne le fait."
+    },
+    {
+      "id": "disposition-tableau-de-bord",
+      "titre": "Disposition du tableau de bord — ordre islandais, puis priorité de l'Admin Menu",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "statut": "arbitrée le 14/09/2026, complétée le 19/09/2026",
+      "constat": "Le tableau de bord nordique comptait sept groupes, dont un fourre-tout de treize tuiles nommé « liens » où cohabitaient documents, suivi de trajet, tourisme et devises. Trois versions de outils/regrouper-tuiles.py ont fixé les rangées à la main et ont échoué sur des mesures fausses. Le 19/09, un éditeur visuel du menu, admin-menu-nsf.html, a été dérivé de l'outil islandais : ses dispositions et celles de regrouper-tuiles.py pouvaient s'écraser mutuellement.",
+      "reponse": "ARBITRÉ LE 14/09 : quatorze groupes, dans l'ordre du tableau de bord islandais, tenu comme une donnée (table ORDRE de regrouper-tuiles.py) ; rangées calculées jusqu'à six colonnes, un groupe compact occupant une colonne par tranche de deux tuiles. Trois écarts assumés avec l'islandais : actualité routière et alertes réunies ; « urgences et démarches » et « SOS véhicule » fondus ; groupes islandais sans équivalent nordique marqués à leur rang en commentaire. COMPLÉTÉ LE 19/09, décision de Philippe : la disposition faite dans l'Admin Menu a PRIORITÉ. L'export pose à la racine de config-menu.json la marque dispositionManuelle {date, outil} dès que la disposition est touchée ; regrouper-tuiles.py v1.4 n'écrit alors plus rien, même avec --ecrire. Éprouvé en ligne le 19/09 : marque posée à 12:40, tableau de bord affiché normalement, regrouper-tuiles.py sans écriture.",
+      "a_creuser": "Revenir à la disposition calculée se demande explicitement : regrouper-tuiles.py --reprendre --ecrire, qui écrit, retire la marque et réécrit aussi les noms de groupes depuis sa table LIBELLES.",
+      "consequence": "Depuis le 19/09, la table ORDRE de regrouper-tuiles.py ne décrit plus la disposition en place. Sans effet tant qu'on n'utilise pas --reprendre ; après un ajouter-tuile.py, --reprendre s'arrêtera sur « modules déclarés mais non placés » jusqu'à ce que la tuile soit inscrite dans ORDRE."
+    },
+    {
+      "id": "reprise-recherche-hors-depot",
+      "titre": "Document de reprise du chat de recherche — laissé hors dépôt",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "statut": "arbitrée le 16/09/2026",
+      "constat": "Deux chats travaillent sur le périple : l'un sur la structure de l'application, qui écrit dans les dépôts, l'autre sur la recherche de contenu. Le document de reprise du second, reprise-periple-nordique.md, ne vit que dans le Contexte du projet : ni sauvegardé, ni versionné, ni poussé. Lui et docs/consigne-chat-recherche.md annoncent neuf ou dix modules et vingt-huit tuiles, l'état du 11 septembre.",
+      "reponse": "ARBITRÉ : on le laisse dans le Contexte du projet, le chat de recherche le porte aussi.",
+      "a_creuser": "À reverser dans docs/ du dépôt applicatif si ce n'était plus le cas. Les deux documents du chat de recherche raisonnent sur un état périmé : sans conséquence sur le code, mais à rafraîchir à la prochaine session de recherche.",
+      "consequence": "Une perte du Contexte du projet emporterait ce document : il n'a pas de copie dans les dépôts."
     }
   ],
   "sources_api": {
@@ -986,7 +1019,8 @@
       "Periple-Nordique/README.md": "Architecture de l'application, écarts de chaque module avec son aîné islandais, coquille PWA, conventions, procédures de mise à jour.",
       "Periple-Nordique/docs/modules-meteo.md": "Structures internes des modules météo : pays, Excel, endpoints, consensus, traductions.",
       "Periple-Nordique/outils/generer-listes.sh": "Tient à jour les deux listes de fichiers. À lancer après chaque révision de module.",
-      "en-têtes des fichiers de modules": "Version, aîné islandais, écarts, journal des changements. Première chose à lire avant de modifier."
+      "en-têtes des fichiers de modules": "Version, aîné islandais, écarts, journal des changements. Première chose à lire avant de modifier.",
+      "Periple-Nordique/admin-menu-nsf.html": "Éditeur visuel de config-menu.json, à la racine du dépôt applicatif, avec son mode d'emploi doc-admin-menu-nsf.html. A priorité sur outils/regrouper-tuiles.py par la marque dispositionManuelle — voir la question disposition-tableau-de-bord."
     },
     "ce_qui_ne_doit_jamais_entrer_dans_un_depot": [
       "La clé de l'API suédoise : lue dans ~/.trafikverket-key, chmod 600.",

@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.41",
-    "genere_le": "2026-09-19T12:58:00+02:00",
+    "version": "1.42",
+    "genere_le": "2026-09-19T13:11:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -833,6 +833,17 @@
       "reponse": "ARBITRÉ : on le laisse dans le Contexte du projet, le chat de recherche le porte aussi.",
       "a_creuser": "À reverser dans docs/ du dépôt applicatif si ce n'était plus le cas. Les deux documents du chat de recherche raisonnent sur un état périmé : sans conséquence sur le code, mais à rafraîchir à la prochaine session de recherche.",
       "consequence": "Une perte du Contexte du projet emporterait ce document : il n'a pas de copie dans les dépôts."
+    },
+    {
+      "id": "emplacement-outils-preparation",
+      "titre": "Emplacement des outils de préparation — outils/, jamais un dossier de module",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "statut": "arbitrée le 19/09/2026",
+      "constat": "enrichir-livres-isbn.py, qui remplit le classeur du module 12 depuis l'ISBN, vivait dans 12-livres-cartes/. Le contrôle croisé de generer-listes.sh le signalait « présent mais cité nulle part », alors que la règle veut ce compteur à zéro, l'extracteur YouTube excepté. Son bandeau le disait « HORS DÉPÔT » alors qu'il était commité. Un correctif du 16/09 (tuile-google-earth.py) jugeait ce signalement « le comportement juste », en passant, à propos d'un fichier KML abandonné depuis ; ce jugement n'avait été inscrit nulle part.",
+      "reponse": "ARBITRÉ : un script de préparation vit dans outils/ de son dépôt, versionné, jamais dans un dossier de module. enrichir-livres-isbn.py y a été déplacé par git mv et passe en 1.0.1 : mode d'emploi depuis la racine, « HORS DÉPÔT » corrigé en « HORS APPLICATION ». Il ne porte aucune clé. Seule exception maintenue : l'extracteur YouTube du module 08, hors dépôt parce qu'il porte une clé d'API en clair.",
+      "a_creuser": "Élargir le motif EST_OUTIL de generer-listes.sh aux .py a été écarté : ce motif classe aussi les fichiers comme « hors dépôt », ce qui aurait été faux pour un script versionné.",
+      "consequence": "Le contrôle croisé de generer-listes.sh redevient un signal : tout fichier non cité dans un dossier de module est une anomalie, pas un outil toléré."
     }
   ],
   "sources_api": {
@@ -1027,6 +1038,7 @@
       "Les extractions brutes : reproductibles en relançant un script, des centaines de mégaoctets.",
       "Deux versions d'un même module : la version remplacée est supprimée au moment où la nouvelle est déposée."
     ],
+    "emplacement_des_outils": "Un script de préparation — collecte, conversion, enrichissement d'un classeur — vit dans outils/ de son dépôt, versionné, jamais dans un dossier de module : ceux-ci ne contiennent que ce que l'application sert. Seule exception, hors dépôt : un outil portant une clé en clair, comme l'extracteur YouTube du module 08, exclu par .gitignore. Décidé le 19/09/2026 — voir la question emplacement-outils-preparation.",
     "sauvegarde": {
       "commande": "rclone copy \"/Users/philippedestine/Documents/Projets\" \"dropbox:Norvège Suède Finlande Sauvegarde développement IA\" --exclude \".DS_Store\" --exclude \"**/.DS_Store\" --exclude \"_travail-module-03/_*/**\" -P",
       "portee": "Les deux dépôts avec leur historique Git, et les scripts présents dans le dossier de travail. Exclus : les sous-dossiers de données brutes du dossier de travail, dont le nom commence par un tiret bas.",

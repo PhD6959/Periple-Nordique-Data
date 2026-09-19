@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.45",
-    "genere_le": "2026-09-19T16:34:00+02:00",
+    "version": "1.46",
+    "genere_le": "2026-09-19T20:23:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -866,6 +866,17 @@
       "reponse": "ARBITRÉ : tout classeur écrit ou modifié par un script est réécrit en UTF-8 direct avant d'être déposé — les références numériques des feuilles XML sont décodées. Classeur 06 corrigé le 19/09, commit 569d587 du dépôt applicatif ; affichage constaté juste par Philippe. Un classeur enregistré depuis Excel n'a pas ce défaut.",
       "a_creuser": "Les classeurs 08 (vide) et 12 n'ont pas été contrôlés. Le script outils/enrichir-livres-isbn.py écrit par openpyxl : ses copies sont concernées si un titre, un auteur ou un éditeur porte un caractère hors du plan de base. Le comportement de l'openpyxl du Mac de Philippe n'a pas été vérifié.",
       "consequence": "Règle inscrite à conventions_de_travail, clé classeurs_ecrits_par_script."
+    },
+    {
+      "id": "vidange-eaux-noires",
+      "titre": "Vidange des eaux noires — pas de colonne dans la couche des aires",
+      "priorite": "basse",
+      "pour": "les-deux",
+      "statut": "arbitrée le 19/09/2026",
+      "constat": "La couche aires-camping-car.geojson ne garde qu'un booléen « vidange », sans dire ce qu'on peut y vider. OpenStreetMap porte deux sous-étiquettes pour cela : sanitary_dump_station:chemical_toilet (cassette de WC, eaux noires) et sanitary_dump_station:grey_water (eaux grises), plus une forme sanitary_dump_station:accepted. Le wiki OSM définit amenity=sanitary_dump_station comme réservé aux réservoirs d'eaux de toilettes, mais sa page de discussion relève que le sens des sous-étiquettes n'a jamais été clairement défini. Comptage du 19/09 sur les extraits OSM du 10/09 : Norvège 487 points de vidange, dont 24 eaux noires déclarées et 4 refusées ; Suède 550, dont 33 et 4 ; Finlande 230, dont 11 et 0 — environ 5 % de couverture, totaux maximaux, un point pouvant porter deux étiquettes. La sous-étiquette basin, sans définition officielle, figure sur 66 points ; ses valeurs n'ont pas été relevées.",
+      "reponse": "ARBITRÉ PAR PHILIPPE : pas de colonne « eaux noires ». MOTIF PRINCIPAL, constat de terrain en Islande : les indications de vidange sont parfois fausses sur place, au point que même les eaux grises n'y peuvent pas être vidées ; une indication « eaux noires », plus exigeante, serait moins fiable encore et donnerait une fausse assurance. Motif secondaire : environ 5 % de couverture dans les trois pays.",
+      "a_creuser": "La même réserve vaut pour la colonne « vidange » existante : elle signale un point, elle ne garantit pas qu'il accepte ce qu'on veut y vider. Piste non explorée : les valeurs de sanitary_dump_station:basin.",
+      "consequence": "Sur place, seuls le panneau et l'exploitant font foi. À reconsidérer seulement si la recollecte de mars 2027 montrait des données à la fois plus nombreuses et vérifiées sur le terrain."
     }
   ],
   "sources_api": {

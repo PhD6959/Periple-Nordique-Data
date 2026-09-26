@@ -2,7 +2,7 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.46",
+    "version": "1.47",
     "genere_le": "2026-09-19T20:23:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
@@ -828,11 +828,11 @@
       "titre": "Document de reprise du chat de recherche — laissé hors dépôt",
       "priorite": "basse",
       "pour": "les-deux",
-      "statut": "arbitrée le 16/09/2026",
+      "statut": "close le 21/09/2026",
       "constat": "Deux chats travaillent sur le périple : l'un sur la structure de l'application, qui écrit dans les dépôts, l'autre sur la recherche de contenu. Le document de reprise du second, reprise-periple-nordique.md, ne vit que dans le Contexte du projet : ni sauvegardé, ni versionné, ni poussé. Lui et docs/consigne-chat-recherche.md annoncent neuf ou dix modules et vingt-huit tuiles, l'état du 11 septembre.",
-      "reponse": "ARBITRÉ : on le laisse dans le Contexte du projet, le chat de recherche le porte aussi.",
+      "reponse": "CLOS : le document est versionné depuis le 21/09/2026 sous Periple-Nordique/docs/reprise-periple-nordique.md. L'arbitrage du 16/09 — le laisser dans le seul Contexte — est caduc : le Contexte en garde l'original, le dépôt une copie sauvegardée.",
       "a_creuser": "À reverser dans docs/ du dépôt applicatif si ce n'était plus le cas. Les deux documents du chat de recherche raisonnent sur un état périmé : sans conséquence sur le code, mais à rafraîchir à la prochaine session de recherche.",
-      "consequence": "Une perte du Contexte du projet emporterait ce document : il n'a pas de copie dans les dépôts."
+      "consequence": "Plus de conséquence : le document a une copie versionnée. Reste que son contenu décrit l'état du 11 septembre — neuf ou dix modules, vingt-huit tuiles — et sera à rafraîchir à la prochaine session de recherche."
     },
     {
       "id": "emplacement-outils-preparation",

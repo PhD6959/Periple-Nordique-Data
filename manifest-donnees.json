@@ -886,7 +886,7 @@
       "point_acces": "https://api.trafikinfo.trafikverket.se/v2/data.json",
       "forme": "Requête POST d'un document XML. L'élément QUERY exige trois attributs : objecttype, namespace et schemaversion. L'omission du namespace fait répondre « ObjectType does not exists » — littéralement vrai, et trompeur.",
       "licence": "CC0 — aucune restriction, pas même l'obligation d'attribution.",
-      "cle": "Compte contact@philippedestine.com. La clé est lue dans ~/.trafikverket-key, jamais écrite dans un script versionné.",
+      "cle": "Compte personnel. La clé est lue dans ~/.trafikverket-key, jamais écrite dans un script versionné — ni l'adresse du compte, ce dépôt étant public.",
       "connexion": "Sur le portail data.trafikverket.se, utiliser « Login (Other) » et non « Login (Trafikverket account) » : la seconde est l'authentification interne des agents, au format domain\\user.",
       "reference": "Le banc d'essai du portail — Data and API:s, API Open Data, Testbench — donne pour chaque type son namespace et sa schemaversion exacts. C'est la seule référence fiable : la documentation tierce consultée a induit en erreur trois fois, sur des noms de types disparus, sur l'attribut namespace passé sous silence et sur une version périmée.",
       "types_verifies": [

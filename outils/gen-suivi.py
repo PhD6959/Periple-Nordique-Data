@@ -214,7 +214,7 @@ au chargement sans rien apporter.</p>
 <p>Les données vivent dans le dépôt public <code>Periple-Nordique-Data</code> : manifeste et README à
 la racine, couches dans <code>sources/</code>, scripts de collecte dans <code>outils/</code>,
 documents engendrés dans <code>docs/</code>. L'application vit dans un dépôt distinct,
-<code>Periple-Nordique</code>, privé mais servi publiquement par GitHub Pages. La séparation tient à
+<code>Periple-Nordique</code>, privé et servi par Cloudflare Pages derrière Cloudflare Access. La séparation tient à
 la licence : les données portent des obligations d'attribution, l'application non.</p>
 
 <h3>Répartition</h3>

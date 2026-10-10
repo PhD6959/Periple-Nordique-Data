@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sources et licences — Périple nordique 2027</title>
+<style>
+:root{
+  --bg:#0b1a28; --panel:#122335; --panel2:#0f1d2c; --line:#24405c;
+  --txt:#e8f0f8; --txt2:#a9c0d6; --acc:#ff9b3d; --acc2:#5fe3ff;
+  --ok:#6fb977; --warn:#ffd166; --bad:#e06a6a; --info:#8078cc;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  line-height:1.62;font-size:16px;-webkit-text-size-adjust:100%}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 60px}
+header.top{background:linear-gradient(135deg,#16293c 0%,#1d3f5e 100%);
+  border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px}
+header.top h1{margin:0 0 6px;font-size:1.5em;line-height:1.25}
+header.top .sub{color:var(--txt2);font-size:.95em}
+header.top .ver{margin-top:10px;color:var(--acc);font-weight:600;font-size:.95em}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.actions button{background:#1d3a55;color:var(--txt);border:1px solid var(--line);
+  border-radius:10px;padding:11px 16px;min-height:44px;font-size:.95em;cursor:pointer}
+.actions button:active{transform:translateY(1px)}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  margin:0 0 12px;overflow:hidden}
+button.toggle{width:100%;text-align:left;background:var(--panel2);color:var(--txt);
+  border:0;border-bottom:1px solid var(--line);padding:15px 18px;min-height:52px;
+  font-size:1.06em;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:10px}
+button.toggle .chev{color:var(--acc);font-size:.85em;transition:transform .15s}
+section.open button.toggle .chev{transform:rotate(90deg)}
+.body{display:none;padding:16px 18px 20px}
+section.open .body{display:block}
+h3{margin:20px 0 8px;font-size:1.02em;color:var(--acc2)}
+h3:first-child{margin-top:0}
+p{margin:0 0 10px}
+ul{margin:0 0 12px;padding-left:20px}
+li{margin:4px 0}
+code{background:#0a1420;border:1px solid var(--line);border-radius:5px;
+  padding:1px 6px;font-size:.9em;color:var(--acc2);word-break:break-word}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0 14px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92em}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:#17324a;color:#dceaf7;font-weight:600}
+tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+.box{border-left:5px solid var(--info);background:rgba(128,120,204,.12);
+  border-radius:8px;padding:12px 14px;margin:12px 0}
+.box.ok{border-left-color:var(--ok);background:rgba(111,185,119,.12)}
+.box.warn{border-left-color:var(--warn);background:rgba(255,209,102,.12)}
+.box.bad{border-left-color:var(--bad);background:rgba(224,106,106,.12)}
+.box b{color:#fff}
+.tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.82em;
+  border:1px solid var(--line);white-space:nowrap}
+.tag.ok{color:var(--ok);border-color:var(--ok)}
+.tag.no{color:var(--bad);border-color:var(--bad)}
+.tag.part{color:var(--warn);border-color:var(--warn)}
+footer{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);
+  color:var(--txt2);font-size:.9em;text-align:center}
+footer .ver{color:var(--acc);font-weight:600}
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  .wrap{max-width:none;padding:0}
+  header.top{background:none;border:1px solid #000;color:#000}
+  header.top h1,header.top .sub,header.top .ver{color:#000}
+  .actions{display:none !important}
+  button:not(.toggle){display:none !important}
+  button.toggle{display:block !important;background:none;color:#000;
+    border-bottom:1px solid #000;font-size:12pt}
+  button.toggle .chev{display:none}
+  section{background:none;border:1px solid #000;break-inside:avoid;page-break-inside:avoid}
+  .body{display:block !important}
+  h3{color:#000}
+  code{background:none;border:1px solid #666;color:#000}
+  th{background:#eee;color:#000}
+  th,td{border:1px solid #666}
+  tr:nth-child(even) td{background:none}
+  .box{border-left:3px solid #000;background:none}
+  .box b{color:#000}
+  .tag{border-color:#000;color:#000}
+  footer,footer .ver{color:#000}
+  table{min-width:0}
+}
+
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:1px 9px;font-size:.82em;color:var(--txt2)}
+.tag.ko{color:var(--ko);border-color:var(--ko)}
+.tag.ok{color:var(--ok);border-color:var(--ok)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.kpi{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}
+.kpi div{flex:1 1 150px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kpi b{display:block;font-size:1.5em;color:var(--acc)}
+.kpi span{color:var(--txt2);font-size:.88em}
+@media print{.kpi div{background:none;border:1px solid #000}.kpi b{color:#000}.kpi span{color:#000}.tag{border-color:#000;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<h1>Sources et licences des couches de données</h1>
+<p class="sub">Périple nordique 2027 — Norvège, Suède, Finlande</p>
+<p class="ver">Version 1.49 — 10 octobre 2026 à 14:55</p>
+<div class="box"><b>Ce document est engendré</b>Il est produit par
+<code>outils/gen-licences.py</code> depuis <code>manifest-donnees.json</code>,
+et ne doit jamais être édité à la main : toute correction se porte au manifeste,
+champs <code>source</code> et <code>licence</code> de la rubrique, puis on
+relance le script. Il ne peut donc pas diverger de la source de vérité.</div>
+<div class="kpi">
+<div><b>16</b><span>rubriques</span></div>
+<div><b>11</b><span>exigeant une attribution</span></div>
+<div><b>4</b><span>familles de licences</span></div>
+<div><b>4</b><span>à compléter</span></div>
+</div>
+<div class="actions">
+<button onclick="document.querySelectorAll('section').forEach(s=>s.classList.add('open'))">Tout déplier</button>
+<button onclick="document.querySelectorAll('section').forEach(s=>s.classList.remove('open'))">Tout replier</button>
+</div>
+</div>
+<section class="open"><button class="toggle"><span class="chev">▶</span>Ce qu'il faut créditer, et pourquoi</button><div class="body"><p>Trois des quatre familles exigent une attribution. Le nombre de rubriques concernées est compté sur le manifeste, pas recopié.</p><div class="tablewrap"><table><thead><tr><th>Licence</th><th>Rubriques</th><th>Ce qu'elle impose</th></tr></thead><tbody><tr><td><b>ODbL</b><br><span class="mini">Open Database License 1.0</span></td><td>6<br><span class="mini">cols-fermetures, ferries, services, aires-camping-car, tunnels, pois</span></td><td>Attribution obligatoire, ET partage à l'identique : une base dérivée doit être publiée sous la même licence. C'est la plus contraignante des quatre, et celle qui couvre le plus de rubriques ici.<br><span class="mini"><a href="https://opendatacommons.org/licenses/odbl/1-0/">https://opendatacommons.org/licenses/odbl/1-0/</a></span></td></tr><tr><td><b>CC BY 4.0</b><br><span class="mini">Creative Commons Attribution 4.0</span></td><td>4<br><span class="mini">restrictions-degel, pistes-carrossables, gabarit-vehicule, zones-protegees-contours</span></td><td>Attribution obligatoire : nommer l'auteur, la licence, et signaler si la donnée a été modifiée — ce qui est le cas de toutes nos couches, filtrées et reprojetées.<br><span class="mini"><a href="https://creativecommons.org/licenses/by/4.0/deed.fr">https://creativecommons.org/licenses/by/4.0/deed.fr</a></span></td></tr><tr><td><b>NLOD</b><br><span class="mini">Norsk lisens for offentlige data 2.0</span></td><td>7<br><span class="mini">cols-fermetures, ferries, tunnels, peages, pistes-carrossables, gabarit-vehicule, zones-protegees-contours</span></td><td>Attribution obligatoire, réutilisation libre par ailleurs. C'est la licence des données publiques norvégiennes.<br><span class="mini"><a href="https://data.norge.no/nlod/no/2.0">https://data.norge.no/nlod/no/2.0</a></span></td></tr><tr><td><b>CC0</b><br><span class="mini">Creative Commons Zero 1.0</span></td><td>3<br><span class="mini">peages, gabarit-vehicule, reseau-suedois</span></td><td>Aucune obligation : renonciation au droit d'auteur. Citer la source reste une courtoisie, et un service rendu à qui voudra vérifier.<br><span class="mini"><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.fr">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</a></span></td></tr></tbody></table></div><div class="box warn"><b>Le partage à l'identique de l'ODbL</b>Une base dérivée d'OpenStreetMap doit être publiée sous ODbL. C'est l'une des raisons pour lesquelles le dépôt de données reste public — l'autre étant que l'application lit ses couches par raw.githubusercontent.com, qui ne sait pas s'authentifier.</div></div></section><section class="open"><button class="toggle"><span class="chev">▶</span>L'écart avec ce que l'application affiche</button><div class="body"><p>Relevé le 10/10/2026 dans l'onglet Doc du module 03, en six langues :</p><div class="box"><b>Texte affiché</b>La couche des services est dérivée d'OpenStreetMap : © les contributeurs OpenStreetMap, sous licence ODbL. Les autres couches relèvent de la NLOD norvégienne ou de la CC BY 4.0 finlandaise.</div><p>Le manifeste en dit autrement :</p><ul><li><b>ODbL : 6 rubriques</b>, et non la seule couche des services — cols-fermetures, ferries, services, aires-camping-car, tunnels, pois.</li><li><b>CC0 : 3 rubriques</b>, les données suédoises, non mentionnées. Sans conséquence : CC0 n'impose rien.</li><li>NLOD et CC BY 4.0 sont nommées, mais sans leurs producteurs — or ces deux licences demandent de nommer l'auteur.</li></ul><div class="box warn"><b>Ce qui reste à décider</b>Corriger ce texte touche six langues et impose une révision du module 03. Le registre dit l'écart ; il ne le corrige pas de lui-même.</div><div class="box ok"><b>Texte proposé, à vérifier avant emploi</b>Données routières et géographiques : © les contributeurs OpenStreetMap (ODbL) ; Statens vegvesen et Miljødirektoratet, Norvège (NLOD) ; Trafikverket et Lantmäteriet, Suède (CC0) ; Väylävirasto et SYKE, Finlande (CC BY 4.0). Couches filtrées et reprojetées pour cette application.</div></div></section><section class="open"><button class="toggle"><span class="chev">▶</span>Le registre, rubrique par rubrique</button><div class="body"><div class="tablewrap"><table><thead><tr><th>Rubrique</th><th>Fichier</th><th>Source</th><th>Licence</th></tr></thead><tbody><tr><td><b>cols-fermetures</b><br><span class="mini">Cols et routes à fermeture saisonnière</span></td><td><code>sources/cols-fermetures.geojson</code></td><td>NO : NVDB API Les V4, vegobjekttype 107 « Værutsatt veg » (1494 objets) et 883 « Skredutsatt veg » (325 objets). Écartés après extraction : 1005 « Vinterberedskap », vide en base ; 607 « Vegsperring », 27 788 objets de barrières physiques sans rapport avec la fermeture saisonnière. SE : Trafikverket Öppet API, types Situation et RoadCondition. FI : aucune couche de fermeture saisonnière au WFS Digiroad.</td><td>NO : NLOD. SE et FI : ODbL. La propriété « source » indique l'origine de chaque entité.</td></tr><tr><td><b>ferries</b><br><span class="mini">Ferries et bacs</span></td><td><code>sources/ferries.geojson</code></td><td>NO : NVDB API Les V4, vegobjekttypes 770 « Ferjesamband » (141 liaisons) et 64 « Ferjekai » (379 quais). SE et FI : OpenStreetMap via Overpass, extraction du 12 septembre 2026 — route=ferry et amenity=ferry_terminal.</td><td>NO : NLOD (Statens vegvesen). SE et FI : ODbL (OpenStreetMap). La couche relève des deux : la propriété « source » de chaque entité indique laquelle.</td></tr><tr><td><b>services</b><br><span class="mini">Carburant, alimentation, monopoles d'alcool</span></td><td><code>sources/services.geojson</code></td><td>OpenStreetMap, via l'API Overpass, extraction du 10 septembre 2026. Étiquettes retenues : amenity=fuel, shop=supermarket, shop=convenience, shop=alcohol, sur les trois zones nationales.</td><td>ODbL — attribution obligatoire et propagation aux données dérivées. Première couche du dépôt sous cette licence.</td></tr><tr><td><b>aires-camping-car</b><br><span class="mini">Aires de camping-car et services de vidange</span></td><td><code>sources/aires-camping-car.geojson</code></td><td>OpenStreetMap via Overpass, extraction du 10 septembre 2026 : tourism=caravan_site, amenity=sanitary_dump_station, tourism=camp_site, amenity=drinking_water, shop|amenity=laundry.</td><td>ODbL — attribution obligatoire, propagation aux données dérivées.</td></tr><tr><td><b>tunnels</b><br><span class="mini">Tunnels appelant une décision</span></td><td><code>sources/tunnels.geojson</code></td><td>NO : NVDB API Les V4, vegobjekttype 581 « Tunnel ». SE et FI : OpenStreetMap via Overpass, extraction du 12 septembre 2026 — tunnel=yes sur le réseau principal.</td><td>NO : NLOD. SE et FI : ODbL. La propriété « source » indique l'origine de chaque entité.</td></tr><tr><td><b>pois</b><br><span class="mini">Points d'intérêt</span></td><td><code>sources/pois.geojson, sources/refuges.geojson, sources/zones-protegees.geojson</code></td><td>OpenStreetMap via Overpass, extraction du 10 septembre 2026, 26 types d'objets par pays.</td><td>ODbL — attribution obligatoire, propagation aux données dérivées.</td></tr><tr><td><b>blocs-itineraire</b><br><span class="mini">Blocs d'itinéraire et tronçons</span></td><td><code>sources/blocs-itineraire.geojson</code></td><td>Document interne doc-periple-nordique-2027-itineraire.html, version 3.19 du 9 septembre 2026, conservé dans docs/ du dépôt. Le script d'étape 38 LE LIT — il n'en porte plus de copie. Les points d'ancrage, qui ne sont pas une donnée du document mais un choix, vivent dans sources/blocs-ancrages.json.</td><td>interne</td></tr><tr><td><b>favoris</b><br><span class="mini">Favoris</span></td><td><code>03-config-favoris-nsf.xlsx</code></td><td>doc-periple-nordique-2027-itineraire.html — document interne</td><td>interne</td></tr><tr><td><b>peages</b> <span class="tag warn">incomplète</span><br><span class="mini">Péages et badge</span></td><td><code>sources/peages.geojson</code></td><td>NO : NVDB API Les V4, vegobjekttype 45 « Bomstasjon ». SE et FI : à établir.</td><td>NO : NLOD. SE : CC0. FI : à établir.</td></tr><tr><td><b>restrictions-degel</b> <span class="tag warn">incomplète</span><br><span class="mini">Restrictions de dégel</span></td><td><code>sources/restrictions-degel.geojson</code></td><td>FI : Digiroad, couche WFS digiroad:dr_kelirikko, confirmée présente. SE : type Situation (Bärighetsnedsättning) de l'Öppet API. NO : à établir.</td><td>FI : CC BY 4.0, Väylävirasto. SE : licence de l'Öppet API, à lire. NO : à établir.</td></tr><tr><td><b>routes-glace</b> <span class="tag ko">licence absente</span><br><span class="mini">Routes de glace</span></td><td><code>sources/routes-glace.geojson</code></td><td>&lt;i&gt;(vide)&lt;/i&gt;</td><td><i>(vide)</i></td></tr><tr><td><b>pistes-carrossables</b> <span class="tag warn">incomplète</span><br><span class="mini">Barrières d'accès et pistes carrossables</span></td><td><code>sources/barrieres.geojson</code></td><td>NO : NVDB, vegobjekttype 607 « Vegsperring » (27 788 objets, déjà extraits partiellement) croisée avec la catégorie de voie, pour distinguer skogsbilvei — construite pour l'automobile — de traktorvei, juridiquement assimilée à l'utmark. FI : Digiroad, couches dr_tielinkki_hall_lk (classe administrative) et tiekunnalliset_yksityistiet (routes privées gérées par une association), toutes deux vues au WFS. SE : à établir.</td><td>NO : NLOD. FI : CC BY 4.0. SE : à établir.</td></tr><tr><td><b>regles-circulation</b><br><span class="mini">Règles de circulation hors réseau public</span></td><td><code>documentation du module 03 (pas de GeoJSON)</code></td><td>NO : motorferdselloven, vegloven, friluftsloven (Lovdata), guides du Miljødirektoratet, note juridique du Norges Skogeierforbund. SE : Trafikverket, publication 2019:186 sur l'entretien des voies privées. FI : yksityistielaki 560/2018, loi Kemera.</td><td>sans objet — textes réglementaires cités, non redistribués</td></tr><tr><td><b>gabarit-vehicule</b><br><span class="mini">Gabarit du véhicule — hauteurs, poids, largeurs</span></td><td><code>sources/hauteurs-limitees.geojson, sources/poids-limites.geojson, sources/largeurs-limites.geojson</code></td><td>NO : NVDB API Les V4, vegobjekttype 591 « Høydebegrensning » — tronçon où un véhicule peut entrer en conflit avec un obstacle situé au-dessus. SE : base routière de Trafikverket, Höjdhinder_upp_till_45_dm, BegränsadBruttovikt, BegränsadFordonsbredd. FI : Digiroad, couche WFS dr_max_korkeus. Extractions des 12 septembre 2026.</td><td>NO : NLOD. SE : CC0. FI : CC BY 4.0. La propriété « source » de chaque entité — NVDB, TRV ou VAYLA — indique laquelle s'applique.</td></tr><tr><td><b>reseau-suedois</b><br><span class="mini">Réseau routier suédois — barrières, bacs, aires de repos</span></td><td><code>sources/barrieres-se.geojson, sources/bacs-se.geojson, sources/aires-repos-se.geojson</code></td><td>Trafikverket, namespace vägdata.nvdb_dk_o pour Väghinder et Färjeled, vägdata.vis_dk_o pour Rastplatser, schemaversion 1.2. Extraction du 12 septembre 2026.</td><td>CC0</td></tr><tr><td><b>zones-protegees-contours</b><br><span class="mini">Zones protégées — contours</span></td><td><code>sources/zones-protegees-fi.geojson, sources/zones-protegees-no.geojson</code></td><td>FI : SYKE, GeoServer paikkatiedot.ymparisto.fi, couche inspire_ps:PS.ProtectedSitesValtionOmistamaLuonnonsuojelualue. Extraction du 12 septembre 2026. NO : Miljødirektoratet, service ArcGIS Naturvernområder, couche naturvern_omrade. Extraction du 12 septembre 2026.</td><td>FI : CC BY 4.0 (SYKE). NO : NLOD (Miljødirektoratet). La propriété « source » — SYKE ou MDIR — indique laquelle s'applique.</td></tr></tbody></table></div></div></section><section class="open"><button class="toggle"><span class="chev">▶</span>Ce qui manque encore</button><div class="body"><ul><li><b>routes-glace</b> — ni source ni licence. Vérifier l'existence de routes de glace officielles dans les trois pays avant de conclure au « sans objet ».</li><li><b>peages</b> — licence partielle : NO : NLOD. SE : CC0. FI : à établir.</li><li><b>restrictions-degel</b> — licence partielle : FI : CC BY 4.0, Väylävirasto. SE : licence de l'Öppet API, à lire. NO : à établir.</li><li><b>pistes-carrossables</b> — licence partielle : NO : NLOD. FI : CC BY 4.0. SE : à établir.</li></ul></div></section>
+<footer>Version 1.49 — 10 octobre 2026 à 14:55 — engendré par outils/gen-licences.py depuis le manifeste.
+<br>Philippe Destiné</footer>
+</div>
+<script>
+document.querySelectorAll('button.toggle').forEach(function(b){
+  b.addEventListener('click', function(){ b.parentElement.classList.toggle('open'); });
+});
+</script>
+</body>
+</html>

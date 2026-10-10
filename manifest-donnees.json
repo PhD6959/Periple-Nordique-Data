@@ -2,8 +2,8 @@
   "manifest": {
     "module": "03-nordique",
     "libelle": "Module 3 — Routes, ferries, tunnels, POIs & services · Norvège / Suède / Finlande",
-    "version": "1.47",
-    "genere_le": "2026-09-19T20:23:00+02:00",
+    "version": "1.48",
+    "genere_le": "2026-10-10T10:34:00+02:00",
     "depot": "Periple-Nordique-Data (public) — couches lues par l'application via raw.githubusercontent.com",
     "pays": [
       {
@@ -1075,8 +1075,8 @@
     "emplacement_des_outils": "Un script de préparation — collecte, conversion, enrichissement d'un classeur — vit dans outils/ de son dépôt, versionné, jamais dans un dossier de module : ceux-ci ne contiennent que ce que l'application sert. Seule exception, hors dépôt : un outil portant une clé en clair, comme l'extracteur YouTube du module 08, exclu par .gitignore. Décidé le 19/09/2026 — voir la question emplacement-outils-preparation.",
     "classeurs_ecrits_par_script": "Tout classeur .xlsx écrit ou modifié par un script — openpyxl compris — est réécrit en UTF-8 direct avant d'être déposé : les références numériques des feuilles XML sont décodées. Sinon SheetJS 0.18.5, qui lit les classeurs dans les modules, tronque les emojis. Un classeur enregistré depuis Excel n'est pas concerné. Décidé le 19/09/2026 — voir la question classeurs-utf8.",
     "sauvegarde": {
-      "commande": "rclone copy \"/Users/philippedestine/Documents/Projets\" \"dropbox:Norvège Suède Finlande Sauvegarde développement IA\" --exclude \".DS_Store\" --exclude \"**/.DS_Store\" --exclude \"_travail-module-03/_*/**\" -P",
-      "portee": "Les deux dépôts avec leur historique Git, et les scripts présents dans le dossier de travail. Exclus : les sous-dossiers de données brutes du dossier de travail, dont le nom commence par un tiret bas.",
+      "commande": "git push   # historique sur GitHub ; les dépôts vivent dans IA-Projets/03-NSF/01-Periple-Nordique, synchronisé par Dropbox",
+      "portee": "Depuis le 10/10/2026 : les deux dépôts avec leur historique Git, dans IA-Projets (synchronisé par Dropbox) et sur GitHub. Le dossier _travail/ du dépôt de données est exclu de Git ; ses données brutes se refont en relançant les scripts. L'ancienne sauvegarde rclone de ~/Documents/Projets vers « Norvège Suède Finlande Sauvegarde développement IA » est supprimée.",
       "attention": "L'exclusion initiale portait sur le dossier de travail entier, ce qui laissait trente et un scripts sans sauvegarde. Corrigée le 12/09/2026. Toute nouvelle exclusion doit être examinée sous cet angle : qu'est-ce qu'elle emporte qui ne se reproduit pas ?"
     }
   }

@@ -91,4 +91,4 @@ echo "=========================================="
 echo
 echo "Si le rapport est propre, copier vers le dépôt :"
 echo "  cp $OUT/tunnels.geojson $OUT/peages.geojson $OUT/barrieres.geojson \\"
-echo "     ~/Documents/Projets/Periple-Nordique-Data/sources/"
+echo "     ../sources/"

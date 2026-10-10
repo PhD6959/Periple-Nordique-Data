@@ -1,6 +1,6 @@
 # Scripts de collecte et de conversion
 
-Trente-sept scripts, numérotés dans l'ordre où ils ont été écrits. Chacun produit un
+Trente-neuf scripts, numérotés dans l'ordre où ils ont été écrits. Chacun produit un
 **rapport** qui dit les volumes obtenus, les écarts et les anomalies — c'est ce rapport
 qui décide de publier ou non, jamais l'absence de message d'erreur.
 
@@ -11,11 +11,13 @@ départ, au manifeste, consiste à les relancer et à comparer les volumes.
 
 ## Comment les lancer
 
-Depuis le dossier de travail, hors dépôt, où vivent les extractions brutes :
+Depuis le dossier de travail `_travail/`, à la racine de ce dépôt, où vivent les extractions
+brutes — il est exclu de Git par `.gitignore` :
 
 ```bash
-cd ~/Documents/Projets/_travail-module-03
-bash /chemin/vers/outils/03-etapeNN-….sh
+cd ~/"DESTINE Philippe Dropbox/Philippe DESTINE/Philippe DESTINE/PhD Dropbox Synchro online/IA-Projets/03-NSF/01-Periple-Nordique/Periple-Nordique-Data"
+mkdir -p _travail && cd _travail
+bash ../outils/03-etapeNN-….sh
 ```
 
 Les scripts écrivent leurs données brutes dans des sous-dossiers du répertoire courant
@@ -46,6 +48,8 @@ printf '%s' 'LA_CLE' > ~/.trafikverket-key && chmod 600 ~/.trafikverket-key
 | `03-etape6-filtrage-barrieres.sh` | Filtre les barrières sur la catégorie de voie |
 | `03-etape30-hauteurs-no-fi.sh` | Profile le type 591 « Høydebegrensning » et la couche finlandaise |
 | `03-etape31-conversion-hauteurs.sh` | Convertit et fusionne les hauteurs des trois pays |
+| `03-etape39-zones-no.sh` | Zones protégées norvégiennes (Naturvernområder, Miljødirektoratet) : nouvelle tentative après la panne partielle du 12/09/2026 |
+| `03-etape40-zones-no-extraction.sh` | Extrait les zones protégées norvégiennes, couche `naturvern_omrade` (3 512 polygones annoncés) |
 
 **Pièges de la NVDB, constatés :** le WKT en srid 4326 donne **latitude puis longitude**,
 il faut permuter. Le plafond de pagination est de **800 objets par page**, pas 1 000 ; on

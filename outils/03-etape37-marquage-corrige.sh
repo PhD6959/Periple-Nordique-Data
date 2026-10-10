@@ -169,4 +169,4 @@ cat _parcs/RAPPORT37.txt
 echo "=========================================="
 echo
 echo "Si le rapport est propre, publier :"
-echo "  cp _parcs/zones-protegees-fi.geojson ~/Documents/Projets/Periple-Nordique-Data/sources/"
+echo "  cp _parcs/zones-protegees-fi.geojson ../sources/"

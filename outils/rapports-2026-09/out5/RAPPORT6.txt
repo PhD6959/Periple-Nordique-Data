@@ -1,0 +1,17 @@
+=== filtrage des barrières ===
+  27784 -> 18110 entités | 10198 Ko -> 6226 Ko
+  exclus :
+    fonction : Trafikkavviser                    8654
+    catégorie de voie : None                      380
+    catégorie de voie : fylkesveg                 260
+    catégorie de voie : europaveg                 214
+    catégorie de voie : riksveg                    85
+    fonction : Bussluse                            81
+  retenues par catégorie : {'kommunal': 3863, 'privat': 8841, 'skogsveg': 5406}
+  retenues par fonction  : {'Låst sperring': 17022, 'Ulåst Sperring': 466, 'Fjernstyrt sperring': 541, 'Betalingssperre': 81}
+  dont verrouillées      : 17022
+
+=== contrôle final des trois couches ===
+  tunnels.geojson         134 entités |    134 id uniques | schéma incomplet 0 | hors emprise 0 |    58 Ko
+  peages.geojson          463 entités |    463 id uniques | schéma incomplet 0 | hors emprise 0 |   277 Ko
+  barrieres.geojson     18110 entités |  18110 id uniques | schéma incomplet 0 | hors emprise 0 |  6226 Ko

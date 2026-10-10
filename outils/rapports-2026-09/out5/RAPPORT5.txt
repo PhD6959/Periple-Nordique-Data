@@ -1,0 +1,23 @@
+=== tunnels ===
+  tunnels au total : 1289 | retenus : 134
+  motifs : {'long': 122, 'sous-marin': 40, 'marchandises dangereuses': 4}
+
+=== péages ===
+  stations : 463
+  types : {'AutoPASS bomstasjon': 438, 'Bomstasjon på lokal/privat veg': 19, 'Ferjeinnkrevingspunkt': 6}
+  tarif petit véhicule : min 7, médian 33, max 186 NOK
+
+=== barrières ===
+  barrières : 27784
+  par catégorie de voie : {'kommunal': 7687, 'privat': 13465, 'skogsveg': 5693, 'fylkesveg': 260, None: 380, 'europaveg': 214, 'riksveg': 85}
+  par fonction : {'Låst sperring': 17359, 'Trafikkavviser': 9079, 'Ulåst Sperring': 606, 'Fjernstyrt sperring': 576, 'Bussluse': 83, 'Betalingssperre': 81}
+
+=== tailles ===
+  tunnels.geojson           58 Ko
+  peages.geojson           277 Ko
+  barrieres.geojson      10198 Ko
+
+=== échantillons ===
+  {"id": "no-tunnel-78728489", "country": "no", "name": "Bogstunnelen", "type": "tunnel", "source": "NVDB", "updated": "2026-09-10", "route": "E39", "kommune": 4638, "longueur_m": 3500, "sous_marin": false, "restriction_marchandises_dangereuses": false, "note_marchandises": null, "velo_interdit": true, "annee": 2004, "motifs": "long"}
+  {"id": "no-peage-82443541", "country": "no", "name": "Sandviken", "type": "peage", "source": "NVDB", "updated": "2026-09-10", "route": "E39", "kommune": 4601, "categorie_station": "AutoPASS bomstasjon", "exploitant": "Ferde AS - Bomringen Bergen", "lien": "www.ferde.no", "tarif_petit_vehicule": 38.0, "tarif_gros_vehicule": 88.0, "tarif_pointe_petit": 70.0, "pointe_matin": "06:30-08:59", "pointe_soir": "14:30-16:29", "sens": "Med metrering", "regle_horaire": "Første passering gjelder", "regle_horaire_min": 60}
+  {"id": "no-barriere-114149014", "country": "no", "name": "Låst bom", "type": "barriere", "source": "NVDB", "updated": "2026-09-10", "route": "K1620", "kommune": 3103, "categorie_voie": "kommunal", "fonction": "Låst sperring", "modele": "Låst bom", "remarque": "Fysisk sperring"}

@@ -1,0 +1,32 @@
+=== Norvège ===
+  objets lus : 4844
+  sans aucune hauteur : 129
+  champ le plus contraignant retenu : {'Skilta høyde': 1848, 'Beregnet høyde': 2454, 'H-min, høyre kant': 212, 'H-min, midt': 66, 'H-min, venstre kant': 135}
+  entités : 4715 dont 324 infranchissables, 79 en vigilance
+  écart d'au moins 10 cm entre hauteur signalée et mesure retenue : 65
+    Skiftingsfonna 2.38 m              signalée 4.50, retenue 2.38 (H-min, midt)
+    Tjodeveien 3.00 m                  signalée 3.30, retenue 3.00 (H-min, venstre kant)
+    Sundstredet jernbaneundergang 3.00 signalée 3.10, retenue 3.00 (Beregnet høyde)
+    Hillevåg-Hamneveien 3.20 m         signalée 3.40, retenue 3.20 (Beregnet høyde)
+    Kvamstotunnelen 3.29 m             signalée 3.60, retenue 3.29 (H-min, venstre kant)
+
+=== Finlande ===
+  entités lues : 5802
+  médiane de « arvo » : 455 -> unité retenue : cm
+  après conversion : min 1.65 m, médiane 4.55 m, max 30.00 m
+  entités : 5794 dont 1018 infranchissables, 155 en vigilance
+  écartées hors plage 1–12 m : 7
+
+=== fusion avec la couche suédoise ===
+  2189 + 10509 = 12698 entités, 8762 Ko
+  par pays   : {'se': 2189, 'no': 4715, 'fi': 5794}
+  par source : {'TRV': 2189, 'NVDB': 4715, 'VAYLA': 5794}
+  infranchissables à 3.20 m : 2634
+  par pays   : {'se': 1292, 'no': 324, 'fi': 1018}
+  identifiants uniques : oui
+
+=== échantillons ===
+  Norvège   {"id": "nvdb-591-1016358243", "country": "no", "source": "NVDB", "updated": "2026-09-12", "name": "Engøyklubben 1.60 m", "type": "hauteur_limitee", "obstacle": "Undergang/Bru", "hauteur_signalee_m": 1.6, "mesure_retenue": "Skilta høyde", "hauteur_max_m": 1.6, 
+  Norvège   {"id": "nvdb-591-1014691585", "country": "no", "source": "NVDB", "updated": "2026-09-12", "name": "Osli 1.75 m", "type": "hauteur_limitee", "obstacle": "Undergang/Bru", "mesure_retenue": "Beregnet høyde", "largeur_m": 1.5, "methode": "Målestav", "mesure_du": "
+  Finlande  {"id": "digiroad-80918906", "country": "fi", "source": "VAYLA", "updated": "2026-09-12", "name": "hauteur 1.65 m", "type": "hauteur_limitee", "kunta": 680, "sens": 1, "hauteur_max_m": 1.65, "franchissable": false, "marge_cm": -155}
+  Finlande  {"id": "digiroad-80917571", "country": "fi", "source": "VAYLA", "updated": "2026-09-12", "name": "hauteur 1.68 m", "type": "hauteur_limitee", "kunta": 858, "sens": 1, "hauteur_max_m": 1.68, "franchissable": false, "marge_cm": -152}

@@ -1,0 +1,20 @@
+=== traitement des doublons ===
+  hauteurs-limitees.geojson      2189 ->   2189 entités | écartés 0 | distingués 0 | ok
+  poids-limites.geojson          1048 ->   1047 entités | écartés 1 | distingués 0 | ok
+  largeurs-limites.geojson         28 ->     28 entités | écartés 0 | distingués 0 | ok
+  barrieres-se.geojson          69484 ->  69484 entités | écartés 0 | distingués 0 | ok
+  bacs-se.geojson                 180 ->    180 entités | écartés 0 | distingués 0 | ok
+  aires-repos-se.geojson          322 ->    321 entités | écartés 1 | distingués 4 | ok
+
+=== contrôle final des six couches ===
+  hauteurs-limitees.geojson      2189 entités |   2189 id uniques | schéma incomplet 0 | hors emprise 0 |   773 Ko
+  poids-limites.geojson          1047 entités |   1047 id uniques | schéma incomplet 0 | hors emprise 0 |   515 Ko
+  largeurs-limites.geojson         28 entités |     28 id uniques | schéma incomplet 0 | hors emprise 0 |    16 Ko
+  barrieres-se.geojson          69484 entités |  69484 id uniques | schéma incomplet 0 | hors emprise 0 | 21398 Ko
+  bacs-se.geojson                 180 entités |    180 id uniques | schéma incomplet 0 | hors emprise 0 |   141 Ko
+  aires-repos-se.geojson          321 entités |    321 id uniques | schéma incomplet 0 | hors emprise 0 |   129 Ko
+
+=== couches décisives ===
+  hauteurs : 2189 dont 1292 infranchissables à 3,20 m, 195 en vigilance
+  barrières : 69484 dont 65747 verrouillées
+  aires : 321 dont 211 avec vidange, 304 avec toilettes

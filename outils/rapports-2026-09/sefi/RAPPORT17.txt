@@ -1,0 +1,31 @@
+=== retrait des doublons d'identifiant ===
+  ferries.geojson             2812 ->  2803 (9 doublon(s))
+       identifiants concernés : osm-w-28902127, osm-w-37299297, osm-w-212119427, osm-w-296301127, osm-w-342899626
+  tunnels.geojson              593 ->   593 (0 doublon(s))
+  cols-fermetures.geojson     1669 ->  1669 (0 doublon(s))
+
+=== regroupement des segments de tunnel ===
+  593 entités -> 375 (312 segments regroupés en 94 ouvrages)
+  taille : 123 Ko
+
+=== tunnels les plus bas, après regroupement ===
+  Arenavägen                         se  2.90 m  3 tronçons
+  Klaratunneln                       se  3.00 m  9 tronçons
+  Kronetorpsvägen                    se  3.40 m  2 tronçons
+  Rudbecksgatan                      se  3.40 m  2 tronçons
+  Pentaporten                        se  3.50 m  
+  Östergatan                         se  3.50 m  
+  Hundra Knutars Backe               se  3.60 m  2 tronçons
+  Peltomyyränkuja                    fi  3.70 m  
+  Hertig Karls allé                  se  3.80 m  2 tronçons
+  Jarlabankes väg                    se  3.80 m  
+  Södra Järngraven                   se  3.80 m  2 tronçons
+  Stadsgårdsleden                    se  3.80 m  2 tronçons
+
+  tunnels avec hauteur limite : 48 sur 375
+  sous 4,00 m : 17 | sous 3,50 m : 4 | sous 3,00 m : 1
+
+=== contrôle final ===
+  ferries.geojson             2803 entités |  2803 id uniques | {'no': 520, 'se': 1352, 'fi': 931} | 839 Ko
+  tunnels.geojson              375 entités |   375 id uniques | {'no': 134, 'se': 187, 'fi': 54} | 123 Ko
+  cols-fermetures.geojson     1669 entités |  1669 id uniques | {'no': 1468, 'se': 113, 'fi': 88} | 1399 Ko

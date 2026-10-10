@@ -1,0 +1,15 @@
+=== obstacles sur la voie ===
+  pages : 19 | objets bruts : 73722 | uniques : 72448
+  plage d'identifiants : 4 à 93766
+  -> 72448 entités, 20985 Ko | verrouillées : 64491
+  par type : {'låst grind eller bom': 64491, 'eftergivlig grind': 2301, 'betonghinder': 1991, 'ej öppningsbar grind eller cykelfålla': 1427, 'pollare': 937, 'övrigt': 914, 'stenhinder': 344, 'spårviddshinder': 43}
+
+  fichier renommé : poidss-limites.geojson -> poids-limites.geojson
+
+=== les six fichiers ===
+  hauteurs-limitees.geojson      2189 entités |   2082 id uniques | hors emprise 0 |   730 Ko
+  poids-limites.geojson          1048 entités |    472 id uniques | hors emprise 0 |   479 Ko
+  largeurs-limites.geojson         28 entités |     19 id uniques | hors emprise 0 |    15 Ko
+  barrieres-se.geojson          72448 entités |  72448 id uniques | hors emprise 0 | 20985 Ko
+  bacs-se.geojson                 180 entités |    121 id uniques | hors emprise 0 |   135 Ko
+  aires-repos-se.geojson          322 entités |    319 id uniques | hors emprise 0 |   124 Ko

@@ -1,0 +1,38 @@
+NO : 3097 éléments -> 3094 retenus
+SE : 3641 éléments -> 3639 retenus
+FI : 1812 éléments -> 1812 retenus
+
+lus : 8550 | retenus : 8545 | hors emprise : 1 | doublons ou sans coordonnées : 4
+
+=== répartition ===
+  par catégorie : {'aire': 1300, 'eau': 2374, 'laverie': 424, 'camping': 3822, 'vidange': 625}
+  par pays      : {'no': 3094, 'se': 3639, 'fi': 1812}
+  équipées (vidange, eau ou électricité) : 4225 sur 8545
+  dont par catégorie : {'aire': 437, 'eau': 2362, 'camping': 800, 'vidange': 625, 'laverie': 1}
+  vidange disponible      1206
+  eau potable             3138
+  électricité              983
+  douche                   823
+  machine à laver          146
+  caravanes admises       1362
+  payant : 1059 | gratuit : 1182 | non renseigné : 6304
+  vidange réservée aux clients : 61
+  eau à faire bouillir : 11
+  avec un nom propre : 4302
+
+=== exploitants les plus fréquents ===
+  Metsähallitus                            131
+  Helsingin seudun ympäristöpalvelut        66
+  Caravan Club of Sweden                    28
+  Skärgårdsstiftelsen                       12
+  First Camp                                11
+  Poroholman lomakeskus                     11
+  Toivolansaari Camping                      9
+  Stiftelsen Glaskogen                       8
+
+-> aires-camping-car.geojson : 8545 entités, 2361 Ko
+
+=== échantillons ===
+  {"id": "osm-n-26861403", "country": "no", "name": "Hjelsetgården bobilparkering", "type": "aire", "source": "OSM", "updated": "2026-09-10", "vidange": true, "electricite": true, "douche": true, "toilettes": true, "payant": true, "equipee": true}
+  {"id": "osm-n-443378296", "country": "no", "name": "point de vidange", "type": "vidange", "source": "OSM", "updated": "2026-09-10", "vidange": true, "horaires": "24/7", "equipee": true}
+  {"id": "osm-n-285932712", "country": "no", "name": "Memurubu", "type": "camping", "source": "OSM", "updated": "2026-09-10", "exploitant": "Memurubu Turisthytte AS", "eau_potable": true, "electricite": false, "douche": true, "toilettes": true, "equipee": true}

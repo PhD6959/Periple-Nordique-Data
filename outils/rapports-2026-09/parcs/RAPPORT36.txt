@@ -1,0 +1,11 @@
+=== zones protégées finlandaises ===
+  entités : 1091 | 3931 Ko
+  au contour approché : 120 (11 %)
+  identifiants uniques : oui
+  parcs nationaux : 42
+  surface médiane — approchées : 1318 ha | exactes : 84 ha
+  la plus grande approchée : 285791 ha
+  entités hors emprise finlandaise : 0
+
+  échantillon exact   : {"id": "syke-ESA120026", "country": "fi", "source": "SYKE", "updated": "2026-09-12", "name": "Annjalonin luonnonsuojelualue", "type": "zone_protegee", "categorie_uicn": "Ia", "categorie": "Tiukasti suojeltu alue", "region": "Lapin ELY-keskus", "surface_ha": 90}
+  échantillon approché : {"id": "syke-KPU090035", "country": "fi", "source": "SYKE", "updated": "2026-09-12", "name": "Leivonmäen kansallispuisto", "type": "zone_protegee", "categorie_uicn": "II", "categorie": "Kansallispuisto", "region": "Keski-Suomen ELY-keskus", "surface_ha": 3138, "contour_approche":

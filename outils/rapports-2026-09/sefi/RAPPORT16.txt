@@ -1,0 +1,18 @@
+SE : 2026 éléments -> 1784 retenus
+FI : 1278 éléments -> 1168 retenus
+
+=== écartés ===
+  liaison sans véhicules         352
+
+=== fusion avec les couches norvégiennes ===
+  ferries.geojson              520 +  2292 =  2812 entités, 842 Ko
+       par pays : {'no': 520, 'se': 1352, 'fi': 940} | par source : {'NVDB': 520, 'OSM': 2292}
+  tunnels.geojson              134 +   459 =   593 entités, 178 Ko
+       par pays : {'no': 134, 'se': 319, 'fi': 140} | par source : {'NVDB': 134, 'OSM': 459}
+  cols-fermetures.geojson     1468 +   201 =  1669 entités, 1399 Ko
+       par pays : {'no': 1468, 'se': 113, 'fi': 88} | par source : {'NVDB': 1468, 'OSM': 201}
+
+=== échantillons des nouvelles entités ===
+  ferry                    {"id": "osm-n-16864088", "country": "se", "source": "OSM", "updated": "2026-09-12", "name": "Ekensberg", "type": "quai", "route": "8018"}
+  tunnel                   {"id": "osm-w-4215404", "country": "se", "source": "OSM", "updated": "2026-09-12", "name": "Fredhällstunneln", "type": "tunnel", "route": "E 4;E 20"}
+  col ou route saisonnière {"id": "osm-n-289256984", "country": "se", "source": "OSM", "updated": "2026-09-12", "name": "Tjäktjapass", "type": "fjellovergang", "altitude_m": 1140.0}

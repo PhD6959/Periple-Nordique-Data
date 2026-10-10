@@ -1,0 +1,27 @@
+=== découpage de 44042 entités ===
+  pois.geojson              21858 entités,  5925 Ko   (nature, patrimoine, panorama, faune)
+       par pays : {'no': 8936, 'se': 5985, 'fi': 6937}
+  refuges.geojson           10813 entités,  3167 Ko   (refuge)
+       par pays : {'no': 2787, 'se': 3519, 'fi': 4507}
+  zones-protegees.geojson   11371 entités,  3832 Ko   (protege)
+       par pays : {'no': 3051, 'se': 5808, 'fi': 2512}
+
+=== parcs nationaux, contours ===
+  NO : 55 objets lus -> 5 parcs avec contour
+  SE : 47 objets lus -> 5 parcs avec contour
+  FI : illisible — Expecting value: line 1 column 1 (char 0)
+  -> parcs-nationaux.geojson : 10 parcs, 55 Ko
+  par pays : {'no': 5, 'se': 5}
+  points de contour : 2466, soit 246 par parc en moyenne
+
+=== quelques parcs, pour contrôle ===
+  Asköviken-Tidö                         se    77 points
+  Fulufjellet nasjonalpark               no    42 points
+  Fulufjellet nasjonalpark               se    42 points
+  Fulufjället                            se     8 points
+  Gutulia nasjonalpark                   no   306 points
+  Gutulia nasjonalpark                   se   306 points
+  Indre Wijdefjorden nasjonalpark        no    11 points
+  Sassen-Bünsow Land nasjonalpark        no   501 points
+  Storån                                 se   202 points
+  Ånderdalen nasjonalpark                no   971 points

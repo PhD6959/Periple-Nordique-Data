@@ -1,0 +1,19 @@
+=== noms des cols ===
+  noms composés : 1078
+
+=== allègement de la couche finlandaise ===
+  15296 entités | 50425 -> 34932 points | 6138 Ko -> 5808 Ko
+
+=== contrôle final ===
+  cols-fermetures.geojson     1476 entités |  1476 id uniques | schéma incomplet 0 | hors emprise 0 | 1357 Ko
+      types : {'fjellovergang': 112, 'vinterstengt': 1039, 'skredutsatt': 325}
+  ferries.geojson              520 entités |   520 id uniques | schéma incomplet 0 | hors emprise 0 |  275 Ko
+      types : {'liaison': 141, 'quai': 379}
+  restrictions-degel.geojson 15296 entités | 15296 id uniques | schéma incomplet 0 | hors emprise 0 | 5808 Ko
+      types : {'restriction_degel': 15296}
+
+=== échantillons de noms composés ===
+  S269 · kommune 3441                          None → None
+  Pv4229 · kommune 3441                        None → None
+  Pv97730 · kommune 3441                       None → None
+  Pv99874 · kommune 3441                       None → None

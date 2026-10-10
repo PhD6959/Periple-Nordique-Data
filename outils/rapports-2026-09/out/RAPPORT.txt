@@ -1,0 +1,26 @@
+=== cols-fermetures ===
+  107 Værutsatt veg retenus : 1151
+  883 Skredutsatt veg retenus : 325
+  écartés hors emprise scandinave : 0
+  -> 1476 entités
+
+=== ferries ===
+  770 liaisons : 141
+  64 quais : 379
+  écartés hors emprise : 0
+  -> 520 entités
+
+=== restrictions-degel (FI) ===
+  entités renvoyées par le filtre CQL : 20000
+  -> 1187 entités retenues (limite <= 3500 kg)
+
+=== échantillons ===
+-- cols-fermetures.geojson : 1476 entités, 15288 Ko
+   {"properties": {"id": "no-cols-79089974", "country": "no", "name": "Aurlandsfjellet", "type": "fjellovergang", "source": "NVDB", "updated": "2026-09-10", "route": "F5627", "kommune": 4641, "ferme_du": "10-16", "ferme_au": "06-01", "nuit_du": null, "nuit_au": null, "jours_fermes_an": 152, "neige_cm": 400, "pente_pct": 8.0, "de": "Aurland", "a": "Lærdal", "barriere_de": "Kvammadal bom", "barriere_a": "Vardahaug bom", "info": null}, "geometry": {"type": "LineString", "coordinates": "[[7.2716469, 60.924301], [7.2719147, 60.9241843], [7.2719616, 60.9241626], [7.2721029, 60.9240949], [7.2722214…"}}
+   {"properties": {"id": "no-cols-79210537", "country": "no", "name": "Sognefjellet", "type": "fjellovergang", "source": "NVDB", "updated": "2026-09-10", "route": "F55", "kommune": 3434, "ferme_du": "12-01", "ferme_au": "05-01", "nuit_du": "11-01", "nuit_au": "05-05", "jours_fermes_an": 188, "neige_cm": 400, "pente_pct": 10.0, "de": "Lom", "a": "Turtagrø", "barriere_de": "Rustasætre bom", "barriere_a": "Turtagrø bom", "info": "Delopning til Påske:Turtagrø-Huldrehaug"}, "geometry": {"type": "LineString", "coordinates": "[[8.0975153, 61.6458027], [8.0972673, 61.6458426], [8.0969142, 61.6458836], [8.096678, 61.6459061], [8.0963841…"}}
+-- ferries.geojson : 520 entités, 384 Ko
+   {"properties": {"id": "no-ferry-762935973", "country": "no", "name": "Sørrollnes - Stangnes", "type": "liaison", "source": "NVDB", "updated": "2026-09-10", "route": "F848", "exploitation": "Helårssamband", "categorie": "Fylkesferjesamband", "autopass": null, "saison_du": null, "saison_au": null, "lien": null}, "geometry": {"type": "LineString", "coordinates": "[[16.8508906, 68.7264741], [16.85265, 68.7261669], [16.8526893, 68.7258478], [16.8515829, 68.7252838], [16.844…"}}
+   {"properties": {"id": "no-ferry-762982731", "country": "no", "name": "Stornes - Bjørnerå", "type": "liaison", "source": "NVDB", "updated": "2026-09-10", "route": "F8670", "exploitation": "Helårssamband", "categorie": "Fylkesferjesamband", "autopass": null, "saison_du": null, "saison_au": null, "lien": null}, "geometry": {"type": "LineString", "coordinates": "[[16.4907127, 68.8522987], [16.4920329, 68.8516709], [16.4924923, 68.8514601], [16.4937229, 68.8513734], [16.4…"}}
+-- restrictions-degel.geojson : 1187 entités, 1975 Ko
+   {"properties": {"id": "fi-degel-35896913", "country": "fi", "name": "kelirikko 3000 kg", "type": "restriction_degel", "source": "VAYLA", "updated": "2026-09-10", "limite_kg": 3000, "periode_du": "", "periode_au": "", "recurrent": false, "kunta": 271}, "geometry": {"type": "LineString", "coordinates": "[[22.36574277, 61.38577154, 61.924], [22.36548299, 61.38575629, 61.898], [22.36546506, 61.38575547, 61.871], […"}}
+   {"properties": {"id": "fi-degel-186164437", "country": "fi", "name": "kelirikko 3500 kg", "type": "restriction_degel", "source": "VAYLA", "updated": "2026-09-10", "limite_kg": 3500, "periode_du": "10.03.2027", "periode_au": "15.05.2027", "recurrent": true, "kunta": 181}, "geometry": {"type": "LineString", "coordinates": "[[22.64411034, 61.8553876, 108.847], [22.6440003, 61.85571315, 109.267], [22.64390406, 61.85603273, 109.561], …"}}

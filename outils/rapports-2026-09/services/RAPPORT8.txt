@@ -1,0 +1,37 @@
+NO : 7369 éléments -> 7357 retenus
+SE : 9021 éléments -> 9020 retenus
+FI : 5529 éléments -> 5529 retenus
+
+lus : 21919 | retenus : 21906 | hors emprise : 8 | sans coordonnées ou doublons : 5
+
+=== répartition ===
+  par catégorie : {'carburant': 8050, 'alimentation': 12673, 'alcool': 1183}
+  par pays      : {'no': 7357, 'se': 9020, 'fi': 5529}
+  enseigne reconnue : 17955 sur 21906 (82 %)
+  points de monopole d'alcool : 1099
+  avec horaires : 13583
+  gazole renseigné : 4151 | GPL : 114 | air comprimé : 898
+
+=== libellés non ramenés à une enseigne, les 15 plus fréquents ===
+  Independent                                 12
+  Time                                         8
+  Pump                                         7
+  Svensk Biogas AB                             7
+  Börjes                                       7
+  TRB                                          6
+  Nära Dej                                     6
+  Netto                                        6
+  Paroy                                        6
+  Nära dej                                     6
+  Skelleftebränslen                            6
+  Never Closed                                 6
+  JK Shop                                      6
+  Life                                         5
+  Eurospar                                     5
+
+-> services.geojson : 21906 entités, 6661 Ko
+
+=== échantillons ===
+  {"id": "osm-n-10587816", "country": "no", "name": "YX", "type": "carburant", "source": "OSM", "updated": "2026-09-10", "enseigne": "YX", "libelle_source": "YX", "horaires": "Mo-Fr 05:30-00:00, Sa 06:00-00:00, Su 08:00-00:00", "gazole": true, "air_comprime": true}
+  {"id": "osm-n-21641553", "country": "no", "name": "Kiwi", "type": "alimentation", "source": "OSM", "updated": "2026-09-10", "enseigne": "Kiwi", "libelle_source": "Kiwi", "horaires": "Mo-Sa 07:00-23:00"}
+  {"id": "osm-n-308002152", "country": "no", "name": "Vinmonopolet", "type": "alcool", "source": "OSM", "updated": "2026-09-10", "enseigne": "Vinmonopolet", "libelle_source": "Vinmonopolet", "horaires": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed", "monopole": true}

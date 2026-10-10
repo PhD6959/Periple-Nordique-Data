@@ -1,0 +1,16 @@
+=== restrictions-degel (FI) — recomposition ===
+  entités parcourues : 163225 (uniques : 163225)
+  retenues sous 3500 kg : 15296
+  -> restrictions-degel.geojson : 6138 Ko
+
+=== allègement des couches norvégiennes ===
+  cols-fermetures.geojson    1476 -> 1476 entités | 595207 -> 31509 points | 15288 Ko -> 1309 Ko
+  ferries.geojson            520 -> 520 entités | 8423 -> 4737 points | 384 Ko -> 275 Ko
+
+=== contrôles ===
+  cols-fermetures.geojson     1476 entités | types {'fjellovergang': 112, 'vinterstengt': 1039, 'skredutsatt': 325} | sans nom 1078 | hors emprise 0
+  ferries.geojson              520 entités | types {'liaison': 141, 'quai': 379} | sans nom 1 | hors emprise 0
+  restrictions-degel.geojson 15296 entités | types {'restriction_degel': 15296} | sans nom 0 | hors emprise 0
+
+=== échantillon après allègement ===
+  {"properties": {"id": "no-cols-79089974", "country": "no", "name": "Aurlandsfjellet", "type": "fjellovergang", "source": "NVDB", "updated": "2026-09-10", "route": "F5627", "kommune": 4641, "ferme_du": "10-16", "ferme_au": "06-01", "nuit_du": null, "nuit_au": null, "jours_fermes_an": 152, "neige_cm": 400, "pente_pct": 8.0, "de": "Aurland", "a": "Lærdal", "barriere_de": "Kvammadal bom", "barriere_a": "Vardahaug bom", "info": null}, "geometry": {"type": "LineString", "coordinates": "[[7.27165, 60.9243], [7.27316, 60.92351], [7.27347, 60.92119], [7.27477, 60.91965], [7.276…"}}

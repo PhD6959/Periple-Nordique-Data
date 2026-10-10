@@ -1,0 +1,25 @@
+=== obstacles : filtrage sur la nature ===
+  retenus : 69408
+  écartés :
+    betonghinder                               1991
+    pollare                                     940
+    övrigt                                      915
+    stenhinder                                  344
+    spårviddshinder                              43
+
+=== fichiers produits ===
+  hauteurs-limitees.geojson      2189 entités |   2114 id uniques |   207 sur plusieurs tronçons |   758 Ko
+       DOUBLONS RESTANTS : 75
+  poids-limites.geojson          1048 entités |   1044 id uniques |   705 sur plusieurs tronçons |   501 Ko
+       DOUBLONS RESTANTS : 4
+  largeurs-limites.geojson         28 entités |     28 id uniques |    15 sur plusieurs tronçons |    16 Ko
+  barrieres-se.geojson          69408 entités |  69408 id uniques |  1800 sur plusieurs tronçons | 20898 Ko
+  bacs-se.geojson                 180 entités |    179 id uniques |    83 sur plusieurs tronçons |   139 Ko
+       DOUBLONS RESTANTS : 1
+  aires-repos-se.geojson          322 entités |    319 id uniques |     0 sur plusieurs tronçons |   127 Ko
+       DOUBLONS RESTANTS : 3
+
+=== contrôle des couches décisives ===
+  hauteurs : 1292 infranchissables, 195 en vigilance
+  barrières : 69408 dont 65676 verrouillées
+  aires : 322 dont 212 avec vidange

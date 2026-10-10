@@ -1,0 +1,18 @@
+=== Finlande — simplification ===
+  entités : 1091 | fichier d'origine : 101343 Ko
+  points : 3976418 -> 36208 (0.9 % conservés)
+  entités conservées : 995 | perdues faute de contour : 96
+  fichier : 101343 Ko -> 1077 Ko  (1 % du volume d'origine)
+
+  par catégorie UICN : {'IV': 754, 'Ib': 168, 'II': 41, 'Ia': 20, None: 7, 'V': 4, 'III': 1}
+  les plus vastes :
+    Lemmenjoen kansallispuisto                   285791 ha  Ib
+    Urho Kekkosen kansallispuisto                254932 ha  II
+    Pallas-Yllästunturin kansallispuisto         102599 ha  II
+    Selkämeren kansallispuisto                    91667 ha  II
+    Kevon luonnonpuisto                           71065 ha  Ia
+    Saaristomeren kansallispuisto                 53506 ha  II
+    Sammuttijängän-Vaijoenjängän soidensuojelu    52803 ha  Ib
+    Koitelaisen luonnonsuojelualue                49655 ha  Ib
+
+  échantillon : {"id": "syke-ESA120026", "country": "fi", "source": "SYKE", "updated": "2026-09-12", "name": "Annjalonin luonnonsuojelualue", "type": "zone_protegee", "categorie_uicn": "Ia", "categorie": "Tiukasti suojeltu alue", "region": "Lapin ELY-keskus", "surface_ha": 90}

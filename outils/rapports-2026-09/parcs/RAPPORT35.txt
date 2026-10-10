@@ -1,0 +1,15 @@
+=== Finlande — simplification proportionnelle ===
+  entités d'origine : 1091 | 101343 Ko
+  points : 3976605 -> 180746 (4.5 % conservés)
+  entités conservées : 1091 | perdues : 0 | contours remplacés par leur enveloppe : 631
+  tolérances appliquées : {'0.0003': 1041, '0.0010': 219, '0.0001': 8637, '0.0030': 13}
+  fichier : 101343 Ko -> 3928 Ko (3.9 %)
+
+  parcs nationaux (kansallispuisto) : 42
+  par catégorie UICN : {'IV': 847, 'Ib': 168, 'II': 41, 'Ia': 20, None: 9, 'V': 4, 'III': 2}
+  les plus petites conservées :
+    Askalan luonnonsuojelualue                        1 ha
+    Friskalanlahden luonnonsuojelualue                1 ha
+    Akanvaaran luonnonsuojelualue                     1 ha
+    Otravaaran ängelmälehdon luonnonsuojelualue       1 ha
+    Mustalammen-Nurmilammen luonnonsuojelualue        1 ha

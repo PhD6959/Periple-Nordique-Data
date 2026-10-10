@@ -1,0 +1,25 @@
+=== zones protégées norvégiennes ===
+  pages lues : 8 | entités uniques : 3512
+  conforme au compte annoncé (3512)
+
+=== simplification ===
+  points : 3137036 -> 159197 (5.1 % conservés)
+  entités : 3512 | contour principal approché : 28
+  fichier : 4854 Ko
+  identifiants uniques : oui
+
+=== répartition ===
+  par forme de protection : {'naturreservat': 2752, 'annenFredning': 495, 'landskapsvernområde': 195, 'nasjonalpark': 48, 'marintVerneområde': 22}
+  par catégorie UICN : {'IUCN_IA': 2740, 'IUCN_IV': 279, 'IkkeVurdert': 190, 'IUCN_V': 134, 'IUCN_III': 109, 'IUCN_II': 44, None: 11, 'IUCN_IB': 5}
+  parcs nationaux : 48
+  les plus vastes :
+    Nordaust-Svalbard                            5535372 ha  NaturreservatSvalbard
+    Søraust-Svalbard                             2182590 ha  NaturreservatSvalbard
+    Sør-Spitsbergen                              1317920 ha  NasjonalparkSvalbard
+    Nordvest-Spitsbergen                          984183 ha  NasjonalparkSvalbard
+    Jan Mayen                                     475995 ha  NaturreservatJanMayen
+    Forlandet                                     462689 ha  NasjonalparkSvalbard
+    Van Mijenfjorden                              425623 ha  NasjonalparkSvalbard
+    Hardangervidda                                344476 ha  Nasjonalpark
+
+  échantillon : {"id": "mdir-VV00003155", "country": "no", "source": "MDIR", "updated": "2026-09-12", "name": "Blåfjell", "type": "zone_protegee", "nom_officiel": "Blåfjell naturreservat", "categorie": "Naturreservat", "categorie_groupee": "naturreservat", "categorie_uicn": "IUCN_IA", "gestionnaire": "Statsforvalteren i Østfold, Buskerud, Oslo og Akershu

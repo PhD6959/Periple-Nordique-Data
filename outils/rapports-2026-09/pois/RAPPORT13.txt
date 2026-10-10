@@ -1,0 +1,66 @@
+NO : 29285 éléments -> 14774 retenus
+SE : 23268 éléments -> 15312 retenus
+FI : 27057 éléments -> 13956 retenus
+
+lus : 79610 | retenus : 44042 | hors emprise : 378
+
+=== retenus par type ===
+  nature_reserve          11371   (protege, nomme)
+  shelter                  8509   (refuge, tous)
+  museum                   3606   (patrimoine, nomme)
+  waterfall                3502   (nature, nomme)
+  sauna                    3019   (nature, renseigne)
+  beach                    2637   (nature, nomme)
+  viewpoint                2128   (panorama, nomme)
+  archaeological_site      2127   (patrimoine, nomme)
+  wilderness_hut           1974   (refuge, tous)
+  place_of_worship          914   (patrimoine, nomme)
+  bird_hide                 790   (faune, tous)
+  mine                      660   (patrimoine, nomme)
+  glacier                   495   (nature, nomme)
+  cave_entrance             463   (nature, nomme)
+  rune_stone                381   (patrimoine, tous)
+  swimming_area             339   (nature, nomme)
+  alpine_hut                330   (refuge, tous)
+  public_bath               287   (nature, nomme)
+  national_park             238   (nature, tous)
+  church                    102   (patrimoine, nomme)
+  picnic_site                96   (panorama, nomme)
+  ship                       73   (patrimoine, nomme)
+  hot_spring                  1   (nature, tous)
+
+=== écartés, les plus nombreux ===
+  beach sans nom                  10393
+  viewpoint sans nom               5992
+  archaeological_site sans nom     4570
+  nature_reserve sans nom          4555
+  mine sans nom                    3169
+  glacier sans nom                 2764
+  sauna non renseigné              1223
+  waterfall sans nom               1071
+  swimming_area sans nom            527
+  cave_entrance sans nom            307
+  museum sans nom                   295
+  public_bath sans nom              210
+  doublon                            87
+  picnic_site sans nom               14
+
+=== répartition finale ===
+  par catégorie : {'nature': 10981, 'patrimoine': 7863, 'panorama': 2224, 'refuge': 10813, 'faune': 790, 'protege': 11371}
+  par pays      : {'no': 14774, 'se': 15312, 'fi': 13956}
+  avec un nom propre : 37199 sur 44042
+  avec un site web : 6975 | avec une description : 1487
+
+-> parcs-nationaux.geojson : 32 parcs avec contour, 174 Ko
+   par pays : {'fi': 24, 'se': 6, 'no': 2}
+   le pays est déduit de la position du contour, faute d'étiquette fiable — à contrôler.
+
+-> pois.geojson : 44042 entités, 12925 Ko
+
+=== échantillons ===
+  {"id": "osm-n-24552122", "country": "no", "name": "Kalkstranda", "type": "nature", "source": "OSM", "updated": "2026-09-10", "objet": "beach"}
+  {"id": "osm-n-11161048339", "country": "no", "name": "Dælen naturreservat", "type": "protege", "source": "OSM", "updated": "2026-09-10", "objet": "nature_reserve", "centroide": true}
+  {"id": "osm-n-25046488", "country": "no", "name": "Sjølingstad Uldvarefabrik", "type": "patrimoine", "source": "OSM", "updated": "2026-09-10", "objet": "museum", "exploitant": "Vest-Agder-museet", "site_web": "https://www.vestagdermuseet.no/sjolingstad"}
+  {"id": "osm-n-25074290", "country": "no", "name": "Hobdeheia", "type": "panorama", "source": "OSM", "updated": "2026-09-10", "objet": "viewpoint"}
+  {"id": "osm-n-331329326", "country": "no", "name": "observatoire", "type": "faune", "source": "OSM", "updated": "2026-09-10", "objet": "bird_hide", "description": "bird_watching"}
+  {"id": "osm-n-32575877", "country": "no", "name": "Svukuriset", "type": "refuge", "source": "OSM", "updated": "2026-09-10", "objet": "alpine_hut", "exploitant": "DNT Oslo og Omegn", "site_web": "https://ut.no/hytte/10726/svukuriset"}

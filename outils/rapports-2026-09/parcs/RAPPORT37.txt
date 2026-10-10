@@ -1,0 +1,13 @@
+=== zones protégées finlandaises ===
+  entités : 1091 | 3932 Ko
+  identifiants uniques : oui
+  parcs nationaux : 42
+
+  CONTOUR PRINCIPAL approché : 0 (0.0 %)
+  au moins un anneau approché : 120
+  surfaces des contours exacts : médiane 103 ha
+
+  contrôle sur Lemmenjoki :
+    {"id": "syke-KPU120024", "country": "fi", "source": "SYKE", "updated": "2026-09-12", "name": "Lemmenjoen kansallispuisto", "type": "zone_protegee", "categorie_uicn": "Ib", "categorie": "Erämainen alue", "region": "Lapin ELY-keskus", "surface_ha": 285791, "anneaux_approches": "1 sur 25"}
+
+  les plus grandes zones dont le contour principal est approché :

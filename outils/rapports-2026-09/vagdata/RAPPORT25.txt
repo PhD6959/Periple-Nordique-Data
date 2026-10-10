@@ -1,0 +1,26 @@
+=== hauteurs limitées ===
+  2189 entités | infranchissables : 1292 | vigilance : 195
+=== poids ===
+  1048 entités | bloquants : 108
+=== largeur ===
+  28 entités | bloquants : 8
+=== obstacles sur la voie ===
+  18927 entités | verrouillées : 17090
+  par type : {'låst grind eller bom': 17090, 'eftergivlig grind': 541, 'betonghinder': 466, 'ej öppningsbar grind eller cykelfålla': 423, 'pollare': 236, 'övrigt': 164, 'spårviddshinder': 7}
+=== liaisons de bacs ===
+  180 entités
+=== aires de repos ===
+  322 entités | avec vidange : 212 | avec toilettes : 305
+
+=== fichiers produits ===
+  hauteurs-limitees.geojson      2189 entités,   730 Ko
+  poidss-limites.geojson         1048 entités,   479 Ko
+  largeurs-limites.geojson         28 entités,    15 Ko
+  barrieres-se.geojson          18927 entités,  5485 Ko
+  bacs-se.geojson                 180 entités,   135 Ko
+  aires-repos-se.geojson          322 entités,   124 Ko
+
+=== échantillons ===
+  {"id": "trv-12791:23145", "country": "se", "source": "TRV", "updated": "2026-09-12", "name": "vägport 2.00 m", "type": "hauteur_limitee", "obstacle": "vägport", "hauteur_max_m": 2.0, "franchissable": false, "marge_cm": -120}
+  {"id": "trv-10:100802", "country": "se", "source": "TRV", "updated": "2026-09-12", "name": "låst grind eller bom", "type": "barriere", "modele": "låst grind eller bom", "verrouillee": true}
+  {"id": "trv-12745:101515", "country": "se", "source": "TRV", "updated": "2026-09-12", "name": "Stoby", "type": "aire", "vidange": false, "toilettes": true, "places_voiture": 19, "places_poids_lourd": 1, "tables": 6, "aire_de_jeu": false, "gestionnaire": "Trafikverket", "equipee": true}

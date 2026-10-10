@@ -1,0 +1,16 @@
+=== franchissabilité, fourgon de 3.20 m hors tout ===
+  tunnels : 375 | hauteur connue : 48 | hauteur inconnue : 327
+
+  INFRANCHISSABLES : 2
+    Arenavägen                         se  2.90 m  manque 30 cm
+    Klaratunneln                       se  3.00 m  manque 20 cm
+
+  MARGE INFÉRIEURE À 30 cm : 2
+    Kronetorpsvägen                    se  3.40 m  marge 20 cm
+    Rudbecksgatan                      se  3.40 m  marge 20 cm
+
+  par pays, tunnels à hauteur connue : {'se': 28, 'fi': 20}
+  taille : 124 Ko
+
+  RAPPEL : 327 tunnels sur 375 ne renseignent pas leur hauteur. Une absence
+  de donnée n'est pas une autorisation de passer.

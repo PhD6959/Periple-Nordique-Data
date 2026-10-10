@@ -1,0 +1,37 @@
+=== géocodage des points d'ancrage ===
+   1 Corridor d'accès                       Malmö            55.6059, 13.0007 — Malmö, Comté de Skåne
+   2 Suède du Sud                           Simrishamn       55.5565, 14.3504 — Simrishamn, Comté de Skåne
+   3 Stockholm et son archipel              Stockholm        59.3294, 18.0687 — Stockholm, Comté de Stockholm
+   4 La Dalécarlie                          Falun            60.6036, 15.6260 — Falun, Comté de Dalarna
+   5 La Höga Kusten                         Örnsköldsvik     63.2909, 18.7153 — Örnsköldsvik, Comté de Västernorrland
+   6 Barreau E14 — d'est en ouest           Östersund        63.1792, 14.6357 — Östersund, Comté de Jämtland
+   7 Kystriksveien — la côte de l'Helgeland Brønnøysund      65.4749, 12.2128 — Brønnøysund, Nordland
+   8 Narvik et antenne de Laponie suédoise  Narvik           68.4384, 17.4272 — Narvik, Nordland
+   9 Lofoten et Vesterålen                  Svolvær          68.2342, 14.5683 — Svolvær, Nordland
+  10 Senja et Tromsø                        Tromsø           69.6489, 18.9551 — Tromsø, Troms
+  11 Alta et le Cap Nord                    Alta             69.9689, 23.2717 — Alta, Finnmark
+  12 Varanger et Hornøya                    Vardø            70.3705, 31.1107 — Vardø, Finnmark
+  13 Laponie finlandaise                    Inari            68.9060, 27.0288 — Inari, Laponie
+  14 Finlande des forêts et des lacs        Kuusamo          65.9645, 29.1888 — Kuusamo, Ostrobotnie du Nord
+  15 Finlande du Sud                        Turku            60.4515, 22.2687 — Turku, Finlande du Sud-Ouest
+  16 Corridor de retour                     Tallinn          59.4370, 24.7535 — Tallinn, Harju
+
+-> blocs-itineraire.geojson : 16 blocs sur 16, 6810 octets
+
+=== contrôle de cohérence géographique ===
+   1  55.61°N ##
+   2  55.56°N ##
+   3  59.33°N ########
+   4  60.60°N ##########
+   5  63.29°N ##############
+   6  63.18°N ##############
+   7  65.47°N ##################
+   8  68.44°N #######################
+   9  68.23°N ######################
+  10  69.65°N #########################
+  11  69.97°N #########################
+  12  70.37°N ##########################
+  13  68.91°N #######################
+  14  65.96°N ###################
+  15  60.45°N ##########
+  16  59.44°N ########

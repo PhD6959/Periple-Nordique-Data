@@ -1,0 +1,28 @@
+=== fichiers produits ===
+  hauteurs-limitees.geojson      2189 entités |   2189 id uniques |   773 Ko
+  poids-limites.geojson          1048 entités |   1047 id uniques |   516 Ko  — 1 DOUBLON(S)
+  largeurs-limites.geojson         28 entités |     28 id uniques |    16 Ko
+  barrieres-se.geojson          69484 entités |  69484 id uniques | 21398 Ko
+  bacs-se.geojson                 180 entités |    180 id uniques |   141 Ko
+  aires-repos-se.geojson          322 entités |    319 id uniques |   129 Ko  — 3 DOUBLON(S)
+
+=== doublons restants, nommés ===
+  poids-limites.geojson : 1 identifiant(s) en double
+    trv-10083:280000-3:153273-0.9955_1.0000 — 2 occurrences
+      poids max 4.0 à 17.19060, 59.92823
+      poids max 4.0 à 17.19060, 59.92823
+  aires-repos-se.geojson : 3 identifiant(s) en double
+    trv-12745:101387-1000:93058-0.6787 — 2 occurrences
+      Hänsjön à 13.02100, 60.20037
+      Hänsjön à 13.02024, 60.20019
+    trv-12745:101539-19340:547-0.4604 — 2 occurrences
+      Förkärla Ö à 12.81902, 55.94044
+      Förkärla Ö à 15.43386, 56.19722
+    trv-16137:712532-1000:84687-0.9667 — 2 occurrences
+      Morokulien à 13.14228, 59.36754
+      Morokulien à 12.24174, 59.93061
+
+=== couches décisives ===
+  hauteurs : 2189 dont 1292 infranchissables, 195 en vigilance
+  barrières : 69484 dont 65747 verrouillées
+  aires : 322 dont 212 avec vidange, 305 avec toilettes

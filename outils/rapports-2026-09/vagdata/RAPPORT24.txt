@@ -1,0 +1,58 @@
+=== volumes extraits ===
+  Höjdhinder_upp_till_45_dm      2189 objets
+  BegränsadBruttovikt            1048 objets
+  BegränsadFordonsbredd          28 objets
+  BegränsadFordonslängd          20000 objets
+  Väghinder                      20000 objets
+  Färjeled                       180 objets
+  Rastplatser                    322 objets
+
+=== obstacles en hauteur ===
+  avec hauteur renseignée : 2189 sur 2189
+  INFRANCHISSABLES à 3.20 m : 1292
+  marge sous 30 cm          : 195
+  répartition : {2: 29, 2.02: 1, 2.05: 2, 2.1: 30, 2.15: 2, 2.2: 43, 2.25: 2, 2.26: 1, 2.29: 1, 2.3: 33, 2.305: 1, 2.31: 1, 2.35: 3, 2.38: 1, 2.39: 2, 2.391: 1, 2.398: 1, 2.4: 134, 2.400000095: 4, 2.41: 1, 2.42: 1, 2.423: 1, 2.44: 3, 2.441: 1, 2.45: 6, 2.450000048: 1, 2.46: 3, 2.47: 1, 2.49: 3, 2.5: 212, 2.503: 1, 2.52: 4, 2.53: 3, 2.542: 1, 2.548: 1, 2.55: 8, 2.56: 1, 2.57: 6, 2.571: 2, 2.58: 6, 2.59: 7, 2.599999905: 2, 2.6: 137, 2.61: 2, 2.613: 1, 2.62: 3, 2.63: 1, 2.64: 3, 2.65: 6, 2.66: 2, 2.667: 1, 2.69: 1, 2.7: 136, 2.700000048: 1, 2.71: 1, 2.72: 1, 2.73: 1, 2.733: 1, 2.75: 3, 2.753: 1, 2.76: 1, 2.772: 1, 2.78: 5, 2.79: 1, 2.8: 87, 2.814: 1, 2.85: 2, 2.86: 3, 2.87: 1, 2.88: 4, 2.89: 1, 2.9: 59, 2.91: 1, 2.93: 1, 2.95: 2, 2.97: 2, 2.98: 4, 2.99: 1, 3: 130, 3.05: 3, 3.055: 1, 3.06: 1, 3.08: 2, 3.1: 57, 3.15: 2, 3.18: 1, 3.2: 49, 3.21: 1, 3.22: 1, 3.23: 2, 3.27: 1, 3.3: 57, 3.38: 1, 3.4: 129, 3.400000095: 1, 3.45: 1, 3.49: 1, 3.5: 240, 3.53: 1, 3.56: 1, 3.6: 171, 3.7: 80, 3.77: 1, 3.79: 1, 3.8: 104, 3.9: 100, 3.900000095: 1, 3.95: 1, 3.97: 1}
+  types d'obstacle : {'vägport': 1653, 'bro': 223, 'övrigt hinder': 194, 'tunnel': 119}
+  les plus bas :
+    2.00 m  vägport                
+    2.00 m  vägport                3500-4143-1
+    2.00 m  vägport                
+    2.00 m  vägport                
+    2.00 m  tunnel                 
+    2.00 m  vägport                
+    2.00 m  vägport                18-926-1
+    2.00 m  bro                    
+    2.00 m  vägport                
+    2.00 m  bro                    
+
+=== poids brut ===
+  objets : 1048 | valeurs renseignées : 1048
+  répartition : {0.1: 1, 0.5: 1, 1: 1, 1.5: 7, 1.6: 1, 2: 47, 2.5: 1, 3: 49, 3.5: 676, 4: 186, 4.3: 1, 5: 25, 5.4: 1, 6: 20}
+  contraignants pour le fourgon (< 3.5) : 108
+
+=== largeur ===
+  objets : 28 | valeurs renseignées : 28
+  répartition : {2: 8, 2.2: 5, 2.3: 1, 2.4: 8, 2.5: 5, 2.8: 1}
+  contraignants pour le fourgon (< 2.2) : 8
+
+=== longueur ===
+  objets : 20000 | valeurs renseignées : 20000
+  répartition : {6: 1, 7: 4, 8: 2, 10: 404, 11: 5, 12: 18687, 13: 499, 14: 16, 15: 346, 16: 5, 17: 1, 18: 30}
+  contraignants pour le fourgon (< 7.0) : 1
+
+=== obstacles sur la voie ===
+  objets : 20000
+  par type : {'låst grind eller bom': 17676, 'eftergivlig grind': 749, 'ej öppningsbar grind eller cykelfålla': 544, 'betonghinder': 501, 'pollare': 284, 'övrigt': 236, 'spårviddshinder': 9, 'stenhinder': 1}
+
+=== liaisons de bacs ===
+  objets : 180 | liaisons nommées distinctes : 108
+  exemples : Visingsöleden, Bohus-Malmönleden, Hamburgsundsleden, Gullmarsleden, Malöleden, Skanssundsleden, Kalvsund-Grötö leden, Älvsnabben
+
+=== aires de repos ===
+  objets : 322
+  vidange de toilettes chimiques   {'Nej': 107, 'Ja': 212, 'Okänt': 3}
+  aire de jeu                      {'Nej': 231, 'Ja': 91}
+  adaptée aux poids lourds         {'Ja': 247, 'Nej': 75}
+  colocalisée                      {'Ja': 95, 'Nej': 225, 'Okänt': 2}
+  places voiture : total 6104, médiane 15
+  gestionnaires : {'Trafikverket': 300, 'okänd': 12, 'annan': 5, 'kommunen': 5}
